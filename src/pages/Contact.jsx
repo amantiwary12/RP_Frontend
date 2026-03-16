@@ -1,26 +1,23 @@
-
-
-
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
   const navigate = useNavigate();
-  
+
   // State for form data
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-    priority: 'normal',
-    team: 'technical' // technical or marketing
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+    priority: "normal",
+    team: "technical", // technical or marketing
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [activeTab, setActiveTab] = useState('technical');
+  const [activeTab, setActiveTab] = useState("technical");
 
   // Theme color: #0AC4E0
   const themeColor = "#0AC4E0";
@@ -35,18 +32,19 @@ export default function Contact() {
   };
 
   const generateWhatsAppMessage = () => {
-    const currentDate = new Date().toLocaleString('en-IN', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
+    const currentDate = new Date().toLocaleString("en-IN", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
     });
 
-    const teamName = activeTab === 'technical' ? 'TECHNICAL SUPPORT' : 'MARKETING TEAM';
-    const priority = formData.priority === 'urgent' ? '🔴 URGENT' : '🟢 NORMAL';
-    
+    const teamName =
+      activeTab === "technical" ? "TECHNICAL SUPPORT" : "MARKETING TEAM";
+    const priority = formData.priority === "urgent" ? " URGENT" : " NORMAL";
+
     const message = `
  *TRANSYNC - CONTACT FORM*
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -56,15 +54,15 @@ export default function Contact() {
 
  *CONTACT DETAILS*
 ──────────────────
- *Name:* ${formData.name || 'Not provided'}
- *Email:* ${formData.email || 'Not provided'}
- *Phone:* ${formData.phone || 'Not provided'}
- *Subject:* ${formData.subject || 'Not provided'}
+ *Name:* ${formData.name || "Not provided"}
+ *Email:* ${formData.email || "Not provided"}
+ *Phone:* ${formData.phone || "Not provided"}
+ *Subject:* ${formData.subject || "Not provided"}
  *Priority:* ${priority}
 
  *MESSAGE*
 ──────────────────
-${formData.message || 'No message provided'}
+${formData.message || "No message provided"}
 
  *SUBMITTED ON*
 ──────────────────
@@ -73,47 +71,47 @@ ${currentDate}
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
  This is an automated message from TransSync Contact Form
     `;
-    
-    return encodeURIComponent(message).replace(/%0A/g, '%0A');
+
+    return encodeURIComponent(message).replace(/%0A/g, "%0A");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Log to console
     console.log("Contact Form Submitted:", formData);
-    
+
     // Different WhatsApp numbers for different teams
     const whatsappNumbers = {
       technical: "916201063766", // Technical team number
-      marketing: "916201063767"  // Marketing team number (replace with actual)
+      marketing: "916201063767", // Marketing team number (replace with actual)
     };
-    
+
     // Generate WhatsApp message
     const whatsappMessage = generateWhatsAppMessage();
     const whatsappNumber = whatsappNumbers[activeTab];
-    
+
     // Create WhatsApp URL
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-    
+
     // Open WhatsApp in new tab
-    window.open(whatsappUrl, '_blank');
-    
+    window.open(whatsappUrl, "_blank");
+
     // Show success message
     setIsSubmitted(true);
     setIsSubmitting(false);
-    
+
     // Reset form after submission
     setTimeout(() => {
       setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-        priority: 'normal',
-        team: activeTab
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+        priority: "normal",
+        team: activeTab,
       });
       setIsSubmitted(false);
     }, 5000);
@@ -123,72 +121,138 @@ ${currentDate}
   const teamInfo = {
     technical: {
       title: "Technical Support Team",
-      description: "Get help with installation, troubleshooting, and technical queries about BTS-2000 monitoring.",
+      description:
+        "Get help with installation, troubleshooting, and technical queries about BTS-2000 monitoring.",
       icon: (
-        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <svg
+          className="w-6 h-6 sm:w-8 sm:h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+          />
         </svg>
       ),
-      phone: "+91 1800-123-4567",
+      phone: "+91 9835383246",
       email: "tech.support@transsync.in",
-      hours: "24/7 - Round the clock",
+      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
       responseTime: "Within 30 minutes",
-      expertise: ["Installation Support", "Troubleshooting", "System Configuration", "Hardware Issues"]
+      expertise: [
+        "Installation Support",
+        "Troubleshooting",
+        "System Configuration",
+        "Hardware Issues",
+      ],
     },
     marketing: {
       title: "Marketing & Sales Team",
-      description: "Get information about pricing, demos, partnerships, and business inquiries.",
+      description:
+        "Get information about pricing, demos, partnerships, and business inquiries.",
       icon: (
-        <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+        <svg
+          className="w-6 h-6 sm:w-8 sm:h-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+          />
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.5"
+            d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+          />
         </svg>
       ),
-      phone: "+91 1800-123-4568",
+      phone: "+91 9835383246",
       email: "sales@transsync.in",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
       responseTime: "Within 2 hours",
-      expertise: ["Product Demos", "Pricing Plans", "Partnerships", "Enterprise Solutions"]
-    }
+      expertise: [
+        "Product Demos",
+        "Pricing Plans",
+        "Partnerships",
+        "Enterprise Solutions",
+      ],
+    },
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100">
+    <div className="min-h-screen bg-gray-100">
       {/* Main Contact Section */}
       <section className="py-12 sm:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           {/* Team Selection Tabs */}
           <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8 sm:mb-12">
             <button
-              onClick={() => handleTabChange('technical')}
+              onClick={() => handleTabChange("technical")}
               className={`relative overflow-hidden group px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 ${
-                activeTab === 'technical'
-                  ? 'bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] text-white shadow-xl scale-105'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-md hover:shadow-lg'
+                activeTab === "technical"
+                  ? "bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] text-white shadow-xl scale-105"
+                  : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-md hover:shadow-lg"
               }`}
             >
               <div className="flex items-center">
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                  />
                 </svg>
                 Technical Support
               </div>
             </button>
-            
+
             <button
-              onClick={() => handleTabChange('marketing')}
+              onClick={() => handleTabChange("marketing")}
               className={`relative overflow-hidden group px-6 sm:px-8 py-4 sm:py-5 rounded-xl font-semibold text-base sm:text-lg transition-all duration-300 transform hover:-translate-y-1 ${
-                activeTab === 'marketing'
-                  ? 'bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] text-white shadow-xl scale-105'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-md hover:shadow-lg'
+                activeTab === "marketing"
+                  ? "bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] text-white shadow-xl scale-105"
+                  : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200 shadow-md hover:shadow-lg"
               }`}
             >
               <div className="flex items-center">
-                <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                <svg
+                  className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
+                    d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                  />
                 </svg>
                 Marketing & Sales
               </div>
@@ -199,13 +263,15 @@ ${currentDate}
           <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
             {/* Team Details Card */}
             <div className="lg:col-span-1">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8 h-full hover:shadow-2xl transition-shadow duration-300">
+              <div className="bg-gray-100 rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8 h-full hover:shadow-2xl transition-shadow duration-300">
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-[#0AC4E0] to-[#0A8B9F] rounded-xl flex items-center justify-center text-white mr-4">
                     {teamInfo[activeTab].icon}
                   </div>
                   <div>
-                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">{teamInfo[activeTab].title}</h3>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                      {teamInfo[activeTab].title}
+                    </h3>
                   </div>
                 </div>
 
@@ -215,32 +281,73 @@ ${currentDate}
 
                 <div className="space-y-4">
                   <div className="flex items-center p-3 bg-gray-50 rounded-lg">
-                    <svg className="w-5 h-5 text-[#0AC4E0] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    <svg
+                      className="w-5 h-5 text-[#0AC4E0] mr-3 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
                     </svg>
-                    <span className="text-sm sm:text-base text-gray-700">{teamInfo[activeTab].phone}</span>
+                    <span className="text-sm sm:text-base text-gray-700">
+                      {teamInfo[activeTab].phone}
+                    </span>
                   </div>
 
                   <div className="flex items-center p-3 bg-gray-50 rounded-lg">
-                    <svg className="w-5 h-5 text-[#0AC4E0] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <svg
+                      className="w-5 h-5 text-[#0AC4E0] mr-3 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
-                    <span className="text-sm sm:text-base text-gray-700">{teamInfo[activeTab].email}</span>
+                    <span className="text-sm sm:text-base text-gray-700">
+                      {teamInfo[activeTab].email}
+                    </span>
                   </div>
 
                   <div className="flex items-center p-3 bg-gray-50 rounded-lg">
-                    <svg className="w-5 h-5 text-[#0AC4E0] mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <svg
+                      className="w-5 h-5 text-[#0AC4E0] mr-3 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
                     </svg>
-                    <span className="text-sm sm:text-base text-gray-700">{teamInfo[activeTab].hours}</span>
+                    <span className="text-sm sm:text-base text-gray-700">
+                      {teamInfo[activeTab].hours}
+                    </span>
                   </div>
                 </div>
 
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">Expertise:</h4>
+                  <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                    Expertise:
+                  </h4>
                   <div className="flex flex-wrap gap-2">
                     {teamInfo[activeTab].expertise.map((item, index) => (
-                      <span key={index} className="px-3 py-1 bg-[#0AC4E0]/10 text-[#0A8B9F] rounded-full text-xs font-medium">
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-[#0AC4E0]/10 text-[#0A8B9F] rounded-full text-xs font-medium"
+                      >
                         {item}
                       </span>
                     ))}
@@ -249,8 +356,12 @@ ${currentDate}
 
                 <div className="mt-6 p-3 bg-gradient-to-r from-[#0AC4E0]/5 to-[#0A8B9F]/5 rounded-lg">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm font-medium text-gray-700">Response Time:</span>
-                    <span className="text-sm font-bold text-[#0AC4E0]">{teamInfo[activeTab].responseTime}</span>
+                    <span className="text-sm font-medium text-gray-700">
+                      Response Time:
+                    </span>
+                    <span className="text-sm font-bold text-[#0AC4E0]">
+                      {teamInfo[activeTab].responseTime}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -258,28 +369,48 @@ ${currentDate}
 
             {/* Contact Form Card */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8">
-                
+              <div className="bg-gray-100 rounded-2xl shadow-xl border border-gray-200 p-6 sm:p-8">
                 {/* Success Message */}
                 {isSubmitted && (
                   <div className="mb-6 p-4 bg-[#0AC4E0]/10 text-[#0A8B9F] rounded-lg border border-[#0AC4E0]/30 flex items-center animate-fadeIn">
-                    <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    <svg
+                      className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 flex-shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      ></path>
                     </svg>
-                    <span className="text-sm sm:text-base">Thank you! Your message has been sent via WhatsApp. Our {teamInfo[activeTab].title} will respond {teamInfo[activeTab].responseTime}.</span>
+                    <span className="text-sm sm:text-base">
+                      Thank you! Your message has been sent via WhatsApp. Our{" "}
+                      {teamInfo[activeTab].title} will respond{" "}
+                      {teamInfo[activeTab].responseTime}.
+                    </span>
                   </div>
                 )}
 
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">
-                  Send a Message to {activeTab === 'technical' ? 'Technical Support' : 'Marketing Team'}
+                  Send a Message to{" "}
+                  {activeTab === "technical"
+                    ? "Technical Support"
+                    : "Marketing Team"}
                 </h3>
 
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                  
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 sm:space-y-5"
+                >
                   {/* Name & Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Full Name *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Full Name *
+                      </label>
                       <input
                         type="text"
                         name="name"
@@ -292,7 +423,9 @@ ${currentDate}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Email *
+                      </label>
                       <input
                         type="email"
                         name="email"
@@ -308,7 +441,9 @@ ${currentDate}
                   {/* Phone & Priority */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number *</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Phone Number *
+                      </label>
                       <input
                         type="tel"
                         name="phone"
@@ -321,7 +456,9 @@ ${currentDate}
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Priority
+                      </label>
                       <select
                         name="priority"
                         value={formData.priority}
@@ -336,30 +473,36 @@ ${currentDate}
 
                   {/* Subject */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Subject *
+                    </label>
                     <input
                       type="text"
                       name="subject"
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      placeholder={`${activeTab === 'technical' ? 'Technical issue with...' : 'Inquiry about...'}`}
+                      placeholder={`${activeTab === "technical" ? "Technical issue with..." : "Inquiry about..."}`}
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0AC4E0] focus:border-[#0AC4E0] transition-colors text-sm sm:text-base"
                     />
                   </div>
 
                   {/* Message */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Message *
+                    </label>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
                       required
                       rows="5"
-                      placeholder={activeTab === 'technical' 
-                        ? "Please describe your technical issue in detail..." 
-                        : "Tell us about your requirements or inquiry..."}
+                      placeholder={
+                        activeTab === "technical"
+                          ? "Please describe your technical issue in detail..."
+                          : "Tell us about your requirements or inquiry..."
+                      }
                       className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#0AC4E0] focus:border-[#0AC4E0] transition-colors text-sm sm:text-base resize-none"
                     ></textarea>
                   </div>
@@ -372,16 +515,41 @@ ${currentDate}
                   >
                     {isSubmitting ? (
                       <>
-                        <svg className="animate-spin h-5 w-5 mr-2" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <svg
+                          className="animate-spin h-5 w-5 mr-2"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                            fill="none"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
                         </svg>
                         Sending...
                       </>
                     ) : (
                       <>
-                        <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                        <svg
+                          className="w-5 h-5 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                          />
                         </svg>
                         Send Message via WhatsApp
                       </>
@@ -391,10 +559,18 @@ ${currentDate}
                   {/* WhatsApp Info */}
                   <div className="text-center mt-4">
                     <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#0AC4E0]/10 text-[#0A8B9F] text-xs sm:text-sm">
-                      <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.072.043.418-.101.823z"/>
+                      <svg
+                        className="w-4 h-4 mr-1"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.087-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.043.072.043.418-.101.823z" />
                       </svg>
-                      Messages sent directly to {activeTab === 'technical' ? 'Technical Support' : 'Marketing Team'} via WhatsApp
+                      Messages sent directly to{" "}
+                      {activeTab === "technical"
+                        ? "Technical Support"
+                        : "Marketing Team"}{" "}
+                      via WhatsApp
                     </span>
                   </div>
                 </form>
@@ -405,15 +581,18 @@ ${currentDate}
           {/* Map Section */}
           <div className="mt-8 sm:mt-12">
             <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-6">
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">Our Location</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
+                Our Location
+              </h3>
               <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden bg-gray-100">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3666.938652719784!2d77.5333!3d23.1333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA4JzAwLjAiTiA3N8KwMzInMDAuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
-                  className="w-full h-full min-h-[300px] sm:min-h-[400px]"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3669.8982250578956!2d77.52276937527084!3d23.100821213403645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c464a3eb34b4b%3A0x1ede16b9c3d8848b!2sAartech%20Solonics%20Limited!5e0!3m2!1sen!2sin!4v1771058829309!5m2!1sen!2sin"
+                   className="w-full h-full min-h-[300px] sm:min-h-[400px]"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allowfullscreen=""
                   loading="lazy"
                   title="Office Location"
+                  referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>
@@ -424,10 +603,16 @@ ${currentDate}
       {/* Global Styles for animations */}
       <style jsx>{`
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
+
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out forwards;
         }

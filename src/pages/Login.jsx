@@ -316,7 +316,7 @@ export default function Login() {
       const user = data.user || { username };
 
       // 🔥 STORE AUTH DATA (keys must match Header)
-      localStorage.setItem("authToken", data.token);
+      localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(user));
 
       // 🔥 FORCE HEADER TO RE-READ STORAGE
@@ -452,15 +452,7 @@ export default function Login() {
 
             {/* Remember Me & Admin Login */}
             <div className="flex items-center justify-between">
-              <label className="flex items-center">
-                <input
-                  type="checkbox"
-                  className="w-4 h-4 text-[#0AC4E0] border-gray-300 rounded focus:ring-[#0AC4E0]"
-                />
-                <span className="ml-2 text-sm text-gray-600">
-                  Remember me
-                </span>
-              </label>
+             
               
               <Link to="/admin-login" className="text-sm font-medium text-[#0AC4E0]">
                 Admin login →
@@ -535,7 +527,7 @@ export default function Login() {
           {/* Footer */}
           <div className="mt-4 text-center text-xs text-gray-400">
             <p>© {new Date().getFullYear()} TransSync. All rights reserved.</p>
-            <p className="mt-1">Contact support for assistance</p>
+            <p className="mt-1"> <Link to="/contact" className="text-[#0AC4E0]"> Contact</Link> support for assistance</p>
           </div>
         </div>
       </div>

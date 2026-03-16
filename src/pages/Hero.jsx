@@ -1,496 +1,495 @@
-  // import React ,{ useEffect, useState, useRef } from "react";
-  // import { Link } from "react-router-dom";
-  // import heroVideo from "../assets/BSDTN.mp4"; 
-  // import aartech from "../assets/aartech.jpg";
+// import React ,{ useEffect, useState, useRef } from "react";
+// import { Link } from "react-router-dom";
+// import heroVideo from "../assets/BSDTN.mp4";
+// import aartech from "../assets/aartech.jpg";
 
-  // const HeroPage = () => {
-  //   const [videoLoaded, setVideoLoaded] = useState(false);
-  //   const [videoError, setVideoError] = useState(false);
-  //   const [isDarkMode, setIsDarkMode] = useState(true);
-  //   const videoRef = useRef(null);
+// const HeroPage = () => {
+//   const [videoLoaded, setVideoLoaded] = useState(false);
+//   const [videoError, setVideoError] = useState(false);
+//   const [isDarkMode, setIsDarkMode] = useState(true);
+//   const videoRef = useRef(null);
 
-  //   useEffect(() => {
-  //     // Try to load video manually if needed
-  //     if (videoRef.current) {
-  //       videoRef.current.load();
-  //     }
-      
-  //     // Check if user has a theme preference
-  //     const savedTheme = localStorage.getItem('theme');
-  //     if (savedTheme === 'light') {
-  //       setIsDarkMode(false);
-  //     }
-  //   }, []);
+//   useEffect(() => {
+//     // Try to load video manually if needed
+//     if (videoRef.current) {
+//       videoRef.current.load();
+//     }
 
-  //   const toggleTheme = () => {
-  //     const newMode = !isDarkMode;
-  //     setIsDarkMode(newMode);
-  //     localStorage.setItem('theme', newMode ? 'dark' : 'light');
-  //   };
+//     // Check if user has a theme preference
+//     const savedTheme = localStorage.getItem('theme');
+//     if (savedTheme === 'light') {
+//       setIsDarkMode(false);
+//     }
+//   }, []);
 
-  //   const handleVideoLoad = () => {
-  //     setVideoLoaded(true);
-  //     setVideoError(false);
-  //   };
+//   const toggleTheme = () => {
+//     const newMode = !isDarkMode;
+//     setIsDarkMode(newMode);
+//     localStorage.setItem('theme', newMode ? 'dark' : 'light');
+//   };
 
-  //   const handleVideoError = () => {
-  //     console.error("Failed to load video:", heroVideo); 
-  //     setVideoError(true);
-  //     setVideoLoaded(false);
-  //   };
+//   const handleVideoLoad = () => {
+//     setVideoLoaded(true);
+//     setVideoError(false);
+//   };
 
-  //   const downloadUrl = "https://drive.google.com/uc?export=download&id=1LVVNo5PprTfdruTreRKEG1HWsKrtv8FN";
+//   const handleVideoError = () => {
+//     console.error("Failed to load video:", heroVideo);
+//     setVideoError(true);
+//     setVideoLoaded(false);
+//   };
 
-  //   const handleDownload = () => {
-  //     if (downloadUrl) {
-  //       window.open(downloadUrl, "_blank");
-  //     } else {
-  //       alert("Brochure link coming soon!");
-  //     }
-  //   };
+//   const downloadUrl = "https://drive.google.com/uc?export=download&id=1LVVNo5PprTfdruTreRKEG1HWsKrtv8FN";
 
-  //   // Theme classes - Video overlay removed from light mode
-  //   const themeClasses = {
-  //     container: isDarkMode 
-  //       ? "text-gray-200 bg-gray-900" 
-  //       : "text-gray-800 bg-gray-50",
-  //     heroText: isDarkMode ? "text-white" : "text-gray-800",
-  //     heroSubtitle: isDarkMode ? "text-gray-300" : "text-gray-700",
-  //     heroDescription: isDarkMode ? "text-gray-400" : "text-gray-600",
-  //     badge: isDarkMode 
-  //       ? "bg-gray-800 text-blue-400 border-gray-700" 
-  //       : "bg-white text-blue-600 border-blue-200 shadow-sm",
-  //     badgeDot: "w-2 h-2 bg-green-500 rounded-full mr-2",
-  //     title: isDarkMode ? "text-white" : "text-gray-900",
-  //     highlight: isDarkMode ? "text-blue-400" : "text-blue-600",
-  //     statsCard: isDarkMode 
-  //       ? "bg-gray-800/50 border-gray-700" 
-  //       : "bg-white border-gray-200 shadow-sm",
-  //     statsValue: isDarkMode ? "text-blue-400" : "text-blue-600",
-  //     statsLabel: isDarkMode ? "text-gray-400" : "text-gray-600",
-  //     buttonPrimary: isDarkMode 
-  //       ? "bg-blue-800 text-white border-blue-700 hover:bg-blue-700" 
-  //       : "bg-blue-600 text-white border-blue-500 hover:bg-blue-700 shadow-sm hover:shadow",
-  //     buttonSecondary: isDarkMode 
-  //       ? "bg-gray-800 text-white border-gray-700 hover:bg-gray-700" 
-  //       : "bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 shadow-sm hover:shadow",
-  //     section: isDarkMode 
-  //       ? "bg-gray-900 border-gray-800" 
-  //       : "bg-white border-gray-200",
-  //     sectionTitle: isDarkMode ? "text-white" : "text-gray-900",
-  //     sectionSubtitle: isDarkMode ? "text-gray-400" : "text-gray-600",
-  //     specContainer: isDarkMode 
-  //       ? "bg-gray-800 border-gray-700" 
-  //       : "bg-white border-gray-200 shadow-lg",
-  //     specHeader: isDarkMode 
-  //       ? "bg-gray-900 border-gray-700" 
-  //       : "bg-blue-50 border-blue-200",
-  //     specHeaderText: isDarkMode ? "text-white" : "text-gray-900",
-  //     specHeaderSubtext: isDarkMode ? "text-blue-400" : "text-blue-700",
-  //     specRow: (i, value) => isDarkMode 
-  //       ? !value 
-  //         ? "bg-gray-900/50 font-bold text-gray-300" 
-  //         : "hover:bg-gray-700/30" 
-  //       : !value 
-  //         ? "bg-gray-50 font-bold text-gray-700" 
-  //         : "hover:bg-gray-50",
-  //     specText: (i, value) => isDarkMode 
-  //       ? !value ? "text-gray-300" : "text-gray-400" 
-  //       : !value ? "text-gray-700" : "text-gray-600",
-  //     specValue: isDarkMode ? "text-gray-300" : "text-gray-800",
-  //     specFooter: isDarkMode 
-  //       ? "bg-gray-900 border-gray-700" 
-  //       : "bg-blue-50 border-blue-200",
-  //     specFooterText: isDarkMode ? "text-gray-400" : "text-gray-700",
-  //     specFooterHighlight: isDarkMode ? "text-blue-400" : "text-blue-700",
-  //     ctaSection: isDarkMode 
-  //       ? "bg-gray-800 border-gray-700" 
-  //       : "bg-gray-50 border-gray-200",
-  //     ctaButton: isDarkMode 
-  //       ? "bg-gray-700 text-white border-gray-600 hover:bg-gray-600" 
-  //       : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100 shadow-sm hover:shadow",
-  //     contactInfo: isDarkMode ? "text-gray-400" : "text-gray-600",
-  //     contactTitle: isDarkMode ? "text-gray-300" : "text-gray-800",
-  //     scrollIndicator: isDarkMode 
-  //       ? "border-gray-700 bg-gray-600" 
-  //       : "border-gray-300 bg-gray-400",
-  //     scrollText: "text-gray-500 text-xs uppercase tracking-wider",
-  //     logoContainer: isDarkMode 
-  //       ? "bg-gray-900/80 backdrop-blur-sm border-blue-700" 
-  //       : "bg-white/95 backdrop-blur-sm border-blue-300",
-  //     // VIDEO OVERLAY CHANGED: No white overlay in light mode
-  //     videoOverlay: isDarkMode 
-  //       ? "bg-gradient-to-b from-black/70 via-black/50 to-black/70" 
-  //       : "bg-gradient-to-b from-black/30 via-black/20 to-black/30", // Keep dark overlay but lighter
-  //     videoFallback: isDarkMode 
-  //       ? "bg-gradient-to-br from-gray-900 to-gray-800" 
-  //       : "bg-gradient-to-br from-gray-800 to-gray-900", // Keep dark fallback
-  //     patternOverlay: "absolute inset-0 z-10 opacity-10",
-  //     loadingOverlay: isDarkMode ? "bg-gray-900" : "bg-gray-900", // Keep dark loading
-  //     loadingText: isDarkMode ? "text-gray-400" : "text-gray-300"
-  //   };
+//   const handleDownload = () => {
+//     if (downloadUrl) {
+//       window.open(downloadUrl, "_blank");
+//     } else {
+//       alert("Brochure link coming soon!");
+//     }
+//   };
 
-  //   return (
-  //     <div className={themeClasses.container}>
-  //       {/* Theme Toggle Button & Aartech Logo Container */}
-  //       <div className="fixed top-20 right-6 z-50 flex flex-col items-end space-y-3">
-  //         {/* Theme Toggle Button - Always visible */}
-  //         <button
-  //           onClick={toggleTheme}
-  //           className={`p-2 rounded-full ${
-  //             isDarkMode 
-  //               ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700' 
-  //               : 'bg-white hover:bg-gray-100 border border-gray-300 shadow-sm'
-  //           } transition-colors duration-300`}
-  //           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
-  //         >
-  //           {isDarkMode ? (
-  //             // Sun icon for light mode
-  //             <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-  //               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-  //             </svg>
-  //           ) : (
-  //             // Moon icon for dark mode
-  //             <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-  //               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-  //             </svg>
-  //           )}
-  //         </button>
+//   // Theme classes - Video overlay removed from light mode
+//   const themeClasses = {
+//     container: isDarkMode
+//       ? "text-gray-200 bg-gray-900"
+//       : "text-gray-800 bg-gray-50",
+//     heroText: isDarkMode ? "text-white" : "text-gray-800",
+//     heroSubtitle: isDarkMode ? "text-gray-300" : "text-gray-700",
+//     heroDescription: isDarkMode ? "text-gray-400" : "text-gray-600",
+//     badge: isDarkMode
+//       ? "bg-gray-800 text-blue-400 border-gray-700"
+//       : "bg-white text-blue-600 border-blue-200 shadow-sm",
+//     badgeDot: "w-2 h-2 bg-green-500 rounded-full mr-2",
+//     title: isDarkMode ? "text-white" : "text-gray-900",
+//     highlight: isDarkMode ? "text-blue-400" : "text-blue-600",
+//     statsCard: isDarkMode
+//       ? "bg-gray-800/50 border-gray-700"
+//       : "bg-white border-gray-200 shadow-sm",
+//     statsValue: isDarkMode ? "text-blue-400" : "text-blue-600",
+//     statsLabel: isDarkMode ? "text-gray-400" : "text-gray-600",
+//     buttonPrimary: isDarkMode
+//       ? "bg-blue-800 text-white border-blue-700 hover:bg-blue-700"
+//       : "bg-blue-600 text-white border-blue-500 hover:bg-blue-700 shadow-sm hover:shadow",
+//     buttonSecondary: isDarkMode
+//       ? "bg-gray-800 text-white border-gray-700 hover:bg-gray-700"
+//       : "bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 shadow-sm hover:shadow",
+//     section: isDarkMode
+//       ? "bg-gray-900 border-gray-800"
+//       : "bg-white border-gray-200",
+//     sectionTitle: isDarkMode ? "text-white" : "text-gray-900",
+//     sectionSubtitle: isDarkMode ? "text-gray-400" : "text-gray-600",
+//     specContainer: isDarkMode
+//       ? "bg-gray-800 border-gray-700"
+//       : "bg-white border-gray-200 shadow-lg",
+//     specHeader: isDarkMode
+//       ? "bg-gray-900 border-gray-700"
+//       : "bg-blue-50 border-blue-200",
+//     specHeaderText: isDarkMode ? "text-white" : "text-gray-900",
+//     specHeaderSubtext: isDarkMode ? "text-blue-400" : "text-blue-700",
+//     specRow: (i, value) => isDarkMode
+//       ? !value
+//         ? "bg-gray-900/50 font-bold text-gray-300"
+//         : "hover:bg-gray-700/30"
+//       : !value
+//         ? "bg-gray-50 font-bold text-gray-700"
+//         : "hover:bg-gray-50",
+//     specText: (i, value) => isDarkMode
+//       ? !value ? "text-gray-300" : "text-gray-400"
+//       : !value ? "text-gray-700" : "text-gray-600",
+//     specValue: isDarkMode ? "text-gray-300" : "text-gray-800",
+//     specFooter: isDarkMode
+//       ? "bg-gray-900 border-gray-700"
+//       : "bg-blue-50 border-blue-200",
+//     specFooterText: isDarkMode ? "text-gray-400" : "text-gray-700",
+//     specFooterHighlight: isDarkMode ? "text-blue-400" : "text-blue-700",
+//     ctaSection: isDarkMode
+//       ? "bg-gray-800 border-gray-700"
+//       : "bg-gray-50 border-gray-200",
+//     ctaButton: isDarkMode
+//       ? "bg-gray-700 text-white border-gray-600 hover:bg-gray-600"
+//       : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100 shadow-sm hover:shadow",
+//     contactInfo: isDarkMode ? "text-gray-400" : "text-gray-600",
+//     contactTitle: isDarkMode ? "text-gray-300" : "text-gray-800",
+//     scrollIndicator: isDarkMode
+//       ? "border-gray-700 bg-gray-600"
+//       : "border-gray-300 bg-gray-400",
+//     scrollText: "text-gray-500 text-xs uppercase tracking-wider",
+//     logoContainer: isDarkMode
+//       ? "bg-gray-900/80 backdrop-blur-sm border-blue-700"
+//       : "bg-white/95 backdrop-blur-sm border-blue-300",
+//     // VIDEO OVERLAY CHANGED: No white overlay in light mode
+//     videoOverlay: isDarkMode
+//       ? "bg-gradient-to-b from-black/70 via-black/50 to-black/70"
+//       : "bg-gradient-to-b from-black/30 via-black/20 to-black/30", // Keep dark overlay but lighter
+//     videoFallback: isDarkMode
+//       ? "bg-gradient-to-br from-gray-900 to-gray-800"
+//       : "bg-gradient-to-br from-gray-800 to-gray-900", // Keep dark fallback
+//     patternOverlay: "absolute inset-0 z-10 opacity-10",
+//     loadingOverlay: isDarkMode ? "bg-gray-900" : "bg-gray-900", // Keep dark loading
+//     loadingText: isDarkMode ? "text-gray-400" : "text-gray-300"
+//   };
 
-  //         {/* Aartech Logo - Hidden on small devices, visible on medium and larger */}
-  //         <div className={`rounded-lg p-2 border shadow-lg ${themeClasses.logoContainer} hidden md:block`}>
-  //           <img 
-  //             src={aartech} 
-  //             alt="Aartech Logo" 
-  //             className="h-20 w-auto object-contain"
-  //           />
-  //         </div>
-  //       </div>
+//   return (
+//     <div className={themeClasses.container}>
+//       {/* Theme Toggle Button & Aartech Logo Container */}
+//       <div className="fixed top-20 right-6 z-50 flex flex-col items-end space-y-3">
+//         {/* Theme Toggle Button - Always visible */}
+//         <button
+//           onClick={toggleTheme}
+//           className={`p-2 rounded-full ${
+//             isDarkMode
+//               ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700'
+//               : 'bg-white hover:bg-gray-100 border border-gray-300 shadow-sm'
+//           } transition-colors duration-300`}
+//           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+//         >
+//           {isDarkMode ? (
+//             // Sun icon for light mode
+//             <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+//             </svg>
+//           ) : (
+//             // Moon icon for dark mode
+//             <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+//               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+//             </svg>
+//           )}
+//         </button>
 
-  //       {/* Hero Section with Video */}
-  //       <section className="relative py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen overflow-hidden">
-  //         {/* Background Video */}
-  //         <div className="absolute inset-0 z-0">
-  //           {!videoError ? (
-  //             <video
-  //               ref={videoRef}
-  //               autoPlay
-  //               loop
-  //               muted
-  //               playsInline
-  //               preload="auto"
-  //               poster="/hero.jpg"
-  //               onLoadedData={handleVideoLoad}
-  //               className="absolute w-full h-full object-cover"
-  //             >
-  //               <source src={heroVideo} type="video/mp4" />
-  //               {/* Your browser does not support the video tag. */}
-  //             </video>
-  //           ) : (
-  //             <div className={`absolute inset-0 ${themeClasses.videoFallback}`} />
-  //           )}
+//         {/* Aartech Logo - Hidden on small devices, visible on medium and larger */}
+//         <div className={`rounded-lg p-2 border shadow-lg ${themeClasses.logoContainer} hidden md:block`}>
+//           <img
+//             src={aartech}
+//             alt="Aartech Logo"
+//             className="h-20 w-auto object-contain"
+//           />
+//         </div>
+//       </div>
 
-  //           {/* Loading state */} 
-  //           {!videoLoaded && !videoError && (
-  //             <div className={`absolute inset-0 flex items-center justify-center ${themeClasses.loadingOverlay}`}>
-  //               <div className="text-center">
-  //                 <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
-  //                 <p className={`mt-4 text-sm ${themeClasses.loadingText}`}>LOADING...</p>
-  //               </div>
-  //             </div>
-  //           )}
+//       {/* Hero Section with Video */}
+//       <section className="relative py-16 px-4 sm:px-6 lg:px-8 flex items-center justify-center min-h-screen overflow-hidden">
+//         {/* Background Video */}
+//         <div className="absolute inset-0 z-0">
+//           {!videoError ? (
+//             <video
+//               ref={videoRef}
+//               autoPlay
+//               loop
+//               muted
+//               playsInline
+//               preload="auto"
+//               poster="/hero.jpg"
+//               onLoadedData={handleVideoLoad}
+//               className="absolute w-full h-full object-cover"
+//             >
+//               <source src={heroVideo} type="video/mp4" />
+//               {/* Your browser does not support the video tag. */}
+//             </video>
+//           ) : (
+//             <div className={`absolute inset-0 ${themeClasses.videoFallback}`} />
+//           )}
 
-  //           {/* Video Overlay - Same dark overlay for both themes, just lighter in light mode */}
-  //           <div className={`absolute inset-0 ${themeClasses.videoOverlay}`}></div>
-  //         </div>
+//           {/* Loading state */}
+//           {!videoLoaded && !videoError && (
+//             <div className={`absolute inset-0 flex items-center justify-center ${themeClasses.loadingOverlay}`}>
+//               <div className="text-center">
+//                 <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500"></div>
+//                 <p className={`mt-4 text-sm ${themeClasses.loadingText}`}>LOADING...</p>
+//               </div>
+//             </div>
+//           )}
 
-  //         {/* Pattern overlay - Only show in dark mode */}
-  //         {isDarkMode && (
-  //           <div className={themeClasses.patternOverlay}>
-  //             <div
-  //               className="absolute inset-0"
-  //               style={{
-  //                 backgroundImage: `linear-gradient(to right, #3b82f6 1px, transparent 1px),
-  //                                 linear-gradient(to bottom, #3b82f6 1px, transparent 1px)`,
-  //                 backgroundSize: "50px 50px",
-  //               }}
-  //             ></div>
-  //           </div>
-  //         )}
+//           {/* Video Overlay - Same dark overlay for both themes, just lighter in light mode */}
+//           <div className={`absolute inset-0 ${themeClasses.videoOverlay}`}></div>
+//         </div>
 
-  //         {/* Content */}
-  //         <div className="relative max-w-6xl mx-auto text-center z-20">
-  //           {/* Status Badge */}
-  //           <div className={`inline-flex items-center text-xs font-bold px-4 py-2 rounded border mb-6 tracking-wider ${themeClasses.badge}`}>
-  //             <div className={themeClasses.badgeDot}></div>
-  //             INDUSTRIAL BTS-2000 SYSTEM
-  //           </div>
+//         {/* Pattern overlay - Only show in dark mode */}
+//         {isDarkMode && (
+//           <div className={themeClasses.patternOverlay}>
+//             <div
+//               className="absolute inset-0"
+//               style={{
+//                 backgroundImage: `linear-gradient(to right, #3b82f6 1px, transparent 1px),
+//                                 linear-gradient(to bottom, #3b82f6 1px, transparent 1px)`,
+//                 backgroundSize: "50px 50px",
+//               }}
+//             ></div>
+//           </div>
+//         )}
 
-  //           {/* Main Title */}
-  //           <div className="mb-8">
-  //             <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight ${themeClasses.title}`}>
-  //               <span className={themeClasses.title}>BTS-2000</span>
-  //             </h1>
-  //             <h2 className={`text-xl sm:text-2xl font-medium mb-4 ${themeClasses.heroSubtitle}`}>
-  //               INDUSTRIAL BUS TRANSFER SYSTEM
-  //             </h2>
-  //           </div>
+//         {/* Content */}
+//         <div className="relative max-w-6xl mx-auto text-center z-20">
+//           {/* Status Badge */}
+//           <div className={`inline-flex items-center text-xs font-bold px-4 py-2 rounded border mb-6 tracking-wider ${themeClasses.badge}`}>
+//             <div className={themeClasses.badgeDot}></div>
+//             INDUSTRIAL BTS-2000 SYSTEM
+//           </div>
 
-  //           {/* Subtitle */}
-  //           <h3 className={`text-lg sm:text-xl font-medium mb-6 leading-relaxed max-w-2xl mx-auto ${themeClasses.heroSubtitle}`}>
-  //             Advanced Power Management & Control Platform
-  //             <br />
-  //             <span className={`font-bold ${themeClasses.highlight}`}>
-  //               99.9% UPTIME • REAL-TIME MONITORING
-  //             </span>
-  //           </h3>
+//           {/* Main Title */}
+//           <div className="mb-8">
+//             <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight ${themeClasses.title}`}>
+//               <span className={themeClasses.title}>BTS-2000</span>
+//             </h1>
+//             <h2 className={`text-xl sm:text-2xl font-medium mb-4 ${themeClasses.heroSubtitle}`}>
+//               INDUSTRIAL BUS TRANSFER SYSTEM
+//             </h2>
+//           </div>
 
-  //           {/* Description */}
-  //           <p className={`max-w-2xl mx-auto mb-8 text-sm leading-relaxed ${themeClasses.heroDescription}`}>
-  //             Enterprise-grade automatic transfer switch with remote control,
-  //             cloud monitoring, and industrial protocols for mission-critical
-  //             infrastructure.
-  //           </p>
+//           {/* Subtitle */}
+//           <h3 className={`text-lg sm:text-xl font-medium mb-6 leading-relaxed max-w-2xl mx-auto ${themeClasses.heroSubtitle}`}>
+//             Advanced Power Management & Control Platform
+//             <br />
+//             <span className={`font-bold ${themeClasses.highlight}`}>
+//               99.9% UPTIME • REAL-TIME MONITORING
+//             </span>
+//           </h3>
 
-  //           {/* Action Buttons */}
-  //           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-  //             <a
-  //               href="/contact"
-  //               className={`font-bold px-8 py-3 rounded border transition-colors w-full sm:w-auto ${themeClasses.buttonPrimary}`}
-  //             >
-  //               INVESTMENT PROPOSAL
-  //             </a>
-  //             <a
-  //               href="#specifications"
-  //               className={`font-bold px-8 py-3 rounded border transition-colors w-full sm:w-auto ${themeClasses.buttonSecondary}`}
-  //             >
-  //               TECHNICAL SPECS
-  //             </a>
-  //           </div>
+//           {/* Description */}
+//           <p className={`max-w-2xl mx-auto mb-8 text-sm leading-relaxed ${themeClasses.heroDescription}`}>
+//             Enterprise-grade automatic transfer switch with remote control,
+//             cloud monitoring, and industrial protocols for mission-critical
+//             infrastructure.
+//           </p>
 
-  //           {/* Stats */}
-  //           <div className="grid grid-cols-3 overflow-hidden gap-4 max-w-md mx-auto">
-  //             {[
-  //               ["5", "INSTALLATIONS"],
-  //               ["99.9%", "UPTIME"],
-  //               ["<200ms", "TRANSFER"],
-  //             ].map(([value, label], index) => (
-  //               <div
-  //                 key={index}
-  //                 className={`text-center p-3 rounded border ${themeClasses.statsCard}`}
-  //               >
-  //                 <div className={`text-xl font-bold ${themeClasses.statsValue}`}>{value}</div>
-  //                 <div className={`text-xs uppercase tracking-wider mt-1 ${themeClasses.statsLabel}`}>
-  //                   {label}
-  //                 </div>
-  //               </div>
-  //             ))}
-  //           </div>
-  //         </div>
+//           {/* Action Buttons */}
+//           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+//             <a
+//               href="/contact"
+//               className={`font-bold px-8 py-3 rounded border transition-colors w-full sm:w-auto ${themeClasses.buttonPrimary}`}
+//             >
+//               INVESTMENT PROPOSAL
+//             </a>
+//             <a
+//               href="#specifications"
+//               className={`font-bold px-8 py-3 rounded border transition-colors w-full sm:w-auto ${themeClasses.buttonSecondary}`}
+//             >
+//               TECHNICAL SPECS
+//             </a>
+//           </div>
 
-  //         {/* Scroll Indicator */}
-  //         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
-  //           <div className={themeClasses.scrollText}>
-  //             SCROLL
-  //           </div>
-  //           <div className={`w-6 h-10 border rounded-full flex justify-center mx-auto mt-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`}>
-  //             <div className={`w-1 h-3 rounded-full mt-2 ${isDarkMode ? 'bg-gray-600' : 'bg-gray-400'}`}></div>
-  //           </div>
-  //         </div>
-  //       </section>
+//           {/* Stats */}
+//           <div className="grid grid-cols-3 overflow-hidden gap-4 max-w-md mx-auto">
+//             {[
+//               ["5", "INSTALLATIONS"],
+//               ["99.9%", "UPTIME"],
+//               ["<200ms", "TRANSFER"],
+//             ].map(([value, label], index) => (
+//               <div
+//                 key={index}
+//                 className={`text-center p-3 rounded border ${themeClasses.statsCard}`}
+//               >
+//                 <div className={`text-xl font-bold ${themeClasses.statsValue}`}>{value}</div>
+//                 <div className={`text-xs uppercase tracking-wider mt-1 ${themeClasses.statsLabel}`}>
+//                   {label}
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
 
-  //       {/* Specifications Section */}
-  //       <section
-  //         id="specifications"
-  //         className={`py-16 px-4 sm:px-6 lg:px-8 border-t ${themeClasses.section}`}
-  //       >
-  //         <div className="max-w-6xl mx-auto">
-  //           <div className="text-center mb-12">
-  //             <div className={`inline-flex items-center text-xs font-bold px-4 py-2 rounded border mb-4 tracking-wider ${themeClasses.badge}`}>
-  //               TECHNICAL SPECIFICATIONS
-  //             </div>
-  //             <h2 className={`text-2xl sm:text-3xl font-bold mb-3 ${themeClasses.sectionTitle}`}>
-  //               ENGINEERING SPECIFICATIONS
-  //             </h2>
-  //             <p className={`max-w-2xl mx-auto text-sm ${themeClasses.sectionSubtitle}`}>
-  //               Industrial-grade specifications for maximum reliability and
-  //               performance
-  //             </p>
-  //           </div>
+//         {/* Scroll Indicator */}
+//         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+//           <div className={themeClasses.scrollText}>
+//             SCROLL
+//           </div>
+//           <div className={`w-6 h-10 border rounded-full flex justify-center mx-auto mt-2 ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`}>
+//             <div className={`w-1 h-3 rounded-full mt-2 ${isDarkMode ? 'bg-gray-600' : 'bg-gray-400'}`}></div>
+//           </div>
+//         </div>
+//       </section>
 
-  //           {/* Specifications Grid */}
-  //           <div className={`rounded-lg border overflow-hidden ${themeClasses.specContainer}`}>
-  //             <div className={`px-6 py-4 border-b ${themeClasses.specHeader}`}>
-  //               <h3 className={`text-lg font-bold flex items-center ${themeClasses.specHeaderText}`}>
-  //                 <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
-  //                 BTS-2000 TECHNICAL SPECIFICATIONS
-  //                 <span className={`ml-auto text-sm font-normal ${themeClasses.specHeaderSubtext}`}>
-  //                   ENTERPRISE GRADE
-  //                 </span>
-  //               </h3>
-  //             </div>
+//       {/* Specifications Section */}
+//       <section
+//         id="specifications"
+//         className={`py-16 px-4 sm:px-6 lg:px-8 border-t ${themeClasses.section}`}
+//       >
+//         <div className="max-w-6xl mx-auto">
+//           <div className="text-center mb-12">
+//             <div className={`inline-flex items-center text-xs font-bold px-4 py-2 rounded border mb-4 tracking-wider ${themeClasses.badge}`}>
+//               TECHNICAL SPECIFICATIONS
+//             </div>
+//             <h2 className={`text-2xl sm:text-3xl font-bold mb-3 ${themeClasses.sectionTitle}`}>
+//               ENGINEERING SPECIFICATIONS
+//             </h2>
+//             <p className={`max-w-2xl mx-auto text-sm ${themeClasses.sectionSubtitle}`}>
+//               Industrial-grade specifications for maximum reliability and
+//               performance
+//             </p>
+//           </div>
 
-  //             <div className={`grid md:grid-cols-2 divide-x ${isDarkMode ? 'divide-gray-700' : 'divide-gray-200'}`}>
-  //               {/* Left Column */}
-  //               <div>
-  //                 {[
-  //                   ["ELECTRICAL SPECIFICATIONS", ""],
-  //                   ["Rated Voltage", "415V AC ±10%"],
-  //                   ["Frequency", "50/60 Hz Auto-detection"],
-  //                   ["Transfer Time", "< 200ms (Typical)"],
-  //                   ["Withstand Current", "65kA / 1 Second"],
-  //                   ["Insulation Level", "2.5kV / 1 Minute"],
-  //                   ["", ""],
-  //                   ["PROTECTION FEATURES", ""],
-  //                   ["Overcurrent Protection", "Digital, Adjustable"],
-  //                   ["Short Circuit", "I²t Characteristic"],
-  //                   ["Phase Failure", "All-phase Monitoring"],
-  //                   ["Earth Fault", "Sensitive Protection"],
-  //                 ].map(([spec, value], i) => (
-  //                   <div
-  //                     key={i}
-  //                     className={`px-6 py-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} ${themeClasses.specRow(i, value)}`}
-  //                   >
-  //                     <div className="flex justify-between items-center">
-  //                       <span className={`font-medium ${themeClasses.specText(i, value)}`}>
-  //                         {spec}
-  //                       </span>
-  //                       {value && (
-  //                         <span className={`font-medium ${themeClasses.specValue}`}>
-  //                           {value}
-  //                         </span>
-  //                       )}
-  //                     </div>
-  //                   </div>
-  //                 ))}
-  //               </div>
+//           {/* Specifications Grid */}
+//           <div className={`rounded-lg border overflow-hidden ${themeClasses.specContainer}`}>
+//             <div className={`px-6 py-4 border-b ${themeClasses.specHeader}`}>
+//               <h3 className={`text-lg font-bold flex items-center ${themeClasses.specHeaderText}`}>
+//                 <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+//                 BTS-2000 TECHNICAL SPECIFICATIONS
+//                 <span className={`ml-auto text-sm font-normal ${themeClasses.specHeaderSubtext}`}>
+//                   ENTERPRISE GRADE
+//                 </span>
+//               </h3>
+//             </div>
 
-  //               {/* Right Column */}
-  //               <div>
-  //                 {[
-  //                   ["CONTROL & COMMUNICATION", ""],
-  //                   ["Processor", "32-bit ARM Cortex-M7"],
-  //                   ["Memory", "2MB Flash, 1MB RAM"],
-  //                   ["Display", '7" Touch LCD'],
-  //                   ["Protocols", "Modbus, Ethernet, IEC 61850"],
-  //                   ["Cloud Ready", "AWS IoT, Azure Compatible"],
-  //                   ["", ""],
-  //                   ["ENVIRONMENTAL", ""],
-  //                   ["Enclosure Rating", "IP54 / IP65 (Optional)"],
-  //                   ["Temperature", "-10°C to +55°C"],
-  //                   ["Humidity", "5% to 95% Non-condensing"],
-  //                   ["Altitude", "Up to 2000m ASL"],
-  //                 ].map(([spec, value], i) => (
-  //                   <div
-  //                     key={i}
-  //                     className={`px-6 py-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} ${themeClasses.specRow(i, value)}`}
-  //                   >
-  //                     <div className="flex justify-between items-center">
-  //                       <span className={`font-medium ${themeClasses.specText(i, value)}`}>
-  //                         {spec}
-  //                       </span>
-  //                       {value && (
-  //                         <span className={`font-medium ${themeClasses.specValue}`}>
-  //                           {value}
-  //                         </span>
-  //                       )}
-  //                     </div>
-  //                   </div>
-  //                 ))}
-  //               </div>
-  //             </div>
+//             <div className={`grid md:grid-cols-2 divide-x ${isDarkMode ? 'divide-gray-700' : 'divide-gray-200'}`}>
+//               {/* Left Column */}
+//               <div>
+//                 {[
+//                   ["ELECTRICAL SPECIFICATIONS", ""],
+//                   ["Rated Voltage", "415V AC ±10%"],
+//                   ["Frequency", "50/60 Hz Auto-detection"],
+//                   ["Transfer Time", "< 200ms (Typical)"],
+//                   ["Withstand Current", "65kA / 1 Second"],
+//                   ["Insulation Level", "2.5kV / 1 Minute"],
+//                   ["", ""],
+//                   ["PROTECTION FEATURES", ""],
+//                   ["Overcurrent Protection", "Digital, Adjustable"],
+//                   ["Short Circuit", "I²t Characteristic"],
+//                   ["Phase Failure", "All-phase Monitoring"],
+//                   ["Earth Fault", "Sensitive Protection"],
+//                 ].map(([spec, value], i) => (
+//                   <div
+//                     key={i}
+//                     className={`px-6 py-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} ${themeClasses.specRow(i, value)}`}
+//                   >
+//                     <div className="flex justify-between items-center">
+//                       <span className={`font-medium ${themeClasses.specText(i, value)}`}>
+//                         {spec}
+//                       </span>
+//                       {value && (
+//                         <span className={`font-medium ${themeClasses.specValue}`}>
+//                           {value}
+//                         </span>
+//                       )}
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
 
-  //             {/* Footer */}
-  //             <div className={`px-6 py-4 border-t ${themeClasses.specFooter}`}>
-  //               <div className="flex flex-col sm:flex-row justify-between items-center">
-  //                 <div className={`text-sm font-medium ${themeClasses.specFooterText}`}>
-  //                   CERTIFIED: IEC 60947-6-1 | ISO 9001:2015 | CE | UL
-  //                 </div>
-  //                 <div className={`font-bold text-sm mt-2 sm:mt-0 ${themeClasses.specFooterHighlight}`}>
-  //                   EXPECTED LIFESPAN: 5+ YEARS
-  //                 </div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </section>
+//               {/* Right Column */}
+//               <div>
+//                 {[
+//                   ["CONTROL & COMMUNICATION", ""],
+//                   ["Processor", "32-bit ARM Cortex-M7"],
+//                   ["Memory", "2MB Flash, 1MB RAM"],
+//                   ["Display", '7" Touch LCD'],
+//                   ["Protocols", "Modbus, Ethernet, IEC 61850"],
+//                   ["Cloud Ready", "AWS IoT, Azure Compatible"],
+//                   ["", ""],
+//                   ["ENVIRONMENTAL", ""],
+//                   ["Enclosure Rating", "IP54 / IP65 (Optional)"],
+//                   ["Temperature", "-10°C to +55°C"],
+//                   ["Humidity", "5% to 95% Non-condensing"],
+//                   ["Altitude", "Up to 2000m ASL"],
+//                 ].map(([spec, value], i) => (
+//                   <div
+//                     key={i}
+//                     className={`px-6 py-4 border-b ${isDarkMode ? 'border-gray-700' : 'border-gray-200'} ${themeClasses.specRow(i, value)}`}
+//                   >
+//                     <div className="flex justify-between items-center">
+//                       <span className={`font-medium ${themeClasses.specText(i, value)}`}>
+//                         {spec}
+//                       </span>
+//                       {value && (
+//                         <span className={`font-medium ${themeClasses.specValue}`}>
+//                           {value}
+//                         </span>
+//                       )}
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//             </div>
 
-  //       {/* CTA Section */}
-  //       <section className={`py-16 px-4 sm:px-6 lg:px-8 border-t ${themeClasses.ctaSection}`}>
-  //         <div className="max-w-6xl mx-auto text-center">
-  //           {/* Main Heading */}
-  //           <h2 className={`text-2xl sm:text-3xl font-bold mb-6 ${themeClasses.sectionTitle}`}>
-  //             READY TO DEPLOY INDUSTRIAL SOLUTION?
-  //           </h2>
+//             {/* Footer */}
+//             <div className={`px-6 py-4 border-t ${themeClasses.specFooter}`}>
+//               <div className="flex flex-col sm:flex-row justify-between items-center">
+//                 <div className={`text-sm font-medium ${themeClasses.specFooterText}`}>
+//                   CERTIFIED: IEC 60947-6-1 | ISO 9001:2015 | CE | UL
+//                 </div>
+//                 <div className={`font-bold text-sm mt-2 sm:mt-0 ${themeClasses.specFooterHighlight}`}>
+//                   EXPECTED LIFESPAN: 5+ YEARS
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
 
-  //           <p className={`mb-8 max-w-2xl mx-auto text-sm ${themeClasses.sectionSubtitle}`}>
-  //             Join industry leaders in adopting intelligent power transfer
-  //             technology.
-  //           </p>
+//       {/* CTA Section */}
+//       <section className={`py-16 px-4 sm:px-6 lg:px-8 border-t ${themeClasses.ctaSection}`}>
+//         <div className="max-w-6xl mx-auto text-center">
+//           {/* Main Heading */}
+//           <h2 className={`text-2xl sm:text-3xl font-bold mb-6 ${themeClasses.sectionTitle}`}>
+//             READY TO DEPLOY INDUSTRIAL SOLUTION?
+//           </h2>
 
-  //           {/* Button Group */}
-  //           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-            
-  //           <Link to="/contact"> <button className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}>
-  //               SCHEDULE DEMO
-  //             </button></Link>
+//           <p className={`mb-8 max-w-2xl mx-auto text-sm ${themeClasses.sectionSubtitle}`}>
+//             Join industry leaders in adopting intelligent power transfer
+//             technology.
+//           </p>
 
-  //             <button
-  //               onClick={handleDownload}
-  //               className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}
-  //             >
-  //               DOWNLOAD BROCHURE
-  //             </button>
+//           {/* Button Group */}
+//           <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
 
-  //             <button className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}>
-  //               <Link to="/about">ABOUT US</Link>
-  //             </button>
+//           <Link to="/contact"> <button className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}>
+//               SCHEDULE DEMO
+//             </button></Link>
 
-  //             <Link to="/contact">
-  //               <button className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}>
-  //                 CONTACT
-  //               </button>
-  //             </Link>
-  //           </div>
+//             <button
+//               onClick={handleDownload}
+//               className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}
+//             >
+//               DOWNLOAD BROCHURE
+//             </button>
 
-  //           {/* Contact Info */}
-  //           <div className={`mt-12 pt-8 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`}>
-  //             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
-  //               <div className={themeClasses.contactInfo}>
-  //                 <div className={`font-bold mb-1 ${themeClasses.contactTitle}`}>SUPPORT</div>
-  //                 <div>24/7 Technical Support</div>
-  //                 <div>support@transync.com</div>
-  //               </div>
-  //               <div className={themeClasses.contactInfo}>
-  //                 <div className={`font-bold mb-1 ${themeClasses.contactTitle}`}>HEADQUARTERS</div>
-  //                 <div>Industrial Automation Division</div>
-  //                 <div>Delhi, India</div>
-  //               </div>
-  //               <div className={themeClasses.contactInfo}>
-  //                 <div className={`font-bold mb-1 ${themeClasses.contactTitle}`}>
-  //                   CERTIFICATION
-  //                 </div>
-  //                 <div>ISO 9001:2015</div>
-  //                 <div>IEC 60947-6-1</div>
-  //               </div>
-  //             </div>
-  //           </div>
-  //         </div>
-  //       </section>
-  //     </div>
-  //   );
-  // };
+//             <button className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}>
+//               <Link to="/about">ABOUT US</Link>
+//             </button>
 
-  // export default HeroPage;
+//             <Link to="/contact">
+//               <button className={`w-full sm:w-auto font-bold px-6 py-3 rounded border transition-colors ${themeClasses.ctaButton}`}>
+//                 CONTACT
+//               </button>
+//             </Link>
+//           </div>
 
+//           {/* Contact Info */}
+//           <div className={`mt-12 pt-8 border-t ${isDarkMode ? 'border-gray-700' : 'border-gray-300'}`}>
+//             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-sm">
+//               <div className={themeClasses.contactInfo}>
+//                 <div className={`font-bold mb-1 ${themeClasses.contactTitle}`}>SUPPORT</div>
+//                 <div>24/7 Technical Support</div>
+//                 <div>support@transync.com</div>
+//               </div>
+//               <div className={themeClasses.contactInfo}>
+//                 <div className={`font-bold mb-1 ${themeClasses.contactTitle}`}>HEADQUARTERS</div>
+//                 <div>Industrial Automation Division</div>
+//                 <div>Delhi, India</div>
+//               </div>
+//               <div className={themeClasses.contactInfo}>
+//                 <div className={`font-bold mb-1 ${themeClasses.contactTitle}`}>
+//                   CERTIFICATION
+//                 </div>
+//                 <div>ISO 9001:2015</div>
+//                 <div>IEC 60947-6-1</div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
+//     </div>
+//   );
+// };
 
- import React from "react";
-import { 
-  Activity, 
-  Shield, 
-  Cpu, 
-  Network, 
-  BarChart3, 
+// export default HeroPage;
+
+import React from "react";
+import {
+  Activity,
+  Shield,
+  Cpu,
+  Network,
+  BarChart3,
   Lock,
   Download,
   Calendar,
@@ -510,282 +509,278 @@ import {
   Power,
   Wifi,
   Gauge,
-  Layers
+  Layers,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+// import { div } from "@tensorflow/tfjs";
+import aartech from "../assets/aartech.jpg";
+import graph from "../assets/graph.png";
+import diagram from "../assets/dragram.png";
 
+const downloadUrl =
+  "https://drive.google.com/file/d/1Y_Sgw2rIxca9vjtFMOkABh7nA5Xno79E/view?usp=sharing";
 
-
-  const downloadUrl = "https://drive.google.com/file/d/1Y_Sgw2rIxca9vjtFMOkABh7nA5Xno79E/view?usp=sharing";
-
-  const handleDownload = () => {
-    if (downloadUrl) {
-      window.open(downloadUrl, "_blank");
-    } else {
-      alert("Brochure link coming soon!");
-    }
-  };
+const handleDownload = () => {
+  if (downloadUrl) {
+    window.open(downloadUrl, "_blank");
+  } else {
+    alert("Brochure link coming soon!");
+  }
+};
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800">
-      
-      {/* ================= NAVIGATION ================= */}
-      {/* <nav className="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="bg-[#0AC4E0] p-2 rounded-lg shadow-lg shadow-[#0AC4E0]/30">
-                <Zap className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-xl font-bold text-[#0AC4E0]">
-                BTS2000 Intelligence
-              </span>
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#overview" className="text-slate-600 hover:text-[#0AC4E0] transition relative group">
-                Overview
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0AC4E0] group-hover:w-full transition-all"></span>
-              </a>
-              <a href="#features" className="text-slate-600 hover:text-[#0AC4E0] transition relative group">
-                Features
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0AC4E0] group-hover:w-full transition-all"></span>
-              </a>
-              <a href="#technical" className="text-slate-600 hover:text-[#0AC4E0] transition relative group">
-                Technical
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0AC4E0] group-hover:w-full transition-all"></span>
-              </a>
-              <a href="#investment" className="text-slate-600 hover:text-[#0AC4E0] transition relative group">
-                Investment
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#0AC4E0] group-hover:w-full transition-all"></span>
-              </a>
-            </div>
-            
-            <button className="bg-[#0AC4E0] text-white px-6 py-2 rounded-lg font-medium hover:shadow-xl hover:shadow-[#0AC4E0]/30 hover:scale-105 transition-all">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </nav> */}
-
-      {/* ================= HERO SECTION - Cyan Theme ================= */}
-      <section className="relative overflow-hidden bg-[rgb(4,105,173)] pt-32 pb-40">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0">
-          <img 
-            src="https://cdn.pixabay.com/photo/2016/09/02/18/38/factory-1639990_1280.jpg" 
-            alt="Industrial Power Grid Background"
-            className="w-full h-full object-cover opacity-20"
+    <div>
+      <div>
+        <div className="fixed z-50 top-24 right-6 rounded-lg p-2 border shadow-lg hidden md:block ">
+          <img
+            src={aartech}
+            alt="Aartech Logo"
+            className="h-20 w-auto object-contain"
           />
         </div>
-        
-        {/* Animated background elements */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-[#0AC4E0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#08a8c0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-40 right-40 w-72 h-72 bg-[#068ca0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-500"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border border-white/20">
-                <Activity className="w-4 h-4 text-white mr-2 animate-pulse" />
-                <span className="text-sm text-white/90">Real-time Monitoring Platform</span>
+      </div>
+      <div className="min-h-screen relative bg-slate-50 text-slate-800">
+        {/* ================= HERO SECTION - Cyan Theme ================= */}
+        <section className="relative overflow-hidden bg-[rgb(4,105,173)] pt-32 pb-40">
+          {/* Background Image with Overlay */}
+          <div className="absolute inset-0">
+            <img
+              src="https://cdn.pixabay.com/photo/2016/09/02/18/38/factory-1639990_1280.jpg"
+              alt="Industrial Power Grid Background"
+              className="w-full h-full object-cover opacity-20"
+            />
+          </div>
+
+          {/* Animated background elements */}
+          <div className="absolute inset-0 opacity-30">
+            <div className="absolute top-20 left-10 w-96 h-96 bg-[#0AC4E0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#08a8c0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute top-40 right-40 w-72 h-72 bg-[#068ca0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-500"></div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border border-white/20">
+                  <Activity className="w-4 h-4 text-white mr-2 animate-pulse" />
+                  <span className="text-sm text-white/90">
+                    Real-time Control & Monitoring Platform
+                  </span>
+                </div>
+
+                <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                  Digital Intelligence for
+                  <span className="block text-[#0AC4E0]">BTS2000 Systems</span>
+                </h1>
+
+                <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                  Enterprise-grade monitoring, predictive analytics, and secure
+                  command interface engineered for mission-critical industrial
+                  power transfer systems.
+                </p>
+
+                <div className="flex flex-wrap gap-4">
+                  <Link to="/request-demo">
+                    <button className="group bg-[#0AC4E0] text-white px-8 py-4  rounded-xl font-semibold hover:shadow-sm hover:shadow-black transition-all flex items-center">
+                      Schedule Demo
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
+                    </button>
+                  </Link>
+                  <button
+                    onClick={handleDownload}
+                    className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all flex items-center"
+                  >
+                    <Download className="w-5 h-5 mr-2" />
+                    Download Brochure
+                  </button>
+                </div>
+
+                {/* Stats with cyan theme */}
+                <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20">
+                  <div className="group hover:scale-105 transition">
+                    <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">
+                      95.0%
+                    </div>
+                    <div className="text-sm text-white/60">Uptime</div>
+                  </div>
+                  <div className="group hover:scale-105 transition">
+                    <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">
+                      &lt;200ms
+                    </div>
+                    <div className="text-sm text-white/60">Response Time</div>
+                  </div>
+                  <div className="group hover:scale-105 transition">
+                    <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">
+                      24/7
+                    </div>
+                    <div className="text-sm text-white/60">Monitoring</div>
+                  </div>
+                </div>
               </div>
-              
-              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Digital Intelligence for
-                <span className="block text-[#0AC4E0]">
-                  BTS2000 Systems
-                </span>
-              </h1>
-              
-              <p className="text-xl text-white/80 mb-8 leading-relaxed">
-                Enterprise-grade monitoring, predictive analytics, and secure command interface 
-                engineered for mission-critical industrial power transfer systems.
+
+              {/* Live Dashboard Preview - Cyan Theme */}
+              <div className="relative">
+                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl">
+                  <div className="flex items-center space-x-2 mb-4">
+                    <div className="w-3 h-3 bg-[#0AC4E0] rounded-full animate-pulse"></div>
+                    <div className="w-3 h-3 bg-[#08a8c0] rounded-full animate-pulse delay-150"></div>
+                    <div className="w-3 h-3 bg-[#068ca0] rounded-full animate-pulse delay-300"></div>
+                    <span className="text-sm text-white/60 ml-2">
+                      Live Dashboard
+                    </span>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      {/* First Image Card */}
+                      <div className="bg-gradient-to-br from-[#0AC4E0]/20 to-[#08a8c0]/20 rounded-lg border border-white/10 overflow-hidden">
+                        <img
+                          src={graph}
+                          alt="Graph"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Second Image Card */}
+                      <div className="bg-gradient-to-br from-[#0AC4E0]/20 to-[#08a8c0]/20 rounded-lg border border-white/10 overflow-hidden">
+                        <img
+                          src={diagram}
+                          alt="Diagram"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="h-2 bg-[#0AC4E0] rounded-full"></div>
+                      <div className="h-2 bg-[#08a8c0] rounded-full"></div>
+                      <div className="h-2 bg-[#068ca0] rounded-full"></div>
+                    </div>
+
+                    <div className="h-32 bg-gradient-to-r overflow-auto from-[#0AC4E0]/10 via-[#08a8c0]/10 to-[#068ca0]/10 rounded-lg flex items-center justify-center border border-white/10">
+                      <img
+                        src="https://aartechsolonics.com/assets/bts1-da0a73a3.webp"
+                        alt="Waveform Preview"
+                        className="w-full h-full object-cover rounded-lg opacity-50"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================= FEATURES GRID - Cyan Theme Cards ================= */}
+        <section
+          id="features"
+          className="py-24 px-6 relative overflow-hidden bg-cover bg-gray-100 bg-center"
+          // style={{
+          //   backgroundImage: `
+          //     linear-gradient(rgba(209,213,219,0.50), rgba(209,213,219,0.90)),
+          //     url('https://cdn.pixabay.com/photo/2015/06/26/15/31/industria-822617_960_720.jpg')
+          //   `,
+          // }}
+        >
+          <div className="max-w-7xl mx-auto margin-auto justify-between">
+            <div className="text-center mb-16">
+              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+                Features
+              </span>
+              <h2 className="text-4xl font-bold mt-2 mb-4 bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+                Enterprise-Grade Monitoring
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Comprehensive visibility and control for your critical power
+                infrastructure
               </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Link to="/request-demo"><button className="group bg-[#0AC4E0] text-black px-8 py-4  rounded-xl font-semibold hover:shadow-sm hover:shadow-black transition-all flex items-center">
-                  Schedule Demo
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
-                </button></Link>
-                <button onClick={handleDownload} className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all flex items-center">
-                  <Download className="w-5 h-5 mr-2" />
-                  Download Brochure
-                </button>
-              </div>
-              
-              {/* Stats with cyan theme */}
-              <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20">
-                <div className="group hover:scale-105 transition">
-                  <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">99.99%</div>
-                  <div className="text-sm text-white/60">Uptime SLA</div>
-                </div>
-                <div className="group hover:scale-105 transition">
-                  <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">&lt;100ms</div>
-                  <div className="text-sm text-white/60">Response Time</div>
-                </div>
-                <div className="group hover:scale-105 transition">
-                  <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">24/7</div>
-                  <div className="text-sm text-white/60">Monitoring</div>
-                </div>
-              </div>
             </div>
-            
-            {/* Live Dashboard Preview - Cyan Theme */}
-            <div className="relative">
-              <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl">
-                <div className="flex items-center space-x-2 mb-4">
-                  <div className="w-3 h-3 bg-[#0AC4E0] rounded-full animate-pulse"></div>
-                  <div className="w-3 h-3 bg-[#08a8c0] rounded-full animate-pulse delay-150"></div>
-                  <div className="w-3 h-3 bg-[#068ca0] rounded-full animate-pulse delay-300"></div>
-                  <span className="text-sm text-white/60 ml-2">Live Dashboard</span>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-[#0AC4E0]/20 to-[#08a8c0]/20 rounded-lg p-4 border border-white/10">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-white/60">Bus Voltage</span>
-                        <Zap className="w-4 h-4 text-[#0AC4E0]" />
-                      </div>
-                      <div className="text-2xl font-bold text-white">13.8 kV</div>
-                      <div className="text-xs text-[#0AC4E0]">+0.2%</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-[#0AC4E0]/20 to-[#08a8c0]/20 rounded-lg p-4 border border-white/10">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm text-white/60">Frequency</span>
-                        <Activity className="w-4 h-4 text-[#0AC4E0]" />
-                      </div>
-                      <div className="text-2xl font-bold text-white">60.0 Hz</div>
-                      <div className="text-xs text-[#0AC4E0]">Synchronized</div>
-                    </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="h-2 bg-[#0AC4E0] rounded-full"></div>
-                    <div className="h-2 bg-[#08a8c0] rounded-full"></div>
-                    <div className="h-2 bg-[#068ca0] rounded-full"></div>
-                  </div>
-                  
-                  <div className="h-32 bg-gradient-to-r overflow-auto from-[#0AC4E0]/10 via-[#08a8c0]/10 to-[#068ca0]/10 rounded-lg flex items-center justify-center border border-white/10">
-                    <img 
-                      src="https://aartechsolonics.com/assets/bts1-da0a73a3.webp" 
-                      alt="Waveform Preview"
-                      className="w-full h-full object-cover rounded-lg opacity-50"
-                    />
-                  </div>
-                </div>
-              </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-6 justify-items-center">
+              <FeatureCard
+                icon={<Cpu className="w-6 h-6" />}
+                title="Real-time Telemetry"
+                description="Sub-2000ms data refresh with MQTT support"
+                color="#0AC4E0"
+                image="https://cdn.pixabay.com/photo/2021/09/15/08/15/windmills-6626200_960_720.jpg"
+              />
+
+              <FeatureCard
+                icon={<Cloud className="w-6 h-6" />}
+                title="Cloud Connectivity"
+                description="Secure cloud backup and remote access"
+                color="#0AC4E0"
+                image="https://cdn.pixabay.com/photo/2014/02/10/14/47/cooling-towers-263466_960_720.jpg"
+              />
+
+              <FeatureCard
+                icon={<Database className="w-6 h-6" />}
+                title="Data Historian"
+                description="5-days data retention with compression"
+                color="#0AC4E0"
+                image="https://cdn.pixabay.com/photo/2021/09/15/08/15/windmills-6626200_960_720.jpg"
+              />
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ================= FEATURES GRID - Cyan Theme Cards ================= */}
-      <section id="features" className="py-24 px-6 bg-gray-300">
-        <div className="max-w-7xl mx-auto margin-auto justify-between">
-          <div className="text-center mb-16">
-            <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">Features</span>
-            <h2 className="text-4xl font-bold mt-2 mb-4 bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
-              Enterprise-Grade Monitoring
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Comprehensive visibility and control for your critical power infrastructure
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
-            <FeatureCard 
-              icon={<Cpu className="w-6 h-6" />}
-              title="Real-time Telemetry"
-              description="Sub-100ms data refresh with MQTT protocol support"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            />
-          
-       
-            <FeatureCard 
-              icon={<Cloud className="w-6 h-6" />}
-              title="Cloud Connectivity"
-              description="Secure cloud backup and remote access"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            />
-            
-            <FeatureCard 
-              icon={<Database className="w-6 h-6" />}
-              title="Data Historian"
-              description="10-year data retention with compression"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            />
-          </div>
-        </div>
-      </section>
+        {/* ================= TECHNICAL SPECIFICATIONS - Cyan Dark Theme ================= */}
+        <section
+          id="technical"
+          className="py-24 px-6 text-white relative overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage: `
+      linear-gradient(rgba(47,126,178,0.85), rgba(47,126,178,0.85)),
+      url('https://cdn.pixabay.com/photo/2016/11/16/00/06/industry-1827884_1280.jpg')
+    `,
+          }}
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+                Technical
+              </span>
+              <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
+                System Architecture & Compliance
+              </h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Built on industry standards with enterprise-grade security and
+                reliability
+              </p>
+            </div>
 
-     
+            <div className="grid lg:grid-cols-3 gap-8 mb-12">
+              <TechnicalCard
+                icon={<Server className="w-8 h-8" />}
+                title="System Capabilities"
+                color="#0AC4E0"
+                image="https://cdn.pixabay.com/photo/2021/05/03/13/24/sunset-6226244_1280.jpg"
+                items={["Sub-2000ms real-time refresh", "MQTT & RESTful API"]}
+              />
 
-      {/* ================= TECHNICAL SPECIFICATIONS - Cyan Dark Theme ================= */}
-      <section id="technical" className="py-24 px-6 bg-[rgb(47,126,178)] text-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">Technical</span>
-            <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
-              System Architecture & Compliance
-            </h2>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Built on industry standards with enterprise-grade security and reliability
-            </p>
-          </div>
+              <TechnicalCard
+                icon={<Shield className="w-8 h-8" />}
+                title="Compliance Standards"
+                color="#0AC4E0"
+                image="https://cdn.pixabay.com/photo/2022/06/19/07/03/power-plant-7271169_1280.jpg"
+                items={[]}
+              />
 
-          <div className="grid lg:grid-cols-3 gap-8 mb-12">
-            <TechnicalCard
-              icon={<Server className="w-8 h-8" />}
-              title="System Capabilities"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              items={[
-                "Sub-100ms real-time refresh",
-                "MQTT & RESTful API",
-                "TLS 1.2 encryption",
-                "Role-Based Access Control",
-                "High availability cluster"
-              ]}
-            />
-            
-            <TechnicalCard
-              icon={<Shield className="w-8 h-8" />}
-              title="Compliance Standards"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1639322537228-f710d846a6d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              items={[
-                "IEC 60947-6-1",
-                "IEC 60255",
-                "IEC 61000 Series",
-                "CE & RoHS",
-                "ISO 27001"
-              ]}
-            />
-            
-            <TechnicalCard
-              icon={<Globe className="w-8 h-8" />}
-              title="Deployment Options"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-              items={[
-                "On-premise",
-                "Cloud-based",
-                "Hybrid architecture",
-                "Edge computing",
-                "Multi-site aggregation"
-              ]}
-            />
-          </div>
-          {/* Architecture Diagram
+              <TechnicalCard
+                icon={<Globe className="w-8 h-8" />}
+                title="Deployment Options"
+                color="#0AC4E0"
+                image="https://cdn.pixabay.com/photo/2017/11/25/12/46/energy-2976738_960_720.jpg"
+                items={[
+                  "Cloud-based",
+                  "Hybrid architecture",
+                  "Edge computing",
+                  "Multi-site aggregation",
+                ]}
+              />
+            </div>
+            {/* Architecture Diagram
           <div className="mt-16 relative">
             <img 
               src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
@@ -798,172 +793,208 @@ export default function HomePage() {
               </div>
             </div>
           </div> */}
-        </div>
-      </section>
-
-      {/* ================= LIVE MONITORING DASHBOARD - Cyan Theme ================= */}
-      <section className="py-24 px-6 bg-gray-300">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">Live View</span>
-            <h2 className="text-4xl font-bold mt-2 mb-4 text-slate-800">
-              Real-time Monitoring Dashboard
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Live telemetry and system status at your fingertips
-            </p>
           </div>
+        </section>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {/* Left side - Metrics */}
-            <div className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <MetricCard
-                  title="Bus Voltage A"
-                  value="13.8 kV"
-                  change="+0.2%"
-                  color="#0AC4E0"
-                  image="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
-                <MetricCard
-                  title="Bus Voltage B"
-                  value="13.7 kV"
-                  change="-0.1%"
-                  color="#0AC4E0"
-                  image="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
-                <MetricCard
-                  title="Frequency"
-                  value="60.0 Hz"
-                  change="Stable"
-                  color="#0AC4E0"
-                  image="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
-                <MetricCard
-                  title="Power Factor"
-                  value="0.98"
-                  change="Optimal"
-                  color="#0AC4E0"
-                  image="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                />
-              </div>
-
-              {/* Status indicators */}
-              <div className="bg-gray-200 rounded-xl shadow-lg p-6">
-                <h3 className="font-semibold mb-4 flex items-center">
-                  <Activity className="w-5 h-5 mr-2 text-[#0AC4E0]" />
-                  System Status
-                </h3>
-                <div className="space-y-3">
-                  <StatusIndicator label="Main Breaker" status="Closed" color="#0AC4E0" />
-                  <StatusIndicator label="Transfer Switch" status="Auto" color="#0AC4E0" />
-                  <StatusIndicator label="Sync Check" status="In Sync" color="#0AC4E0" />
-                  <StatusIndicator label="Protection Relay" status="Armed" color="#0AC4E0" />
-                </div>
-              </div>
+        {/* ================= LIVE MONITORING DASHBOARD - Cyan Theme ================= */}
+        <section className="py-24 px-6 bg-gray-100">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+                Live View
+              </span>
+              <h2 className="text-4xl font-bold mt-2 mb-4 text-slate-800">
+                Real-time Monitoring Dashboard
+              </h2>
+              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                Live telemetry and system status at your fingertips
+              </p>
             </div>
 
-            {/* Right side - Charts */}
-            <div className="bg-gray-200 rounded-xl shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold flex items-center">
-                  <LineChart className="w-5 h-5 mr-2 text-[#0AC4E0]" />
-                  Live Waveform
-                </h3>
-                <div className="flex space-x-2">
-                  <div className="w-3 h-3 bg-[#0AC4E0] rounded-full animate-pulse"></div>
-                  <span className="text-sm text-slate-600">Live</span>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Left side - Metrics */}
+              <div className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <MetricCard
+                    title="Analog"
+                    value="110.02 V"
+                    change="+0.2%"
+                    color="#0AC4E0"
+                    image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
+                  />
+                  <MetricCard
+                    title="Analog"
+                    value="110.0 V"
+                    change="-0.1%"
+                    color="#0AC4E0"
+                    image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
+                  />
+                  <MetricCard
+                    title="Frequency"
+                    value="50.0 Hz"
+                    change="Stable"
+                    color="#0AC4E0"
+                    image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
+                  />
+                  <MetricCard
+                    title="Phase Difference"
+                    value="-0.10"
+                    change="Optimal"
+                    color="#0AC4E0"
+                    image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
+                  />
                 </div>
-              </div>
-              
-              {/* Waveform visualization */}
-              <div className="h-48 relative rounded-lg overflow-hidden">
-                <img 
-                  src="https://cdn.pixabay.com/photo/2015/04/01/15/08/industry-702561_1280.jpg" 
-                  alt="Waveform Monitor"
-                  className="w-full h-full object-cover opacity-30"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="bg-white/90 px-4 py-2 rounded-full shadow-lg border border-[#0AC4E0]">
-                    <span className="text-sm font-medium text-[#0AC4E0]">Live Data Feed</span>
+
+                {/* Status indicators */}
+                <div className="bg-gray-200 rounded-xl shadow-lg p-6">
+                  <h3 className="font-semibold mb-4 flex items-center">
+                    <Activity className="w-5 h-5 mr-2 text-[#0AC4E0]" />
+                    Online Status
+                  </h3>
+                  <div className="space-y-3">
+                    <StatusIndicator
+                      label="Breaker Status"
+                      status="Closed"
+                      color="#0AC4E0"
+                    />
+                    <StatusIndicator
+                      label="Transfer"
+                      status="Auto"
+                      color="#0AC4E0"
+                    />
+                    <StatusIndicator
+                      label="Sync Check"
+                      status="In Sync"
+                      color="#0AC4E0"
+                    />
                   </div>
                 </div>
-                {/* Colored waveform lines */}
-                <svg className="w-full h-full absolute top-0 left-0" preserveAspectRatio="none">
-                  <path
-                    d="M0,80 Q20,40 40,80 T80,80 T120,80 T160,80 T200,80"
-                    stroke="#0AC4E0"
-                    strokeWidth="3"
-                    fill="none"
-                  />
-                </svg>
               </div>
-              
-              {/* Mini metrics */}
-              <div className="grid grid-cols-3 gap-2 mt-4">
-                <div className="text-center p-2 bg-slate-50 rounded-lg">
-                  <div className="text-xs text-slate-500">Peak</div>
-                  <div className="text-sm font-bold text-[#0AC4E0]">14.2 kV</div>
+
+              {/* Right side - Charts */}
+              <div className="bg-gray-200 rounded-xl shadow-lg p-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="font-semibold flex items-center">
+                    <LineChart className="w-5 h-5 mr-2 text-[#0AC4E0]" />
+                    Live Waveform
+                  </h3>
+                  <div className="flex space-x-2">
+                    <div className="w-3 h-3 bg-[#0AC4E0] rounded-full animate-pulse"></div>
+                    <span className="text-sm text-slate-600">Live</span>
+                  </div>
                 </div>
-                <div className="text-center p-2 bg-slate-50 rounded-lg">
-                  <div className="text-xs text-slate-500">Min</div>
-                  <div className="text-sm font-bold text-[#0AC4E0]">13.4 kV</div>
+
+                {/* Waveform visualization */}
+                <div className="h-48 relative rounded-lg overflow-hidden">
+                  <img
+                    src="https://cdn.pixabay.com/photo/2015/04/01/15/08/industry-702561_1280.jpg"
+                    alt="Waveform Monitor"
+                    className="w-full h-full object-cover opacity-30"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/90 px-4 py-2 rounded-full shadow-lg border border-[#0AC4E0]">
+                      <span className="text-sm font-medium text-[#0AC4E0]">
+                        Live Data Feed
+                      </span>
+                    </div>
+                  </div>
+                  {/* Colored waveform lines */}
+                  <svg
+                    className="w-full h-full absolute top-0 left-0"
+                    preserveAspectRatio="none"
+                  >
+                    <path
+                      d="M0,80 Q20,40 40,80 T80,80 T120,80 T160,80 T200,80"
+                      stroke="#0AC4E0"
+                      strokeWidth="3"
+                      fill="none"
+                    />
+                  </svg>
                 </div>
-                <div className="text-center p-2 bg-slate-50 rounded-lg">
-                  <div className="text-xs text-slate-500">Avg</div>
-                  <div className="text-sm font-bold text-[#0AC4E0]">13.8 kV</div>
+
+                {/* Mini metrics */}
+                <div className="grid grid-cols-3 gap-2 mt-4">
+                  <div className="text-center p-2 bg-slate-50 rounded-lg">
+                    <div className="text-xs text-slate-500">Peak</div>
+                    <div className="text-sm font-bold text-[#0AC4E0]">
+                      120.0 V
+                    </div>
+                  </div>
+                  <div className="text-center p-2 bg-slate-50 rounded-lg">
+                    <div className="text-xs text-slate-500">Min</div>
+                    <div className="text-sm font-bold text-[#0AC4E0]">
+                      90.0 V
+                    </div>
+                  </div>
+                  <div className="text-center p-2 bg-slate-50 rounded-lg">
+                    <div className="text-xs text-slate-500">Avg</div>
+                    <div className="text-sm font-bold text-[#0AC4E0]">
+                      110.0 V
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* ================= INVESTMENT SECTION - Cyan Theme ================= */}
-      <section id="investment" className="py-24 px-6 bg-[rgb(47,126,178)]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">Investment</span>
-            <h2 className="text-4xl font-bold mt-2 mb-4 text-slate-800">
-              Growth & Revenue Potential
-            </h2>
-            <p className="text-xl text-white max-w-3xl mx-auto">
-              Scalable software solution with multiple revenue streams and high margins
-            </p>
-          </div>
+        {/* ================= INVESTMENT SECTION - Cyan Theme ================= */}
+        <section
+          id="investment"
+          className="py-24 px-6 relative overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage: `
+      linear-gradient(rgba(47,126,178,0.85), rgba(47,126,178,0.85)),
+      url('https://cdn.pixabay.com/photo/2016/08/17/00/51/wind-1599494_1280.jpg')
+    `,
+          }}
+        >
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+                Investment
+              </span>
+              <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
+                Growth & Revenue Potential
+              </h2>
+              <p className="text-xl text-white max-w-3xl mx-auto">
+                Scalable software solution with multiple revenue streams and
+                high margins
+              </p>
+            </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <InvestmentCard
-              icon={<TrendingUp className="w-8 h-8" />}
-              title="Expanding Market"
-              description="Increasing demand for digital retrofitting across manufacturing, utilities, and data centers"
-              metric="$4.5B"
-              metricLabel="Market Size"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            />
-            <InvestmentCard
-              icon={<Server className="w-8 h-8" />}
-              title="Scalable Model"
-              description="Single-site, multi-site, and cloud-based deployment with recurring subscriptions"
-              metric="40%"
-              metricLabel="Gross Margin"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            />
-            <InvestmentCard
-              icon={<Zap className="w-8 h-8" />}
-              title="Software Layer"
-              description="High-margin digital intelligence add-on without major capex for end-users"
-              metric="3-5x"
-              metricLabel="ROI Multiple"
-              color="#0AC4E0"
-              image="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-            />
-          </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-16">
+              <InvestmentCard
+                icon={<TrendingUp className="w-8 h-8" />}
+                title="Expanding Market"
+                description="Increasing demand for digital retrofitting across manufacturing and utilities"
+                metric="--"
+                metricLabel="Market Size"
+                color="#0AC4E0"
+                image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              />
+              <InvestmentCard
+                icon={<Server className="w-8 h-8" />}
+                title="Scalable Model"
+                description="Single-site, multi-site, and cloud-based deployment with recurring subscriptions"
+                metric="40%"
+                metricLabel="Gross Margin"
+                color="#0AC4E0"
+                image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              />
+              <InvestmentCard
+                icon={<Zap className="w-8 h-8" />}
+                title="Software Layer"
+                description="High-margin digital intelligence add-on without major capex for end-users"
+                metric="2-2.5x"
+                metricLabel="ROI Multiple"
+                color="#0AC4E0"
+                image="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              />
+            </div>
 
-          {/* Market Analysis Chart */}
-          {/* <div className="mb-16 bg-white rounded-xl shadow-lg p-8">
+            {/* Market Analysis Chart */}
+            {/* <div className="mb-16 bg-white rounded-xl shadow-lg p-8">
             <h3 className="text-xl font-semibold mb-6 flex items-center">
               <BarChart3 className="w-5 h-5 mr-2 text-[#0AC4E0]" />
               Market Growth Projection
@@ -989,51 +1020,65 @@ export default function HomePage() {
             </div>
           </div> */}
 
-          {/* Cyan CTA */}
-          <div className="relative overflow-hidden rounded-2xl">
-            <div className="absolute inset-0">
-              <img 
-                src="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
-                alt="Background"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gray-300"></div>
-            </div>
-            <div className="relative bg-white/10 backdrop-blur-xl p-12 border border-white/20">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                  <h3 className="text-3xl font-bold text-black mb-4">Ready to transform your power infrastructure?</h3>
-                  <p className="text-black text-lg mb-6">
-                    Join industry leaders who have already deployed the BTS2000 Intelligence Platform
-                  </p>
-                  <Link to="/contact"><button className="group bg-[#0AC4E0] text-black px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all flex items-center">
-                    Schedule a Consultation
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
-                  </button></Link>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                    <div className="text-3xl font-bold text-[#0AC4E0] mb-2">500+</div>
-                    <div className="text-sm text-black">Deployments</div>
+            {/* Cyan CTA */}
+            <div className="relative overflow-hidden rounded-2xl">
+              <div className="absolute inset-0">
+                <img
+                  src="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+                  alt="Background"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gray-300"></div>
+              </div>
+              <div className="relative bg-white/10 backdrop-blur-xl p-12 border border-white/20">
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <h3 className="text-3xl font-bold text-black mb-4">
+                      Ready to transform your power infrastructure?
+                    </h3>
+                    <p className="text-black text-lg mb-6">
+                      Join industry leaders who have already deployed the
+                      BTS2000 Intelligence Platform
+                    </p>
+                    <Link to="/request-demo">
+                      <button className="group bg-[#0AC4E0] text-black px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all flex items-center">
+                        Schedule a Consultation
+                        <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
+                      </button>
+                    </Link>
                   </div>
-                  <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                    <div className="text-3xl font-bold text-[#0AC4E0] mb-2">24/7</div>
-                    <div className="text-sm text-black">Support</div>
-                  </div>
-                  <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                    <div className="text-3xl font-bold text-[#0AC4E0] mb-2">99.99%</div>
-                    <div className="text-sm text-black">Uptime</div>
-                  </div>
-                  <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                    <div className="text-3xl font-bold text-[#0AC4E0] mb-2">ms</div>
-                    <div className="text-sm text-black">Latency</div>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                        5+
+                      </div>
+                      <div className="text-sm text-black">Deployments</div>
+                    </div>
+                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                        24/7
+                      </div>
+                      <div className="text-sm text-black">Support</div>
+                    </div>
+                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                        95.0%
+                      </div>
+                      <div className="text-sm text-black">Uptime</div>
+                    </div>
+                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
+                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                        2000 ms
+                      </div>
+                      <div className="text-sm text-black">Latency</div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
   );
 }
@@ -1046,17 +1091,23 @@ function FeatureCard({ icon, title, description, color, image }) {
       <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <div className={`absolute inset-0 bg-[${color}] opacity-0 group-hover:opacity-5 transition-opacity`}></div>
-      <div className={`w-12 h-12 bg-[${color}]/10 rounded-lg flex items-center justify-center text-[${color}] mb-4 group-hover:scale-110 transition relative z-10`}>
+      <div
+        className={`absolute inset-0 bg-[${color}] opacity-0 group-hover:opacity-5 transition-opacity`}
+      ></div>
+      <div
+        className={`w-12 h-12 bg-[${color}]/10 rounded-lg flex items-center justify-center text-[${color}] mb-4 group-hover:scale-110 transition relative z-10`}
+      >
         {icon}
       </div>
       <h3 className="text-lg font-semibold mb-2 group-hover:text-[${color}] transition relative z-10">
         {title}
       </h3>
       <p className="text-slate-600 text-sm relative z-10">{description}</p>
-      
+
       {/* Colored indicator */}
-      <div className={`absolute bottom-0 left-0 w-full h-1 bg-[${color}] transform scale-x-0 group-hover:scale-x-100 transition-transform`}></div>
+      <div
+        className={`absolute bottom-0 left-0 w-full h-1 bg-[${color}] transform scale-x-0 group-hover:scale-x-100 transition-transform`}
+      ></div>
     </div>
   );
 }
@@ -1067,13 +1118,18 @@ function TechnicalCard({ icon, title, color, image, items }) {
       <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <div className={`w-14 h-14 bg-[${color}] rounded-lg flex items-center justify-center mb-4 text-white group-hover:scale-110 transition shadow-lg relative z-10`}>
+      <div
+        className={`w-14 h-14 bg-[${color}] rounded-lg flex items-center justify-center mb-4 text-white group-hover:scale-110 transition shadow-lg relative z-10`}
+      >
         {icon}
       </div>
       <h3 className="text-xl font-semibold mb-4 relative z-10">{title}</h3>
       <ul className="space-y-3 relative z-10">
         {items.map((item, index) => (
-          <li key={index} className="flex items-center space-x-2 text-slate-300">
+          <li
+            key={index}
+            className="flex items-center space-x-2 text-slate-300"
+          >
             <div className={`w-1.5 h-1.5 rounded-full bg-[${color}]`}></div>
             <span>{item}</span>
           </li>
@@ -1083,14 +1139,26 @@ function TechnicalCard({ icon, title, color, image, items }) {
   );
 }
 
-function InvestmentCard({ icon, title, description, metric, metricLabel, color, image }) {
+function InvestmentCard({
+  icon,
+  title,
+  description,
+  metric,
+  metricLabel,
+  color,
+  image,
+}) {
   return (
     <div className="group bg-white p-8 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-all hover:-translate-y-2 relative overflow-hidden">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <div className={`absolute top-0 right-0 w-24 h-24 bg-[${color}] opacity-10 rounded-bl-full`}></div>
-      <div className={`w-14 h-14 bg-[${color}] rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition shadow-lg relative z-10`}>
+      <div
+        className={`absolute top-0 right-0 w-24 h-24 bg-[${color}] opacity-10 rounded-bl-full`}
+      ></div>
+      <div
+        className={`w-14 h-14 bg-[${color}] rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition shadow-lg relative z-10`}
+      >
         {icon}
       </div>
       <h3 className="text-xl font-semibold mb-2 relative z-10">{title}</h3>
@@ -1105,18 +1173,26 @@ function InvestmentCard({ icon, title, description, metric, metricLabel, color, 
 
 function MetricCard({ title, value, change, color, image }) {
   return (
-    <div className={`bg-[${color}]/10 rounded-xl p-4 border border-white/50 backdrop-blur-sm relative overflow-hidden group`}>
+    <div
+      className={`bg-[${color}]/10 rounded-xl p-4 border border-white/50 backdrop-blur-sm relative overflow-hidden group`}
+    >
       <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="relative z-10">
         <div className="text-sm text-slate-600 mb-1">{title}</div>
         <div className="text-2xl font-bold text-slate-800">{value}</div>
-        <div className={`text-xs ${
-          change.includes('+') ? 'text-emerald-600' : 
-          change.includes('-') ? 'text-red-600' : 
-          `text-[${color}]`
-        }`}>{change}</div>
+        <div
+          className={`text-xs ${
+            change.includes("+")
+              ? "text-emerald-600"
+              : change.includes("-")
+                ? "text-red-600"
+                : `text-[${color}]`
+          }`}
+        >
+          {change}
+        </div>
       </div>
     </div>
   );
@@ -1127,7 +1203,9 @@ function StatusIndicator({ label, status, color }) {
     <div className="flex items-center justify-between">
       <span className="text-slate-600">{label}</span>
       <div className="flex items-center space-x-2">
-        <div className={`w-2 h-2 rounded-full bg-[${color}] animate-pulse`}></div>
+        <div
+          className={`w-2 h-2 rounded-full bg-[${color}] animate-pulse`}
+        ></div>
         <span className={`font-medium text-[${color}]`}>{status}</span>
       </div>
     </div>
@@ -1141,8 +1219,13 @@ function FooterColumn({ title, color, links }) {
       <ul className="space-y-2 text-slate-400 text-sm">
         {links.map((link, index) => (
           <li key={index}>
-            <a href="#" className="hover:text-white transition group flex items-center">
-              <span className={`w-1 h-1 bg-[${color}] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition`}></span>
+            <a
+              href="#"
+              className="hover:text-white transition group flex items-center"
+            >
+              <span
+                className={`w-1 h-1 bg-[${color}] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition`}
+              ></span>
               {link}
             </a>
           </li>
@@ -1152,10 +1235,9 @@ function FooterColumn({ title, color, links }) {
   );
 }
 
-
 // import React ,{ useEffect, useState, useRef } from "react";
 // import { Link } from "react-router-dom";
-// import heroVideo from "../assets/BSDTN.mp4"; 
+// import heroVideo from "../assets/BSDTN.mp4";
 // import aartech from "../assets/aartech.jpg";
 
 // const HeroPage = () => {
@@ -1169,7 +1251,7 @@ function FooterColumn({ title, color, links }) {
 //     if (videoRef.current) {
 //       videoRef.current.load();
 //     }
-    
+
 //     // Check if user has a theme preference
 //     const savedTheme = localStorage.getItem('theme');
 //     if (savedTheme === 'light') {
@@ -1189,7 +1271,7 @@ function FooterColumn({ title, color, links }) {
 //   };
 
 //   const handleVideoError = () => {
-//     console.error("Failed to load video:", heroVideo); 
+//     console.error("Failed to load video:", heroVideo);
 //     setVideoError(true);
 //     setVideoLoaded(false);
 //   };
@@ -1206,79 +1288,79 @@ function FooterColumn({ title, color, links }) {
 
 //   // Theme classes - Video overlay removed from light mode
 //   const themeClasses = {
-//     container: isDarkMode 
-//       ? "text-gray-200 bg-gray-900" 
+//     container: isDarkMode
+//       ? "text-gray-200 bg-gray-900"
 //       : "text-gray-800 bg-gray-50",
 //     heroText: isDarkMode ? "text-white" : "text-gray-800",
 //     heroSubtitle: isDarkMode ? "text-gray-300" : "text-gray-700",
 //     heroDescription: isDarkMode ? "text-gray-400" : "text-gray-600",
-//     badge: isDarkMode 
-//       ? "bg-gray-800 text-blue-400 border-gray-700" 
+//     badge: isDarkMode
+//       ? "bg-gray-800 text-blue-400 border-gray-700"
 //       : "bg-white text-blue-600 border-blue-200 shadow-sm",
 //     badgeDot: "w-2 h-2 bg-green-500 rounded-full mr-2",
 //     title: isDarkMode ? "text-white" : "text-gray-900",
 //     highlight: isDarkMode ? "text-blue-400" : "text-blue-600",
-//     statsCard: isDarkMode 
-//       ? "bg-gray-800/50 border-gray-700" 
+//     statsCard: isDarkMode
+//       ? "bg-gray-800/50 border-gray-700"
 //       : "bg-white border-gray-200 shadow-sm",
 //     statsValue: isDarkMode ? "text-blue-400" : "text-blue-600",
 //     statsLabel: isDarkMode ? "text-gray-400" : "text-gray-600",
-//     buttonPrimary: isDarkMode 
-//       ? "bg-blue-800 text-white border-blue-700 hover:bg-blue-700" 
+//     buttonPrimary: isDarkMode
+//       ? "bg-blue-800 text-white border-blue-700 hover:bg-blue-700"
 //       : "bg-blue-600 text-white border-blue-500 hover:bg-blue-700 shadow-sm hover:shadow",
-//     buttonSecondary: isDarkMode 
-//       ? "bg-gray-800 text-white border-gray-700 hover:bg-gray-700" 
+//     buttonSecondary: isDarkMode
+//       ? "bg-gray-800 text-white border-gray-700 hover:bg-gray-700"
 //       : "bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 shadow-sm hover:shadow",
-//     section: isDarkMode 
-//       ? "bg-gray-900 border-gray-800" 
+//     section: isDarkMode
+//       ? "bg-gray-900 border-gray-800"
 //       : "bg-white border-gray-200",
 //     sectionTitle: isDarkMode ? "text-white" : "text-gray-900",
 //     sectionSubtitle: isDarkMode ? "text-gray-400" : "text-gray-600",
-//     specContainer: isDarkMode 
-//       ? "bg-gray-800 border-gray-700" 
+//     specContainer: isDarkMode
+//       ? "bg-gray-800 border-gray-700"
 //       : "bg-white border-gray-200 shadow-lg",
-//     specHeader: isDarkMode 
-//       ? "bg-gray-900 border-gray-700" 
+//     specHeader: isDarkMode
+//       ? "bg-gray-900 border-gray-700"
 //       : "bg-blue-50 border-blue-200",
 //     specHeaderText: isDarkMode ? "text-white" : "text-gray-900",
 //     specHeaderSubtext: isDarkMode ? "text-blue-400" : "text-blue-700",
-//     specRow: (i, value) => isDarkMode 
-//       ? !value 
-//         ? "bg-gray-900/50 font-bold text-gray-300" 
-//         : "hover:bg-gray-700/30" 
-//       : !value 
-//         ? "bg-gray-50 font-bold text-gray-700" 
+//     specRow: (i, value) => isDarkMode
+//       ? !value
+//         ? "bg-gray-900/50 font-bold text-gray-300"
+//         : "hover:bg-gray-700/30"
+//       : !value
+//         ? "bg-gray-50 font-bold text-gray-700"
 //         : "hover:bg-gray-50",
-//     specText: (i, value) => isDarkMode 
-//       ? !value ? "text-gray-300" : "text-gray-400" 
+//     specText: (i, value) => isDarkMode
+//       ? !value ? "text-gray-300" : "text-gray-400"
 //       : !value ? "text-gray-700" : "text-gray-600",
 //     specValue: isDarkMode ? "text-gray-300" : "text-gray-800",
-//     specFooter: isDarkMode 
-//       ? "bg-gray-900 border-gray-700" 
+//     specFooter: isDarkMode
+//       ? "bg-gray-900 border-gray-700"
 //       : "bg-blue-50 border-blue-200",
 //     specFooterText: isDarkMode ? "text-gray-400" : "text-gray-700",
 //     specFooterHighlight: isDarkMode ? "text-blue-400" : "text-blue-700",
-//     ctaSection: isDarkMode 
-//       ? "bg-gray-800 border-gray-700" 
+//     ctaSection: isDarkMode
+//       ? "bg-gray-800 border-gray-700"
 //       : "bg-gray-50 border-gray-200",
-//     ctaButton: isDarkMode 
-//       ? "bg-gray-700 text-white border-gray-600 hover:bg-gray-600" 
+//     ctaButton: isDarkMode
+//       ? "bg-gray-700 text-white border-gray-600 hover:bg-gray-600"
 //       : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100 shadow-sm hover:shadow",
 //     contactInfo: isDarkMode ? "text-gray-400" : "text-gray-600",
 //     contactTitle: isDarkMode ? "text-gray-300" : "text-gray-800",
-//     scrollIndicator: isDarkMode 
-//       ? "border-gray-700 bg-gray-600" 
+//     scrollIndicator: isDarkMode
+//       ? "border-gray-700 bg-gray-600"
 //       : "border-gray-300 bg-gray-400",
 //     scrollText: "text-gray-500 text-[10px] sm:text-xs uppercase tracking-wider",
-//     logoContainer: isDarkMode 
-//       ? "bg-gray-900/80 backdrop-blur-sm border-blue-700" 
+//     logoContainer: isDarkMode
+//       ? "bg-gray-900/80 backdrop-blur-sm border-blue-700"
 //       : "bg-white/95 backdrop-blur-sm border-blue-300",
 //     // VIDEO OVERLAY CHANGED: No white overlay in light mode
-//     videoOverlay: isDarkMode 
-//       ? "bg-gradient-to-b from-black/70 via-black/50 to-black/70" 
+//     videoOverlay: isDarkMode
+//       ? "bg-gradient-to-b from-black/70 via-black/50 to-black/70"
 //       : "bg-gradient-to-b from-black/30 via-black/20 to-black/30", // Keep dark overlay but lighter
-//     videoFallback: isDarkMode 
-//       ? "bg-gradient-to-br from-gray-900 to-gray-800" 
+//     videoFallback: isDarkMode
+//       ? "bg-gradient-to-br from-gray-900 to-gray-800"
 //       : "bg-gradient-to-br from-gray-800 to-gray-900", // Keep dark fallback
 //     patternOverlay: "absolute inset-0 z-10 opacity-10",
 //     loadingOverlay: isDarkMode ? "bg-gray-900" : "bg-gray-900", // Keep dark loading
@@ -1293,8 +1375,8 @@ function FooterColumn({ title, color, links }) {
 //         <button
 //           onClick={toggleTheme}
 //           className={`p-1.5 sm:p-2 rounded-full ${
-//             isDarkMode 
-//               ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700' 
+//             isDarkMode
+//               ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700'
 //               : 'bg-white hover:bg-gray-100 border border-gray-300 shadow-sm'
 //           } transition-colors duration-300`}
 //           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
@@ -1314,9 +1396,9 @@ function FooterColumn({ title, color, links }) {
 
 //         {/* Aartech Logo - Hidden on small devices, visible on medium and larger */}
 //         <div className={`rounded-lg p-1.5 sm:p-2 border shadow-lg ${themeClasses.logoContainer} hidden md:block`}>
-//           <img 
-//             src={aartech} 
-//             alt="Aartech Logo" 
+//           <img
+//             src={aartech}
+//             alt="Aartech Logo"
 //             className="h-14 sm:h-16 md:h-20 w-auto object-contain"
 //           />
 //         </div>
@@ -1345,7 +1427,7 @@ function FooterColumn({ title, color, links }) {
 //             <div className={`absolute inset-0 ${themeClasses.videoFallback}`} />
 //           )}
 
-//           {/* Loading state */} 
+//           {/* Loading state */}
 //           {!videoLoaded && !videoError && (
 //             <div className={`absolute inset-0 flex items-center justify-center ${themeClasses.loadingOverlay}`}>
 //               <div className="text-center px-4">
@@ -1649,15 +1731,10 @@ function FooterColumn({ title, color, links }) {
 // };
 
 // export default HeroPage;
-    
-
-
-
-
 
 // import React, { useEffect, useState, useRef } from "react";
 // import { Link } from "react-router-dom";
-// import heroVideo from "../assets/BSDTN.mp4"; 
+// import heroVideo from "../assets/BSDTN.mp4";
 // import aartech from "../assets/aartech.jpg";
 
 // const HeroPage = () => {
@@ -1671,7 +1748,7 @@ function FooterColumn({ title, color, links }) {
 //     if (videoRef.current) {
 //       videoRef.current.load();
 //     }
-    
+
 //     const savedTheme = localStorage.getItem('theme');
 //     if (savedTheme === 'light') {
 //       setIsDarkMode(false);
@@ -1690,7 +1767,7 @@ function FooterColumn({ title, color, links }) {
 //   };
 
 //   const handleVideoError = () => {
-//     console.error("Failed to load video:", heroVideo); 
+//     console.error("Failed to load video:", heroVideo);
 //     setVideoError(true);
 //     setVideoLoaded(false);
 //   };
@@ -1746,7 +1823,7 @@ function FooterColumn({ title, color, links }) {
 //   // UPDATED: Replaced with your provided feature descriptions
 //   const keyFeatures = [
 //     "Real-time Monitoring & Analytics",
-//     "Cloud-based Management Platform", 
+//     "Cloud-based Management Platform",
 //     "Industrial Protocol Support",
 //     "Remote Configuration & Control",
 //     "Predictive Maintenance Alerts",
@@ -1756,81 +1833,81 @@ function FooterColumn({ title, color, links }) {
 //   ];
 
 //   const themeClasses = {
-//     container: isDarkMode 
-//       ? "text-gray-100 bg-gray-900" 
+//     container: isDarkMode
+//       ? "text-gray-100 bg-gray-900"
 //       : "text-gray-900 bg-gray-50",
 //     heroText: isDarkMode ? "text-white" : "text-gray-900",
 //     heroSubtitle: isDarkMode ? "text-gray-300" : "text-gray-700",
 //     heroDescription: isDarkMode ? "text-gray-400" : "text-gray-600",
-//     badge: isDarkMode 
-//       ? "bg-gray-800/80 text-blue-400 border-blue-800/50" 
+//     badge: isDarkMode
+//       ? "bg-gray-800/80 text-blue-400 border-blue-800/50"
 //       : "bg-white/95 text-blue-600 border-blue-200 shadow-lg",
 //     badgeDot: "w-2 h-2 bg-green-500 rounded-full mr-2",
 //     title: isDarkMode ? "text-white" : "text-gray-900",
 //     highlight: isDarkMode ? "text-blue-400" : "text-blue-600",
-//     statsCard: isDarkMode 
-//       ? "bg-gray-800/50 border-gray-700/50 hover:bg-gray-800/70" 
+//     statsCard: isDarkMode
+//       ? "bg-gray-800/50 border-gray-700/50 hover:bg-gray-800/70"
 //       : "bg-white/80 border-gray-200 hover:bg-white shadow-lg hover:shadow-xl",
 //     statsValue: isDarkMode ? "text-blue-400" : "text-blue-600",
 //     statsLabel: isDarkMode ? "text-gray-400" : "text-gray-600",
-//     buttonPrimary: isDarkMode 
-//       ? "bg-gradient-to-r from-blue-700 to-blue-600 text-white border-blue-600 hover:from-blue-600 hover:to-blue-500" 
+//     buttonPrimary: isDarkMode
+//       ? "bg-gradient-to-r from-blue-700 to-blue-600 text-white border-blue-600 hover:from-blue-600 hover:to-blue-500"
 //       : "bg-gradient-to-r from-blue-600 to-blue-500 text-white border-blue-500 hover:from-blue-500 hover:to-blue-400 shadow-lg hover:shadow-xl",
-//     buttonSecondary: isDarkMode 
-//       ? "bg-gray-800/50 text-gray-300 border-gray-700 hover:bg-gray-700/50" 
+//     buttonSecondary: isDarkMode
+//       ? "bg-gray-800/50 text-gray-300 border-gray-700 hover:bg-gray-700/50"
 //       : "bg-white text-gray-800 border-gray-300 hover:bg-gray-50 shadow-lg hover:shadow-xl",
-//     section: isDarkMode 
-//       ? "bg-gray-900 border-gray-800" 
+//     section: isDarkMode
+//       ? "bg-gray-900 border-gray-800"
 //       : "bg-white border-gray-200",
 //     sectionTitle: isDarkMode ? "text-white" : "text-gray-900",
 //     sectionSubtitle: isDarkMode ? "text-gray-400" : "text-gray-600",
-//     specContainer: isDarkMode 
-//       ? "bg-gray-800/40 border-gray-700" 
+//     specContainer: isDarkMode
+//       ? "bg-gray-800/40 border-gray-700"
 //       : "bg-white border-gray-200 shadow-xl",
-//     specHeader: isDarkMode 
-//       ? "bg-gradient-to-r from-gray-800 to-gray-900 border-gray-700" 
+//     specHeader: isDarkMode
+//       ? "bg-gradient-to-r from-gray-800 to-gray-900 border-gray-700"
 //       : "bg-gradient-to-r from-blue-50 to-blue-100 border-blue-200",
 //     specHeaderText: isDarkMode ? "text-white" : "text-gray-900",
 //     specHeaderSubtext: isDarkMode ? "text-blue-400" : "text-blue-700",
-//     specCard: isDarkMode 
-//       ? "bg-gray-800/30 border-gray-700/50 hover:border-blue-700/50" 
+//     specCard: isDarkMode
+//       ? "bg-gray-800/30 border-gray-700/50 hover:border-blue-700/50"
 //       : "bg-white border-gray-200 hover:border-blue-200 shadow-lg hover:shadow-xl",
-//     specCardHeader: isDarkMode 
-//       ? "border-gray-700 bg-gray-900/30" 
+//     specCardHeader: isDarkMode
+//       ? "border-gray-700 bg-gray-900/30"
 //       : "border-gray-200 bg-blue-50/50",
 //     specValue: isDarkMode ? "text-gray-300" : "text-gray-800",
 //     specHighlight: isDarkMode ? "text-green-400" : "text-green-600",
-//     ctaSection: isDarkMode 
-//       ? "bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700" 
+//     ctaSection: isDarkMode
+//       ? "bg-gradient-to-br from-gray-900 to-gray-800 border-gray-700"
 //       : "bg-gradient-to-br from-gray-50 to-white border-gray-200 shadow-xl",
-//     ctaButton: isDarkMode 
-//       ? "bg-gray-800 text-white border-gray-700 hover:bg-gray-700" 
+//     ctaButton: isDarkMode
+//       ? "bg-gray-800 text-white border-gray-700 hover:bg-gray-700"
 //       : "bg-white text-gray-800 border-gray-300 hover:bg-gray-100 shadow-lg hover:shadow-xl",
 //     contactInfo: isDarkMode ? "text-gray-400" : "text-gray-600",
 //     contactTitle: isDarkMode ? "text-gray-300" : "text-gray-800",
-//     scrollIndicator: isDarkMode 
-//       ? "border-gray-700 bg-gray-600" 
+//     scrollIndicator: isDarkMode
+//       ? "border-gray-700 bg-gray-600"
 //       : "border-gray-300 bg-gray-400",
 //     scrollText: "text-gray-500 text-xs uppercase tracking-wider",
-//     logoContainer: isDarkMode 
-//       ? "bg-gray-900/80 backdrop-blur-lg border-blue-800/50" 
+//     logoContainer: isDarkMode
+//       ? "bg-gray-900/80 backdrop-blur-lg border-blue-800/50"
 //       : "bg-white/95 backdrop-blur-lg border-blue-300 shadow-2xl",
-//     videoOverlay: isDarkMode 
-//       ? "bg-gradient-to-br from-gray-900/85 via-gray-900/70 to-gray-900/85" 
+//     videoOverlay: isDarkMode
+//       ? "bg-gradient-to-br from-gray-900/85 via-gray-900/70 to-gray-900/85"
 //       : "bg-gradient-to-br from-white/95 via-white/90 to-white/95",
-//     videoFallback: isDarkMode 
-//       ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" 
+//     videoFallback: isDarkMode
+//       ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
 //       : "bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100",
 //     loadingOverlay: isDarkMode ? "bg-gray-900/95" : "bg-gray-900/95",
 //     loadingText: isDarkMode ? "text-gray-400" : "text-gray-300",
-//     navItem: isDarkMode 
-//       ? "text-gray-400 hover:text-white" 
+//     navItem: isDarkMode
+//       ? "text-gray-400 hover:text-white"
 //       : "text-gray-600 hover:text-gray-900",
-//     navActive: isDarkMode 
-//       ? "text-blue-400" 
+//     navActive: isDarkMode
+//       ? "text-blue-400"
 //       : "text-blue-600",
-//     featureCard: isDarkMode 
-//       ? "bg-gray-800/40 hover:bg-gray-800/60 border-gray-700/30" 
+//     featureCard: isDarkMode
+//       ? "bg-gray-800/40 hover:bg-gray-800/60 border-gray-700/30"
 //       : "bg-white hover:bg-gray-50 border-gray-200 shadow-lg hover:shadow-xl"
 //   };
 
@@ -1860,7 +1937,7 @@ function FooterColumn({ title, color, links }) {
 //             <div className={`absolute inset-0 ${themeClasses.videoFallback}`} />
 //           )}
 
-//           {/* Loading state */} 
+//           {/* Loading state */}
 //           {!videoLoaded && !videoError && (
 //             <div className={`absolute inset-0 flex items-center justify-center ${themeClasses.loadingOverlay} backdrop-blur-sm`}>
 //               <div className="text-center">
@@ -1886,8 +1963,8 @@ function FooterColumn({ title, color, links }) {
 //         <button
 //           onClick={toggleTheme}
 //           className={`fixed top-24 right-6 z-50 p-3 rounded-full transition-all ${
-//             isDarkMode 
-//               ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700' 
+//             isDarkMode
+//               ? 'bg-gray-800 hover:bg-gray-700 border border-gray-700'
 //               : 'bg-white hover:bg-gray-100 border border-gray-300 shadow-lg'
 //           }`}
 //           aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
@@ -1912,7 +1989,7 @@ function FooterColumn({ title, color, links }) {
 //         {/* Content */}
 //         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8">
 //           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
+
 //             {/* Left Column - Main Content */}
 //             <div className="space-y-10">
 //               {/* Status Badge */}
@@ -1932,12 +2009,12 @@ function FooterColumn({ title, color, links }) {
 //                     Industrial Bus Transfer System
 //                   </span>
 //                 </h1>
-                
+
 //                 <div className={`h-1 w-24 ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'}`}></div>
-                
+
 //                 <p className={`text-xl leading-relaxed max-w-2xl ${themeClasses.heroDescription}`}>
-//                   Advanced power management platform with enterprise-grade reliability, 
-//                   real-time monitoring, and industrial protocol support for mission-critical 
+//                   Advanced power management platform with enterprise-grade reliability,
+//                   real-time monitoring, and industrial protocol support for mission-critical
 //                   infrastructure.
 //                 </p>
 //               </div>
@@ -1971,7 +2048,7 @@ function FooterColumn({ title, color, links }) {
 
 //             {/* Right Column - Performance Stats */}
 //             <div className={`rounded-3xl p-10 backdrop-blur-lg ${themeClasses.specContainer}`}>
-              
+
 //               {/* Performance Stats Grid */}
 //               <div className="grid grid-cols-2 gap-8 mb-10">
 //                 {performanceStats.map((stat, index) => (
@@ -1991,14 +2068,14 @@ function FooterColumn({ title, color, links }) {
 
 //               {/* Aartech Branding */}
 //               <div className={`pt-10 mt-10 border-t ${isDarkMode ? 'border-gray-700/50' : 'border-gray-200/50'}`}>
-               
+
 //                 <div className={`p-8 rounded-2xl ${isDarkMode ? 'bg-gray-900/40' : 'bg-gray-50'} rounded-lg p-3 border shadow-2xl ${themeClasses.logoContainer} hidden md:block`}>
-//                   <img 
-//                     src={aartech} 
-//                     alt="Aartech Logo" 
+//                   <img
+//                     src={aartech}
+//                     alt="Aartech Logo"
 //                     className="h-32 w-auto mx-auto object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
 //                   />
-                  
+
 //                 </div>
 //               </div>
 //             </div>
@@ -2017,7 +2094,7 @@ function FooterColumn({ title, color, links }) {
 //       {/* Specifications Section */}
 //       <section id="specifications" className="py-24 px-4 sm:px-6 lg:px-8">
 //         <div className="max-w-7xl mx-auto">
-          
+
 //           {/* Section Header */}
 //           <div className="text-center mb-20">
 //             <div className={`inline-block px-6 py-2 rounded-full mb-6 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'}`}>
@@ -2037,7 +2114,7 @@ function FooterColumn({ title, color, links }) {
 //           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 //             {Object.entries(specifications).map(([category, items], categoryIndex) => (
 //               <div key={categoryIndex} className={`rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-2 ${themeClasses.specCard}`}>
-                
+
 //                 {/* Category Header */}
 //                 <div className={`p-6 border-b ${themeClasses.specCardHeader}`}>
 //                   <div className="flex items-center">
@@ -2069,14 +2146,14 @@ function FooterColumn({ title, color, links }) {
 //           </div>
 
 //           {/* Certifications */}
-         
+
 //         </div>
 //       </section>
 
 //       {/* Features Section - UPDATED: Now shows your feature descriptions */}
 //       <section id="features" className={`py-24 px-4 sm:px-6 lg:px-8 ${isDarkMode ? 'bg-gray-800/20' : 'bg-white'}`}>
 //         <div className="max-w-7xl mx-auto">
-          
+
 //           {/* Section Header */}
 //           <div className="text-center mb-20">
 //             <h2 className={`text-4xl sm:text-5xl font-bold mb-6 ${themeClasses.sectionTitle}`}>
@@ -2101,7 +2178,7 @@ function FooterColumn({ title, color, links }) {
 //                 "Ensure data and device protection with encrypted communication, role-based access control, and secure authentication.",
 //                 "Built to handle growing device networks — easily scale from a few units to thousands without performance loss."
 //               ];
-              
+
 //               return (
 //                 <div key={index} className={`p-8 rounded-2xl transition-all duration-300 hover:-translate-y-2 ${themeClasses.featureCard}`}>
 //                   <div className="flex items-start space-x-4">
@@ -2205,7 +2282,7 @@ function FooterColumn({ title, color, links }) {
 //                 © {new Date().getFullYear()} Aartech Solonics Ltd.
 //               </div>
 //             </div>
-            
+
 //             <div className="flex space-x-8">
 //               <Link to="/about" className={`text-sm font-medium ${themeClasses.navItem}`}>
 //                 About Us

@@ -90,7 +90,7 @@ ${currentDate}
   const themeColor = "#0AC4E0";
 
   return (
-    <div className="min-h-screen bg-gray-300 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-10">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4 sm:px-6 py-8 sm:py-10">
       <div className="max-w-3xl w-full bg-gray-100 rounded-2xl shadow-xl p-6 sm:p-8 md:p-10 border border-gray-200">
         {/* Success Message */}
         {isSubmitted && (

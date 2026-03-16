@@ -1297,15 +1297,15 @@ export default function About() {
       stats: "50ms latency"
     },
     {
-      title: "Lightweight SCADA",
-      description: "Enterprise-grade SCADA functionality without the complexity and cost of traditional systems.",
-      stats: "95% lighter"
-    },
-    {
-      title: "Predictive Analytics",
-      description: "Advanced algorithms detect anomalies and predict failures before they impact operations.",
-      stats: "30% faster detection"
-    },
+  title: "Role-Based Access Control",
+  description: "Granular permissions with multi-factor authentication.",
+  stats: "2 step verification"
+},
+   {
+  title: "Mobile Accessibility",
+  description: "Monitor your BTS-2000 fleet from anywhere with responsive mobile design.",
+  stats: "100% responsive"
+},
     {
       title: "Enterprise Security",
       description: "Industrial-grade security with encrypted communications and multi-layer protection.",
@@ -1324,10 +1324,10 @@ export default function About() {
   ];
 
   const stats = [
-    { value: "99.9%", label: "System Uptime", description: "Guaranteed reliability" },
+    { value: "24/7", label: "Support", description: "Expert assistance" },
     { value: "<200ms", label: "Response Time", description: "Near real-time updates" },
     { value: "24/7", label: "Monitoring", description: "Continuous operation" },
-    { value: "70%", label: "Cost Reduction", description: "Vs traditional SCADA" }
+    { value: "99.9%", label: "System Uptime", description: "Reliability you can trust" },
   ];
 
   const advantages = [
@@ -1440,10 +1440,10 @@ export default function About() {
                       Aartech Solonics' Bus Transfer System 2000, it provides critical operational insights through 
                       an intuitive, modern interface.
                     </p>
-                    <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
+                    {/* <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
                       Our platform replaces complex legacy systems with a streamlined solution that ensures 
                       uninterrupted power continuity in mission-critical industrial facilities.
-                    </p>
+                    </p> */}
                   </div>
                   
                   {/* Decorative line */}
@@ -1566,14 +1566,14 @@ export default function About() {
                     {advantage.description}
                   </p>
                   
-                  <div className="mt-auto pt-4 md:pt-6 border-t border-gray-100">
+                  {/* <div className="mt-auto pt-4 md:pt-6 border-t border-gray-100">
                     <div className="flex items-center text-[#0AC4E0] font-bold group/link">
                       <span className="text-sm md:text-base group-hover/link:translate-x-1 transition-transform duration-300">Learn more</span>
                       <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 transform group-hover/link:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                       </svg>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             ))}
@@ -1682,34 +1682,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-8 md:py-10 bg-gradient-to-br from-gray-900 to-[#0A8B9F] border-t border-gray-800/50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: `linear-gradient(45deg, #0AC4E0 1px, transparent 1px)`,
-          backgroundSize: "30px 30px",
-        }}></div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
-            <div className="flex items-center space-x-3 md:space-x-4 group">
-              <div className="bg-gradient-to-br from-[#0AC4E0] to-[#0A8B9F] w-8 h-8 md:w-10 md:h-10 rounded-xl flex items-center justify-center shadow-lg transform group-hover:rotate-12 transition-transform duration-500">
-                <span className="text-base md:text-lg font-black text-white">TS</span>
-              </div>
-              <div>
-                <div className="text-lg md:text-xl font-black text-white tracking-tight">TransSync</div>
-                <div className="text-xs md:text-sm text-white/80 font-medium">Industrial Monitoring Platform</div>
-              </div>
-            </div>
-            
-            <div className="text-center md:text-right">
-              <div className="text-gray-300 text-xs md:text-sm font-medium">© {new Date().getFullYear()} Aartech Solonics Limited. All rights reserved.</div>
-              <div className="text-[#0AC4E0]/80 text-xs md:text-sm mt-1 font-medium">
-                BTS-2000 Monitoring System v2.0
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+   
 
       {/* Global Styles for custom animations */}
       <style jsx>{`
