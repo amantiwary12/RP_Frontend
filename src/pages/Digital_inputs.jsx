@@ -612,7 +612,7 @@ const DIDigitalInput = () => {
   }, [autoRefresh]);
 
   const getStatusColor = (status) => {
-    return status ? 'bg-green-500' : 'bg-red-500';
+    return status ? 'bg-emerald-500' : 'bg-red-500';
   };
 
   const getStatusText = (status) => {
@@ -620,7 +620,7 @@ const DIDigitalInput = () => {
   };
 
   const getAlarmColor = (alarm) => {
-    return alarm ? 'bg-red-500' : 'bg-green-500';
+    return alarm ? 'bg-red-500' : 'bg-emerald-500';
   };
 
   const getAlarmText = (alarm) => {
@@ -630,10 +630,10 @@ const DIDigitalInput = () => {
   const getGroupColor = (group) => {
     switch (group) {
       case 'protection': return 'bg-red-500/20 text-red-400';
-      case 'status': return 'bg-blue-500/20 text-blue-400';
+      case 'status': return 'bg-amber-500/20 text-amber-400';
       case 'control': return 'bg-yellow-500/20 text-yellow-400';
-      case 'safety': return 'bg-green-500/20 text-green-400';
-      default: return 'bg-gray-800 text-gray-400';
+      case 'safety': return 'bg-emerald-500/20 text-emerald-400';
+      default: return 'bg-slate-800 text-slate-400';
     }
   };
 
@@ -647,19 +647,19 @@ const DIDigitalInput = () => {
 
   const getQualityColor = (quality) => {
     switch (quality) {
-      case 'good': return 'bg-green-500/20 text-green-400';
+      case 'good': return 'bg-emerald-500/20 text-emerald-400';
       case 'fair': return 'bg-yellow-500/20 text-yellow-400';
       case 'poor': return 'bg-red-500/20 text-red-400';
-      default: return 'bg-gray-800 text-gray-400';
+      default: return 'bg-slate-800 text-slate-400';
     }
   };
 
   const getTrendColor = (trend) => {
     switch (trend) {
       case 'rising': return 'text-red-400';
-      case 'falling': return 'text-blue-400';
-      case 'stable': return 'text-green-400';
-      default: return 'text-gray-400';
+      case 'falling': return 'text-amber-400';
+      case 'stable': return 'text-emerald-400';
+      default: return 'text-slate-400';
     }
   };
 
@@ -723,28 +723,28 @@ const DIDigitalInput = () => {
   const filteredInputs = getFilteredInputs();
 
   return (
-    <div className="min-h-screen bg-gray-950 text-gray-100">
+    <div className="min-h-screen bg-slate-950 text-slate-200">
       {/* Header */}
-      <header className="bg-gray-900 border-b border-gray-800 px-6 py-4">
+      <header className="bg-slate-900 border-b border-slate-800 px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center mr-3">
-              <span className="text-white font-bold text-lg">DI</span>
+            <div className="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center mr-3">
+              <span className="text-slate-950 font-bold text-lg">DI</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold tracking-tight">DIGITAL INPUT MONITORING</h1>
-              <p className="text-sm text-gray-400">Real-time Status Monitoring & Alarm Management</p>
+              <h1 className="text-xl font-bold tracking-tight text-white">DIGITAL INPUT MONITORING</h1>
+              <p className="text-sm text-slate-400">Real-time Status Monitoring & Alarm Management</p>
             </div>
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="flex items-center bg-gray-800 rounded-lg px-3 py-2">
-              <span className="text-sm text-gray-400 mr-2">TIME:</span>
-              <span className="text-sm font-mono">{new Date().toLocaleTimeString()}</span>
+            <div className="flex items-center bg-slate-800 rounded-lg px-3 py-2">
+              <span className="text-sm text-slate-400 mr-2">TIME:</span>
+              <span className="text-sm font-mono text-slate-200">{new Date().toLocaleTimeString()}</span>
             </div>
-            <button 
+            <button
               onClick={() => setAutoRefresh(!autoRefresh)}
-              className={`px-4 py-2 rounded-lg border text-sm font-medium ${autoRefresh ? 'bg-green-900/30 border-green-700 text-green-400' : 'bg-gray-800 border-gray-700 text-gray-400'}`}
+              className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors ${autoRefresh ? 'bg-emerald-900/30 border-emerald-600/60 text-emerald-400' : 'bg-slate-800 border-slate-700 text-slate-400'}`}
             >
               {autoRefresh ? 'AUTO REFRESH ON' : 'AUTO REFRESH OFF'}
             </button>
@@ -754,10 +754,10 @@ const DIDigitalInput = () => {
 
       <div className="flex">
         {/* Sidebar - Filters and Statistics */}
-        <aside className="w-80 border-r border-gray-800 bg-gray-900/50 h-[calc(100vh-73px)] overflow-y-auto">
-          <div className="p-4 border-b border-gray-800">
-            <h2 className="text-lg font-bold mb-4">FILTERS & CONTROLS</h2>
-            
+        <aside className="w-80 border-r border-slate-800 bg-slate-900/50 h-[calc(100vh-73px)] overflow-y-auto">
+          <div className="p-4 border-b border-slate-800">
+            <h2 className="text-lg font-bold mb-4 text-white">FILTERS & CONTROLS</h2>
+
             {/* Search */}
             <div className="mb-4">
               <input
@@ -765,19 +765,19 @@ const DIDigitalInput = () => {
                 placeholder="SEARCH DIGITAL INPUTS..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase tracking-wider"
+                className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500 uppercase tracking-wider"
               />
             </div>
 
             {/* Group Filter */}
             <div className="mb-4">
-              <h3 className="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wider">GROUP FILTER</h3>
+              <h3 className="text-sm font-medium text-slate-400 mb-2 uppercase tracking-wider">GROUP FILTER</h3>
               <div className="flex flex-wrap gap-2">
                 {['all', 'protection', 'status', 'control', 'safety'].map((group) => (
                   <button
                     key={group}
                     onClick={() => setGroupFilter(group)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider ${groupFilter === group ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider transition-colors ${groupFilter === group ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
                   >
                     {group === 'all' ? 'ALL GROUPS' : group}
                   </button>
@@ -787,13 +787,13 @@ const DIDigitalInput = () => {
 
             {/* Alarm Filter */}
             <div className="mb-4">
-              <h3 className="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wider">ALARM FILTER</h3>
+              <h3 className="text-sm font-medium text-slate-400 mb-2 uppercase tracking-wider">ALARM FILTER</h3>
               <div className="flex flex-wrap gap-2">
                 {['all', 'alarm', 'normal'].map((alarm) => (
                   <button
                     key={alarm}
                     onClick={() => setAlarmFilter(alarm)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider ${alarmFilter === alarm ? 'bg-red-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider transition-colors ${alarmFilter === alarm ? 'bg-red-600 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
                   >
                     {alarm === 'all' ? 'ALL STATUS' : alarm === 'alarm' ? 'ALARMS ONLY' : 'NORMAL ONLY'}
                   </button>
@@ -803,13 +803,13 @@ const DIDigitalInput = () => {
 
             {/* Status Filter */}
             <div className="mb-4">
-              <h3 className="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wider">STATUS FILTER</h3>
+              <h3 className="text-sm font-medium text-slate-400 mb-2 uppercase tracking-wider">STATUS FILTER</h3>
               <div className="flex flex-wrap gap-2">
                 {['all', 'active', 'inactive'].map((status) => (
                   <button
                     key={status}
                     onClick={() => setFilterStatus(status)}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider ${filterStatus === status ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider transition-colors ${filterStatus === status ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
                   >
                     {status === 'all' ? 'ALL STATUS' : status.toUpperCase()}
                   </button>
@@ -819,17 +819,17 @@ const DIDigitalInput = () => {
 
             {/* View Mode */}
             <div className="mb-6">
-              <h3 className="text-sm font-medium text-gray-400 mb-2 uppercase tracking-wider">VIEW MODE</h3>
+              <h3 className="text-sm font-medium text-slate-400 mb-2 uppercase tracking-wider">VIEW MODE</h3>
               <div className="flex gap-2">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`flex-1 px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}
+                  className={`flex-1 px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider transition-colors ${viewMode === 'grid' ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
                 >
                   GRID VIEW
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`flex-1 px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider ${viewMode === 'list' ? 'bg-blue-600 text-white' : 'bg-gray-800 text-gray-400 hover:bg-gray-700'}`}
+                  className={`flex-1 px-3 py-1.5 rounded-lg text-xs font-medium uppercase tracking-wider transition-colors ${viewMode === 'list' ? 'bg-amber-500 text-slate-950' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}`}
                 >
                   LIST VIEW
                 </button>
@@ -837,39 +837,39 @@ const DIDigitalInput = () => {
             </div>
 
             {/* Statistics */}
-            <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4">
-              <h3 className="text-sm font-bold mb-3 uppercase tracking-wider">SYSTEM STATISTICS</h3>
+            <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4">
+              <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-white">SYSTEM STATISTICS</h3>
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-400">TOTAL INPUTS</span>
-                  <span className="font-bold font-mono">{statistics.total}</span>
+                  <span className="text-sm text-slate-400">TOTAL INPUTS</span>
+                  <span className="font-bold font-mono text-slate-200">{statistics.total}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-400">ACTIVE INPUTS</span>
-                  <span className="font-bold font-mono text-green-400">{statistics.active}</span>
+                  <span className="text-sm text-slate-400">ACTIVE INPUTS</span>
+                  <span className="font-bold font-mono text-emerald-400">{statistics.active}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-400">ALARM INPUTS</span>
+                  <span className="text-sm text-slate-400">ALARM INPUTS</span>
                   <span className="font-bold font-mono text-red-400">{statistics.alarms}</span>
                 </div>
-                <div className="pt-2 border-t border-gray-700">
-                  <div className="text-xs text-gray-500 mb-1 uppercase tracking-wider">GROUP DISTRIBUTION</div>
+                <div className="pt-2 border-t border-slate-700">
+                  <div className="text-xs text-slate-500 mb-1 uppercase tracking-wider">GROUP DISTRIBUTION</div>
                   <div className="space-y-1">
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-red-400">PROTECTION</span>
-                      <span className="text-xs font-bold">{statistics.protection}</span>
+                      <span className="text-xs font-bold text-slate-200">{statistics.protection}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-xs text-blue-400">STATUS</span>
-                      <span className="text-xs font-bold">{statistics.status}</span>
+                      <span className="text-xs text-amber-400">STATUS</span>
+                      <span className="text-xs font-bold text-slate-200">{statistics.status}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <span className="text-xs text-yellow-400">CONTROL</span>
-                      <span className="text-xs font-bold">{statistics.control}</span>
+                      <span className="text-xs font-bold text-slate-200">{statistics.control}</span>
                     </div>
                     <div className="flex justify-between items-center">
-                      <span className="text-xs text-green-400">SAFETY</span>
-                      <span className="text-xs font-bold">{statistics.safety}</span>
+                      <span className="text-xs text-emerald-400">SAFETY</span>
+                      <span className="text-xs font-bold text-slate-200">{statistics.safety}</span>
                     </div>
                   </div>
                 </div>
@@ -880,31 +880,31 @@ const DIDigitalInput = () => {
           {/* Selected Input Details */}
           {selectedInput && (
             <div className="p-4">
-              <h3 className="text-sm font-bold mb-3 uppercase tracking-wider">SELECTED INPUT DETAILS</h3>
-              <div className="bg-gray-800/50 rounded-lg border border-gray-700 p-4 space-y-3">
+              <h3 className="text-sm font-bold mb-3 uppercase tracking-wider text-white">SELECTED INPUT DETAILS</h3>
+              <div className="bg-slate-800/50 rounded-lg border border-slate-700 p-4 space-y-3">
                 <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">INPUT NAME</div>
-                  <div className="font-bold text-sm truncate">{selectedInput.name}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">INPUT NAME</div>
+                  <div className="font-bold text-sm truncate text-slate-200">{selectedInput.name}</div>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">STATUS</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">STATUS</div>
                   <div className="flex items-center">
                     <div className={`w-2 h-2 rounded-full mr-2 ${getStatusColor(selectedInput.status)}`}></div>
-                    <span className="text-sm font-bold">{getStatusText(selectedInput.status)}</span>
+                    <span className="text-sm font-bold text-slate-200">{getStatusText(selectedInput.status)}</span>
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">ALARM STATUS</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">ALARM STATUS</div>
                   <div className="flex items-center">
                     <div className={`w-2 h-2 rounded-full mr-2 ${getAlarmColor(selectedInput.alarm)}`}></div>
-                    <span className={`text-sm font-bold ${selectedInput.alarm ? 'text-red-400' : 'text-green-400'}`}>
+                    <span className={`text-sm font-bold ${selectedInput.alarm ? 'text-red-400' : 'text-emerald-400'}`}>
                       {getAlarmText(selectedInput.alarm)}
                     </span>
                   </div>
                 </div>
                 <div>
-                  <div className="text-xs text-gray-500 uppercase tracking-wider">LAST UPDATE</div>
-                  <div className="text-xs font-mono">{formatDate(selectedInput.timestamp)}</div>
+                  <div className="text-xs text-slate-500 uppercase tracking-wider">LAST UPDATE</div>
+                  <div className="text-xs font-mono text-slate-300">{formatDate(selectedInput.timestamp)}</div>
                 </div>
               </div>
             </div>
@@ -917,17 +917,17 @@ const DIDigitalInput = () => {
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-xl font-bold">DIGITAL INPUT STATUS</h2>
-                <p className="text-sm text-gray-400">
+                <h2 className="text-xl font-bold text-white">DIGITAL INPUT STATUS</h2>
+                <p className="text-sm text-slate-400">
                   Showing {filteredInputs.length} of {digitalInputs.length} inputs
                   {searchQuery && ` • Searching: "${searchQuery}"`}
                 </p>
               </div>
               <div className="flex items-center space-x-3">
-                <button className="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg border border-gray-700 text-sm font-medium uppercase tracking-wider">
+                <button className="px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg border border-slate-700 text-sm font-medium uppercase tracking-wider text-slate-200 transition-colors">
                   EXPORT DATA
                 </button>
-                <button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-sm font-bold uppercase tracking-wider">
+                <button className="px-4 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg text-sm font-bold uppercase tracking-wider transition-colors">
                   PRINT REPORT
                 </button>
               </div>
@@ -935,25 +935,25 @@ const DIDigitalInput = () => {
 
             {/* Status Summary Cards */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-              <div className="bg-gray-900 rounded-xl border border-gray-800 p-4">
-                <div className="text-sm text-gray-400 mb-1 uppercase tracking-wider">TOTAL INPUTS</div>
-                <div className="text-2xl font-bold font-mono">{statistics.total}</div>
-                <div className="text-xs text-gray-500 mt-1">MONITORED POINTS</div>
+              <div className="bg-slate-900 rounded-xl border border-slate-800 p-4">
+                <div className="text-sm text-slate-400 mb-1 uppercase tracking-wider">TOTAL INPUTS</div>
+                <div className="text-2xl font-bold font-mono text-white">{statistics.total}</div>
+                <div className="text-xs text-slate-500 mt-1">MONITORED POINTS</div>
               </div>
-              <div className="bg-gray-900 rounded-xl border border-gray-800 p-4">
-                <div className="text-sm text-gray-400 mb-1 uppercase tracking-wider">ACTIVE INPUTS</div>
-                <div className="text-2xl font-bold font-mono text-green-400">{statistics.active}</div>
-                <div className="text-xs text-green-500 mt-1">{(statistics.active / statistics.total * 100).toFixed(1)}% OF TOTAL</div>
+              <div className="bg-slate-900 rounded-xl border border-slate-800 p-4">
+                <div className="text-sm text-slate-400 mb-1 uppercase tracking-wider">ACTIVE INPUTS</div>
+                <div className="text-2xl font-bold font-mono text-emerald-400">{statistics.active}</div>
+                <div className="text-xs text-emerald-500 mt-1">{(statistics.active / statistics.total * 100).toFixed(1)}% OF TOTAL</div>
               </div>
-              <div className="bg-gray-900 rounded-xl border border-gray-800 p-4">
-                <div className="text-sm text-gray-400 mb-1 uppercase tracking-wider">ALARM INPUTS</div>
+              <div className="bg-slate-900 rounded-xl border border-slate-800 p-4">
+                <div className="text-sm text-slate-400 mb-1 uppercase tracking-wider">ALARM INPUTS</div>
                 <div className="text-2xl font-bold font-mono text-red-400">{statistics.alarms}</div>
                 <div className="text-xs text-red-500 mt-1">REQUIRE ATTENTION</div>
               </div>
-              <div className="bg-gray-900 rounded-xl border border-gray-800 p-4">
-                <div className="text-sm text-gray-400 mb-1 uppercase tracking-wider">LAST UPDATE</div>
-                <div className="text-xl font-bold font-mono">{new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
-                <div className="text-xs text-gray-500 mt-1">REAL-TIME MONITORING</div>
+              <div className="bg-slate-900 rounded-xl border border-slate-800 p-4">
+                <div className="text-sm text-slate-400 mb-1 uppercase tracking-wider">LAST UPDATE</div>
+                <div className="text-xl font-bold font-mono text-white">{new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</div>
+                <div className="text-xs text-slate-500 mt-1">REAL-TIME MONITORING</div>
               </div>
             </div>
 
@@ -961,10 +961,10 @@ const DIDigitalInput = () => {
             {loading ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[1, 2, 3, 4, 5, 6].map(i => (
-                  <div key={i} className="animate-pulse bg-gray-800 rounded-lg p-6">
-                    <div className="h-4 bg-gray-700 rounded w-3/4 mb-4"></div>
-                    <div className="h-3 bg-gray-700 rounded w-1/2 mb-2"></div>
-                    <div className="h-3 bg-gray-700 rounded w-2/3"></div>
+                  <div key={i} className="animate-pulse bg-slate-800 rounded-lg p-6">
+                    <div className="h-4 bg-slate-700 rounded w-3/4 mb-4"></div>
+                    <div className="h-3 bg-slate-700 rounded w-1/2 mb-2"></div>
+                    <div className="h-3 bg-slate-700 rounded w-2/3"></div>
                   </div>
                 ))}
               </div>
@@ -974,25 +974,25 @@ const DIDigitalInput = () => {
                   <div
                     key={di.id}
                     onClick={() => setSelectedInput(di)}
-                    className={`bg-gray-900 rounded-xl border ${selectedInput?.id === di.id ? 'border-blue-500 border-2' : 'border-gray-800'} p-4 cursor-pointer transition-all hover:bg-gray-800/50 ${viewMode === 'list' ? 'flex items-center justify-between' : ''}`}
+                    className={`bg-slate-900 rounded-xl border ${selectedInput?.id === di.id ? 'border-amber-500 border-2' : 'border-slate-800'} p-4 cursor-pointer transition-colors hover:bg-slate-800/50 ${viewMode === 'list' ? 'flex items-center justify-between' : ''}`}
                   >
                     <div className={viewMode === 'list' ? 'flex-1' : ''}>
                       {/* Header */}
                       <div className="flex items-start justify-between mb-3">
                         <div>
                           <div className="flex items-center space-x-2 mb-1">
-                            <span className="font-mono text-sm font-bold">{di.id}</span>
+                            <span className="font-mono text-sm font-bold text-slate-200">{di.id}</span>
                             <span className={`px-2 py-0.5 rounded text-xs font-bold ${getGroupColor(di.group)}`}>
                               {getGroupText(di.group)}
                             </span>
                           </div>
-                          <h3 className="font-bold text-sm truncate">{di.name}</h3>
+                          <h3 className="font-bold text-sm truncate text-white">{di.name}</h3>
                         </div>
                         <div className="flex flex-col items-end">
-                          <div className={`px-2 py-1 rounded text-xs font-bold ${di.alarm ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'}`}>
+                          <div className={`px-2 py-1 rounded text-xs font-bold ${di.alarm ? 'bg-red-500/20 text-red-400' : 'bg-emerald-500/20 text-emerald-400'}`}>
                             {getAlarmText(di.alarm)}
                           </div>
-                          <div className="text-xs text-gray-500 mt-1 font-mono">{di.address}</div>
+                          <div className="text-xs text-slate-500 mt-1 font-mono">{di.address}</div>
                         </div>
                       </div>
 
@@ -1000,13 +1000,13 @@ const DIDigitalInput = () => {
                       <div className="flex items-center space-x-4 mb-3">
                         <div className="flex items-center">
                           <div className={`w-3 h-3 rounded-full mr-2 ${getStatusColor(di.status)}`}></div>
-                          <span className="text-xs font-bold">{getStatusText(di.status)}</span>
+                          <span className="text-xs font-bold text-slate-200">{getStatusText(di.status)}</span>
                         </div>
-                        <div className="text-xs text-gray-500">|</div>
+                        <div className="text-xs text-slate-500">|</div>
                         <div className={`text-xs px-2 py-1 rounded ${getQualityColor(di.quality)}`}>
                           {di.quality.toUpperCase()}
                         </div>
-                        <div className="text-xs text-gray-500">|</div>
+                        <div className="text-xs text-slate-500">|</div>
                         <div className={`text-xs ${getTrendColor(di.trend)}`}>
                           {di.trend.toUpperCase()}
                         </div>
@@ -1014,24 +1014,24 @@ const DIDigitalInput = () => {
 
                       {/* Details */}
                       <div className="space-y-2">
-                        <div className="text-xs text-gray-400 line-clamp-2">{di.description}</div>
-                        
+                        <div className="text-xs text-slate-400 line-clamp-2">{di.description}</div>
+
                         <div className="grid grid-cols-2 gap-2 text-xs">
                           <div>
-                            <div className="text-gray-500 uppercase tracking-wider">LOCATION</div>
-                            <div className="font-medium truncate">{di.location}</div>
+                            <div className="text-slate-500 uppercase tracking-wider">LOCATION</div>
+                            <div className="font-medium truncate text-slate-300">{di.location}</div>
                           </div>
                           <div>
-                            <div className="text-gray-500 uppercase tracking-wider">MODULE</div>
-                            <div className="font-medium font-mono">{di.module}</div>
+                            <div className="text-slate-500 uppercase tracking-wider">MODULE</div>
+                            <div className="font-medium font-mono text-slate-300">{di.module}</div>
                           </div>
                           <div>
-                            <div className="text-gray-500 uppercase tracking-wider">CHANNEL</div>
-                            <div className="font-medium font-mono">{di.channel}</div>
+                            <div className="text-slate-500 uppercase tracking-wider">CHANNEL</div>
+                            <div className="font-medium font-mono text-slate-300">{di.channel}</div>
                           </div>
                           <div>
-                            <div className="text-gray-500 uppercase tracking-wider">STATE</div>
-                            <div className="font-medium font-mono">
+                            <div className="text-slate-500 uppercase tracking-wider">STATE</div>
+                            <div className="font-medium font-mono text-slate-300">
                               {di.currentState} ({di.normalState === di.currentState ? 'NORMAL' : 'ABNORMAL'})
                             </div>
                           </div>
@@ -1040,14 +1040,14 @@ const DIDigitalInput = () => {
                         {/* Tags */}
                         <div className="flex flex-wrap gap-1 mt-3">
                           {di.tags.map((tag, i) => (
-                            <span key={i} className="text-xs px-2 py-1 bg-gray-800 rounded">
+                            <span key={i} className="text-xs px-2 py-1 bg-slate-800 text-slate-300 rounded">
                               {tag}
                             </span>
                           ))}
                         </div>
 
                         {/* Timestamp */}
-                        <div className="text-xs text-gray-500 mt-2">
+                        <div className="text-xs text-slate-500 mt-2">
                           UPDATED: {formatDate(di.timestamp)}
                         </div>
                       </div>
@@ -1057,14 +1057,14 @@ const DIDigitalInput = () => {
                     {viewMode === 'list' && (
                       <div className="ml-6 flex flex-col items-end">
                         <div className="text-right">
-                          <div className="text-xs text-gray-500 uppercase tracking-wider">TYPE</div>
-                          <div className="text-sm font-bold">{getTypeText(di.type)}</div>
+                          <div className="text-xs text-slate-500 uppercase tracking-wider">TYPE</div>
+                          <div className="text-sm font-bold text-slate-200">{getTypeText(di.type)}</div>
                         </div>
                         <div className="mt-4">
-                          <div className="text-xs text-gray-500 uppercase tracking-wider">STATUS</div>
+                          <div className="text-xs text-slate-500 uppercase tracking-wider">STATUS</div>
                           <div className="flex items-center justify-end">
                             <div className={`w-3 h-3 rounded-full mr-2 ${getStatusColor(di.status)}`}></div>
-                            <span className="text-sm font-bold">{getStatusText(di.status)}</span>
+                            <span className="text-sm font-bold text-slate-200">{getStatusText(di.status)}</span>
                           </div>
                         </div>
                       </div>
@@ -1077,11 +1077,11 @@ const DIDigitalInput = () => {
             {/* Empty State */}
             {!loading && filteredInputs.length === 0 && (
               <div className="flex flex-col items-center justify-center py-12">
-                <div className="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mb-4">
-                  <span className="text-gray-600 text-2xl font-bold">0</span>
+                <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mb-4">
+                  <span className="text-slate-600 text-2xl font-bold">0</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">NO DIGITAL INPUTS FOUND</h3>
-                <p className="text-gray-400 text-center max-w-md">
+                <h3 className="text-xl font-bold mb-2 text-white">NO DIGITAL INPUTS FOUND</h3>
+                <p className="text-slate-400 text-center max-w-md">
                   No digital inputs match your current filters. Try adjusting your search or filter criteria.
                 </p>
               </div>
@@ -1090,7 +1090,7 @@ const DIDigitalInput = () => {
         </main>
       </div>
 
-    
+
     </div>
   );
 };

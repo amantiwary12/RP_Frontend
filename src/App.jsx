@@ -26,12 +26,17 @@ import Userdatailrelay from "./admin/Userrelay_detail.jsx"
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import TermsConditions from "./pages/TermsConditions.jsx";
 
+
+
+
 function App() {
+
+  
   return (
     <Router>
       <div>
         <Header />
-        <div className="">
+        <div >
          <ChatBot />
 
         </div>

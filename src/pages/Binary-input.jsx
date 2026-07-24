@@ -899,7 +899,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const API_BASE = "https://mqtt-testing-2.onrender.com";
+const API_BASE = import.meta.env.DEV ? "http://localhost:8000" : "https://mqtt-testing-2.onrender.com";
 
 export default function BinaryIO() {
   const [activeTab, setActiveTab] = useState("inputs");
@@ -1052,18 +1052,18 @@ export default function BinaryIO() {
 
   const getStatusColor = (value, type) => {
     if (type === 'INPUT') {
-      return value 
-        ? 'bg-[#0AC4E0]/20 border-[#0AC4E0]' 
-        : 'bg-gray-100 border-gray-300';
+      return value
+        ? 'bg-emerald-900/30 border-emerald-600/60'
+        : 'bg-slate-800/50 border-slate-700';
     }
     if (type === 'OUTPUT') {
-      return value 
-        ? 'bg-purple-100 border-purple-400' 
-        : 'bg-gray-100 border-gray-300';
+      return value
+        ? 'bg-purple-900/30 border-purple-600/60'
+        : 'bg-slate-800/50 border-slate-700';
     }
-    return value 
-      ? 'bg-blue-100 border-blue-400' 
-      : 'bg-gray-100 border-gray-300';
+    return value
+      ? 'bg-amber-900/30 border-amber-600/60'
+      : 'bg-slate-800/50 border-slate-700';
   };
 
   const getStatusText = (value, type) => {
@@ -1076,56 +1076,56 @@ export default function BinaryIO() {
     return value ? 'TRUE' : 'FALSE';
   };
 
-  // Light theme classes
-  const bgClass = "bg-gray-100";
-  const textClass = "text-gray-800";
-  const cardBgClass = "bg-white";
-  const cardBorderClass = "border-gray-300";
-  const cardText = "text-gray-600";
-  const cardTitle = "text-gray-700";
-  const statCardBg = "bg-white";
-  const statCardBorder = "border-gray-300";
-  const statCardText = "text-gray-600";
-  const controlBarBg = "bg-white";
-  const controlBarBorder = "border-gray-300";
-  const tabButtonActive = "bg-[#0AC4E0] text-white border border-[#0A8B9F]";
-  const tabButtonInactive = "bg-gray-200 text-gray-700 hover:bg-gray-300";
-  const viewButtonActive = "bg-gray-300 text-gray-800 border border-gray-400";
-  const viewButtonInactive = "bg-gray-100 text-gray-600 hover:bg-gray-200";
-  const searchInputBg = "bg-gray-50";
-  const searchInputBorder = "border-gray-300";
-  const sectionTitle = "text-gray-700";
-  const sectionSubtitle = "text-gray-600";
-  const gridCardText = "text-gray-700";
-  const gridCardAddressBg = "bg-gray-100";
-  const gridCardAddressText = "text-gray-600";
-  const gridCardValueBg = (value) => value 
-    ? "bg-[#0AC4E0] text-white border border-[#0A8B9F]" 
-    : "bg-gray-200 text-gray-700 border border-gray-400";
-  const tableHeaderBg = "bg-gray-50";
-  const tableHeaderText = "text-gray-700";
-  const tableBorder = "border-gray-300";
-  const tableRowBg = (value) => value ? "bg-[#0AC4E0]/5" : "";
-  const tableRowHover = "hover:bg-gray-100";
+  // Dark industrial theme classes
+  const bgClass = "bg-slate-950";
+  const textClass = "text-slate-200";
+  const cardBgClass = "bg-slate-900";
+  const cardBorderClass = "border-slate-800";
+  const cardText = "text-slate-400";
+  const cardTitle = "text-slate-300";
+  const statCardBg = "bg-slate-900";
+  const statCardBorder = "border-slate-800";
+  const statCardText = "text-slate-500";
+  const controlBarBg = "bg-slate-900";
+  const controlBarBorder = "border-slate-800";
+  const tabButtonActive = "bg-amber-500 text-slate-950 border border-amber-400";
+  const tabButtonInactive = "bg-slate-800 text-slate-300 hover:bg-slate-700";
+  const viewButtonActive = "bg-slate-700 text-white border border-slate-600";
+  const viewButtonInactive = "bg-slate-800 text-slate-400 hover:bg-slate-700";
+  const searchInputBg = "bg-slate-800";
+  const searchInputBorder = "border-slate-700";
+  const sectionTitle = "text-slate-300";
+  const sectionSubtitle = "text-slate-500";
+  const gridCardText = "text-slate-300";
+  const gridCardAddressBg = "bg-slate-800";
+  const gridCardAddressText = "text-slate-400";
+  const gridCardValueBg = (value) => value
+    ? "bg-amber-500 text-slate-950 border border-amber-400"
+    : "bg-slate-800 text-slate-400 border border-slate-700";
+  const tableHeaderBg = "bg-slate-900";
+  const tableHeaderText = "text-slate-300";
+  const tableBorder = "border-slate-800";
+  const tableRowBg = (value) => value ? "bg-amber-500/5" : "";
+  const tableRowHover = "hover:bg-slate-800/60";
   const typeBadge = (type) => {
     if (type === 'INPUT') {
-      return 'bg-[#0AC4E0]/20 text-[#0A8B9F] border border-[#0AC4E0]';
+      return 'bg-emerald-900/30 text-emerald-300 border border-emerald-600/60';
     }
     if (type === 'OUTPUT') {
-      return 'bg-purple-100 text-purple-700 border border-purple-300';
+      return 'bg-purple-900/30 text-purple-300 border border-purple-600/60';
     }
-    return 'bg-gray-200 text-gray-600 border border-gray-400';
+    return 'bg-slate-800 text-slate-400 border border-slate-700';
   };
-  const statusTextColor = (value) => value 
-    ? 'text-[#0AC4E0]' 
-    : 'text-gray-600';
-  const tableValueColor = (value) => value 
-    ? 'text-[#0AC4E0]' 
-    : 'text-gray-600';
-  const footerBorder = "border-gray-300";
-  const footerText = "text-gray-600";
-  const statusBarBg = "bg-white";
-  const statusBarText = "text-gray-600";
+  const statusTextColor = (value) => value
+    ? 'text-amber-400'
+    : 'text-slate-500';
+  const tableValueColor = (value) => value
+    ? 'text-amber-400'
+    : 'text-slate-500';
+  const footerBorder = "border-slate-800";
+  const footerText = "text-slate-500";
+  const statusBarBg = "bg-slate-900";
+  const statusBarText = "text-slate-400";
 
   // Data filtering
   const data = activeTab === "inputs" ? biSignals : boSignals;
@@ -1147,17 +1147,17 @@ export default function BinaryIO() {
       <div className="mb-3 sm:mb-4">
         <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
           <div className="flex items-center space-x-2 sm:space-x-3">
-            <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${authError ? 'bg-red-500' : (connected ? 'bg-[#0AC4E0] animate-pulse' : 'bg-yellow-500')}`}></div>
-            <h1 className="text-base sm:text-lg font-bold tracking-wide">BINARY I/O MONITOR</h1>
+            <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full ${authError ? 'bg-red-500' : (connected ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500')}`}></div>
+            <h1 className="text-base sm:text-lg font-bold tracking-wide text-white">BINARY I/O MONITOR</h1>
             {/* Auth Status Indicator */}
             {!isAuthenticated && (
-              <span className="text-[10px] sm:text-xs bg-red-100 text-red-600 px-2 py-0.5 rounded-full border border-red-300">
+              <span className="text-[10px] sm:text-xs bg-red-950/40 text-red-400 px-2 py-0.5 rounded-md border border-red-700">
                 UNAUTHENTICATED
               </span>
             )}
           </div>
           <div className="flex items-center space-x-2 sm:space-x-3">
-            <div className={`text-[10px] sm:text-xs ${statusBarText} bg-gray-200 px-2 py-0.5 sm:px-3 sm:py-1 rounded border border-gray-300`}>
+            <div className={`text-[10px] sm:text-xs ${statusBarText} ${statusBarBg} px-2 py-0.5 sm:px-3 sm:py-1 rounded-md border border-slate-800`}>
               {authError ? 'AUTH ERROR' : (connected ? 'LIVE' : 'OFFLINE')}
             </div>
           </div>
@@ -1165,7 +1165,7 @@ export default function BinaryIO() {
 
         {/* Auth Error Message */}
         {authError && (
-          <div className="mb-3 p-2 bg-red-100 border border-red-300 rounded text-xs text-red-600 animate-fade-in">
+          <div className="mb-3 p-2 bg-amber-950/40 border border-amber-700 rounded-md text-xs text-amber-300">
             <div className="flex items-center">
               <svg className="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
@@ -1177,21 +1177,21 @@ export default function BinaryIO() {
 
         {/* Quick Stats - Responsive grid */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3 sm:mb-4">
-          <div className={`${statCardBg} p-2 sm:p-3 rounded border ${statCardBorder}`}>
+          <div className={`${statCardBg} p-2 sm:p-3 rounded-md border ${statCardBorder}`}>
             <div className={`text-[10px] sm:text-xs ${statCardText}`}>INPUTS</div>
-            <div className="text-base sm:text-lg font-bold">{inputCount}</div>
+            <div className="text-base sm:text-lg font-bold text-white">{inputCount}</div>
           </div>
-          <div className={`${statCardBg} p-2 sm:p-3 rounded border ${statCardBorder}`}>
+          <div className={`${statCardBg} p-2 sm:p-3 rounded-md border ${statCardBorder}`}>
             <div className={`text-[10px] sm:text-xs ${statCardText}`}>OUTPUTS</div>
-            <div className="text-base sm:text-lg font-bold">{outputCount}</div>
+            <div className="text-base sm:text-lg font-bold text-white">{outputCount}</div>
           </div>
-          <div className={`${statCardBg} p-2 sm:p-3 rounded border ${statCardBorder}`}>
+          <div className={`${statCardBg} p-2 sm:p-3 rounded-md border ${statCardBorder}`}>
             <div className={`text-[10px] sm:text-xs ${statCardText}`}>ACTIVE</div>
-            <div className="text-base sm:text-lg font-bold text-[#0AC4E0]">{activeCount}</div>
+            <div className="text-base sm:text-lg font-bold text-amber-400">{activeCount}</div>
           </div>
-          <div className={`${statCardBg} p-2 sm:p-3 rounded border ${statCardBorder}`}>
+          <div className={`${statCardBg} p-2 sm:p-3 rounded-md border ${statCardBorder}`}>
             <div className={`text-[10px] sm:text-xs ${statCardText}`}>INACTIVE</div>
-            <div className="text-base sm:text-lg font-bold text-gray-500">{inactiveCount}</div>
+            <div className="text-base sm:text-lg font-bold text-slate-500">{inactiveCount}</div>
           </div>
         </div>
       </div>
@@ -1203,7 +1203,7 @@ export default function BinaryIO() {
           <div className="flex space-x-1 sm:space-x-2">
             <button
               onClick={() => setActiveTab("inputs")}
-              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold rounded transition-all ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold rounded-md transition-colors ${
                 activeTab === "inputs" ? tabButtonActive : tabButtonInactive
               }`}
             >
@@ -1211,7 +1211,7 @@ export default function BinaryIO() {
             </button>
             <button
               onClick={() => setActiveTab("outputs")}
-              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold rounded transition-all ${
+              className={`px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-bold rounded-md transition-colors ${
                 activeTab === "outputs" ? tabButtonActive : tabButtonInactive
               }`}
             >
@@ -1223,7 +1223,7 @@ export default function BinaryIO() {
           <div className="flex space-x-1 sm:space-x-2 ml-0 sm:ml-auto">
             <button
               onClick={() => setViewMode("grid")}
-              className={`px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded transition-all ${
+              className={`px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded-md transition-colors ${
                 viewMode === "grid" ? viewButtonActive : viewButtonInactive
               }`}
             >
@@ -1231,7 +1231,7 @@ export default function BinaryIO() {
             </button>
             <button
               onClick={() => setViewMode("table")}
-              className={`px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded transition-all ${
+              className={`px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm rounded-md transition-colors ${
                 viewMode === "table" ? viewButtonActive : viewButtonInactive
               }`}
             >
@@ -1246,7 +1246,7 @@ export default function BinaryIO() {
               placeholder="Search tag or address..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className={`w-full px-2 sm:px-3 py-1.5 sm:py-2 ${searchInputBg} border ${searchInputBorder} rounded text-xs sm:text-sm focus:outline-none focus:border-[#0AC4E0] focus:ring-1 focus:ring-[#0AC4E0]`}
+              className={`w-full px-2 sm:px-3 py-1.5 sm:py-2 ${searchInputBg} border ${searchInputBorder} rounded-md text-xs sm:text-sm text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-amber-500/50 focus:ring-1 focus:ring-amber-500/50`}
             />
           </div>
         </div>
@@ -1273,19 +1273,19 @@ export default function BinaryIO() {
                 return (
                   <div
                     key={s.address || s.tag}
-                    className={`p-2 sm:p-3 rounded border transition-all ${statusColor} hover:shadow-md`}
+                    className={`p-2 sm:p-3 rounded-md border transition-colors ${statusColor} hover:border-amber-500/50`}
                   >
                     <div className="mb-1 sm:mb-2">
                       <div className={`text-[10px] sm:text-xs font-medium truncate mb-0.5 sm:mb-1 ${gridCardText}`}>
                         {formatName(s.tag)}
                       </div>
-                      <div className={`text-[8px] sm:text-[10px] font-mono ${gridCardAddressText} ${gridCardAddressBg} px-1 sm:px-1.5 py-0.5 rounded inline-block`}>
+                      <div className={`text-[8px] sm:text-[10px] font-mono ${gridCardAddressText} ${gridCardAddressBg} px-1 sm:px-1.5 py-0.5 rounded-md inline-block`}>
                         {s.address || 'No Address'}
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center justify-between">
-                      <div className={`text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded ${gridCardValueBg(s.value)}`}>
+                      <div className={`text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md ${gridCardValueBg(s.value)}`}>
                         {s.value ? '1' : '0'}
                       </div>
                       <div className={`text-[8px] sm:text-[10px] font-medium ${cardText}`}>
@@ -1322,19 +1322,19 @@ export default function BinaryIO() {
                         className={`border-b ${tableBorder} ${tableRowHover} ${tableRowBg(s.value)}`}
                       >
                         <td className="p-2 sm:p-3">
-                          <div className="font-medium text-xs sm:text-sm">{formatName(s.tag)}</div>
+                          <div className="font-medium text-xs sm:text-sm text-slate-200">{formatName(s.tag)}</div>
                         </td>
                         <td className="p-2 sm:p-3">
-                          <div className="font-mono text-[10px] sm:text-xs text-gray-500">{s.address || 'No Address'}</div>
+                          <div className="font-mono text-[10px] sm:text-xs text-slate-500">{s.address || 'No Address'}</div>
                         </td>
                         <td className="p-2 sm:p-3">
-                          <div className={`text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded inline-block ${typeBadge(type)}`}>
+                          <div className={`text-[10px] sm:text-xs font-bold px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md inline-block ${typeBadge(type)}`}>
                             {type}
                           </div>
                         </td>
                         <td className="p-2 sm:p-3">
                           <div className="flex items-center">
-                            <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1 sm:mr-2 ${s.value ? 'bg-[#0AC4E0]' : 'bg-gray-400'}`}></div>
+                            <div className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1 sm:mr-2 ${s.value ? 'bg-emerald-500' : 'bg-slate-600'}`}></div>
                             <span className={`text-xs sm:text-sm font-medium ${statusTextColor(s.value)}`}>
                               {statusText}
                             </span>
@@ -1352,7 +1352,7 @@ export default function BinaryIO() {
               </table>
               
               {filtered.length === 0 && (
-                <div className="p-6 sm:p-8 text-center text-gray-500">
+                <div className="p-6 sm:p-8 text-center text-slate-500">
                   <div className="text-sm sm:text-lg mb-1 sm:mb-2">No signals found</div>
                   <div className="text-xs sm:text-sm">Try a different search term or check connection</div>
                 </div>
@@ -1362,12 +1362,12 @@ export default function BinaryIO() {
         )
       ) : (
         /* Authentication Required Message */
-        <div className={`rounded-lg border border-red-300 p-8 sm:p-12 text-center backdrop-blur-sm bg-white/80`}>
+        <div className={`rounded-lg border border-amber-700 p-8 sm:p-12 text-center bg-amber-950/20`}>
           <div className="flex flex-col items-center justify-center">
-            <svg className="w-12 h-12 sm:w-16 sm:h-16 text-red-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-12 h-12 sm:w-16 sm:h-16 text-amber-500 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            <div className={`text-base sm:text-xl ${sectionTitle} mb-2 sm:mb-3 font-bold`}>Authentication Required</div>
+            <div className={`text-base sm:text-xl text-white mb-2 sm:mb-3 font-bold`}>Authentication Required</div>
             <div className={`text-xs sm:text-sm ${footerText} max-w-md mx-auto`}>
               Please log in to view binary I/O data. This page requires valid authentication credentials.
             </div>
@@ -1380,15 +1380,15 @@ export default function BinaryIO() {
         <div className={`flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] sm:text-xs ${footerText}`}>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-1 sm:mb-0">
             <div className="flex items-center space-x-1">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0AC4E0]"></div>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500"></div>
               <span>ACTIVE</span>
             </div>
             <div className="flex items-center space-x-1">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gray-400"></div>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-slate-600"></div>
               <span>INACTIVE</span>
             </div>
             <div className="flex items-center space-x-1">
-              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#0AC4E0]"></div>
+              <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-600"></div>
               <span>INPUT</span>
             </div>
             <div className="flex items-center space-x-1">
@@ -1402,21 +1402,10 @@ export default function BinaryIO() {
               <span className="hidden xs:inline">•</span>
               <span>{activeTab.toUpperCase()}</span>
             </div>
-            <div className="text-gray-500 text-[8px] sm:text-[10px]">BINARY I/O v1.0</div>
+            <div className="text-slate-600 text-[8px] sm:text-[10px]">BINARY I/O v1.0</div>
           </div>
         </div>
       </div>
-
-      {/* Animation Styles */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from { opacity: 0; transform: translateY(-10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fade-in 0.3s ease-out;
-        }
-      `}</style>
     </div>
   );
 }

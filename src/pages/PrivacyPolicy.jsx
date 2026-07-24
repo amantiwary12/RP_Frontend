@@ -8,16 +8,16 @@ const PrivacyPolicy = () => {
   });
 
   const themeClasses = {
-    container: isDarkMode 
-      ? "text-gray-100 bg-gray-900 min-h-screen" 
-      : "text-gray-900 bg-gray-50 min-h-screen",
-    header: isDarkMode ? "bg-gray-800" : "bg-white",
-    title: isDarkMode ? "text-white" : "text-gray-900",
-    subtitle: isDarkMode ? "text-gray-300" : "text-gray-700",
-    section: isDarkMode ? "bg-gray-800/50" : "bg-white",
-    border: isDarkMode ? "border-gray-700" : "border-gray-200",
-    text: isDarkMode ? "text-gray-300" : "text-gray-700",
-    highlight: isDarkMode ? "text-blue-400" : "text-blue-600",
+    container: isDarkMode
+      ? "text-slate-300 bg-slate-950 min-h-screen"
+      : "text-slate-300 bg-slate-950 min-h-screen",
+    header: isDarkMode ? "bg-slate-950" : "bg-slate-950",
+    title: isDarkMode ? "text-white" : "text-white",
+    subtitle: isDarkMode ? "text-slate-300" : "text-slate-300",
+    section: isDarkMode ? "bg-slate-900" : "bg-slate-900",
+    border: isDarkMode ? "border-slate-800" : "border-slate-800",
+    text: isDarkMode ? "text-slate-300" : "text-slate-300",
+    highlight: isDarkMode ? "text-amber-400" : "text-amber-400",
   };
 
   const sections = [
@@ -159,7 +159,7 @@ Phone: +91 755 123 4567
 
   return (
     <div className={themeClasses.container}>
-      
+
 
       {/* Main Content */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -171,11 +171,11 @@ Phone: +91 755 123 4567
           <p className={`text-xl ${themeClasses.subtitle} max-w-4xl mx-auto`}>
             Protecting your data and maintaining your trust is our top priority
           </p>
-          <div className={`h-1 w-24 mx-auto mt-6 ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'}`}></div>
+          <div className={`h-1 w-24 mx-auto mt-6 ${isDarkMode ? 'bg-amber-500' : 'bg-amber-500'}`}></div>
         </div>
 
         {/* Last Updated */}
-        <div className={`mb-8 p-4 rounded-lg ${isDarkMode ? 'bg-blue-900/20' : 'bg-blue-50'} border ${isDarkMode ? 'border-blue-800/50' : 'border-blue-200'}`}>
+        <div className={`mb-8 p-4 rounded-md ${isDarkMode ? 'bg-amber-500/10' : 'bg-amber-500/10'} border ${isDarkMode ? 'border-amber-500/30' : 'border-amber-500/30'}`}>
           <div className="flex items-center">
             <svg className={`w-5 h-5 mr-3 ${themeClasses.highlight}`} fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
@@ -187,14 +187,14 @@ Phone: +91 755 123 4567
         </div>
 
         {/* Quick Navigation */}
-        <div className={`mb-12 p-6 rounded-xl ${themeClasses.section} border ${themeClasses.border}`}>
+        <div className={`mb-12 p-6 rounded-lg ${themeClasses.section} border ${themeClasses.border}`}>
           <h3 className={`text-lg font-bold mb-4 ${themeClasses.title}`}>Quick Navigation</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {sections.map((section) => (
-              <a 
+              <a
                 key={section.id}
                 href={`#${section.id}`}
-                className={`text-sm p-3 rounded-lg hover:underline ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                className={`text-sm p-3 rounded-md hover:underline ${isDarkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-800'} text-slate-300`}
               >
                 {section.title}
               </a>
@@ -205,9 +205,9 @@ Phone: +91 755 123 4567
         {/* Policy Sections */}
         <div className="space-y-12">
           {sections.map((section, index) => (
-            <div key={section.id} id={section.id} className={`p-8 rounded-xl ${themeClasses.section} border ${themeClasses.border}`}>
+            <div key={section.id} id={section.id} className={`p-8 rounded-lg ${themeClasses.section} border ${themeClasses.border}`}>
               <div className="flex items-start mb-6">
-                <div className={`w-12 h-12 flex items-center justify-center rounded-lg mr-4 ${isDarkMode ? 'bg-blue-900/30' : 'bg-blue-100'}`}>
+                <div className={`w-12 h-12 flex items-center justify-center rounded-md mr-4 ${isDarkMode ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-amber-500/10 border border-amber-500/30'}`}>
                   <span className={`font-bold ${themeClasses.highlight}`}>{index + 1}</span>
                 </div>
                 <div>
@@ -224,23 +224,23 @@ Phone: +91 755 123 4567
         </div>
 
         {/* Summary Box */}
-        <div className={`mt-12 p-8 rounded-xl ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'} border ${themeClasses.border}`}>
+        <div className={`mt-12 p-8 rounded-lg ${isDarkMode ? 'bg-slate-900' : 'bg-slate-900'} border ${themeClasses.border}`}>
           <h3 className={`text-xl font-bold mb-4 ${themeClasses.title}`}>Key Points Summary</h3>
           <ul className={`space-y-3 ${themeClasses.text}`}>
             <li className="flex items-start">
-              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-green-500' : 'bg-green-600'}`}></div>
+              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-amber-500' : 'bg-amber-500'}`}></div>
               <span>We only collect necessary data for providing our services</span>
             </li>
             <li className="flex items-start">
-              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-green-500' : 'bg-green-600'}`}></div>
+              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-amber-500' : 'bg-amber-500'}`}></div>
               <span>Your data is protected with enterprise-grade security measures</span>
             </li>
             <li className="flex items-start">
-              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-green-500' : 'bg-green-600'}`}></div>
+              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-amber-500' : 'bg-amber-500'}`}></div>
               <span>We never sell your personal information to third parties</span>
             </li>
             <li className="flex items-start">
-              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-green-500' : 'bg-green-600'}`}></div>
+              <div className={`w-2 h-2 mt-2 rounded-full mr-3 ${isDarkMode ? 'bg-amber-500' : 'bg-amber-500'}`}></div>
               <span>You have control over your data and can exercise your rights at any time</span>
             </li>
           </ul>
@@ -248,37 +248,37 @@ Phone: +91 755 123 4567
       </main>
 
       {/* Footer */}
-      <footer className={`py-8 border-t ${themeClasses.border} ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      <footer className={`py-8 border-t ${themeClasses.border} ${isDarkMode ? 'bg-slate-950' : 'bg-slate-950'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <div className="flex items-center space-x-4">
-                <div className={`p-2 rounded-lg ${isDarkMode ? 'bg-blue-900/20' : 'bg-blue-50'}`}>
+                <div className={`p-2 rounded-md ${isDarkMode ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-amber-500/10 border border-amber-500/30'}`}>
                   <div className="w-8 h-8 flex items-center justify-center">
                     <span className={`text-lg font-bold ${themeClasses.highlight}`}>BTS</span>
                   </div>
                 </div>
                 <div>
-                  <div className="text-lg font-bold">BTS-2000 Industrial System</div>
-                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <div className="text-lg font-bold text-white">BTS-2000 Industrial System</div>
+                  <div className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-slate-400'}`}>
                     Enterprise Power Management Solutions
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="flex space-x-8">
-             
-              <Link to="/terms" className={`text-sm font-medium ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+
+              <Link to="/terms" className={`text-sm font-medium ${isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-400 hover:text-white'}`}>
                 Terms of Service
               </Link>
-              <Link to="/contact" className={`text-sm font-medium ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+              <Link to="/contact" className={`text-sm font-medium ${isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-400 hover:text-white'}`}>
                 Contact Us
               </Link>
             </div>
           </div>
-          
-          <div className={`mt-8 pt-6 border-t ${themeClasses.border} text-center text-sm ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+
+          <div className={`mt-8 pt-6 border-t ${themeClasses.border} text-center text-sm ${isDarkMode ? 'text-slate-400' : 'text-slate-400'}`}>
             © {new Date().getFullYear()} Aartech Solonics Ltd. All rights reserved.
           </div>
         </div>

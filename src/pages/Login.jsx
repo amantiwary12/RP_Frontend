@@ -279,7 +279,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const API_BASE = "https://mqtt-testing-2.onrender.com/api/v1";
+const API_BASE = import.meta.env.DEV ? "http://localhost:8000/api/v1" : "https://mqtt-testing-2.onrender.com/api/v1";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -335,25 +335,25 @@ export default function Login() {
   const themeColor = "#0AC4E0";
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-slate-950 p-4">
       <div className="w-full max-w-md">
         {/* Main Card - Clean, professional design */}
-        <div className="bg-white border border-gray-300 rounded-lg p-8">
-          
+        <div className="bg-slate-900 border border-slate-800 rounded-lg p-8">
+
           {/* Logo/Icon */}
           <div className="text-center mb-8">
-            
-            <p className="text-gray-500 text-sm">
+
+            <p className="text-slate-400 text-sm">
               Sign in to your account
             </p>
           </div>
-          
+
           {/* Error Alert */}
           {error && (
-            <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded">
+            <div className="mb-6 p-3 bg-red-950/40 border border-red-800 rounded">
               <div className="flex items-center">
                 <svg
-                  className="h-5 w-5 text-red-500 mr-2"
+                  className="h-5 w-5 text-red-400 mr-2"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -363,7 +363,7 @@ export default function Login() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <p className="text-sm text-red-700">{error}</p>
+                <p className="text-sm text-red-300">{error}</p>
               </div>
             </div>
           )}
@@ -371,13 +371,13 @@ export default function Login() {
           <form onSubmit={handleSubmit} className="space-y-5">
             {/* Username Field */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Username
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg
-                    className="h-5 w-5 text-gray-400"
+                    className="h-5 w-5 text-slate-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -396,20 +396,20 @@ export default function Login() {
                   placeholder="Enter your username"
                   required
                   disabled={loading}
-                  className="block w-full pl-10 pr-3 py-2.5 bg-white border border-gray-300 rounded text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0AC4E0] focus:ring-1 focus:ring-[#0AC4E0] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="block w-full pl-10 pr-3 py-2.5 bg-slate-900 border border-slate-700 rounded text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
 
             {/* Password Field */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-slate-300 mb-1">
                 Password
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <svg
-                    className="h-5 w-5 text-gray-400"
+                    className="h-5 w-5 text-slate-500"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -429,12 +429,12 @@ export default function Login() {
                   placeholder="Enter your password"
                   required
                   disabled={loading}
-                  className="block w-full pl-10 pr-10 py-2.5 bg-white border border-gray-300 rounded text-gray-800 placeholder-gray-400 focus:outline-none focus:border-[#0AC4E0] focus:ring-1 focus:ring-[#0AC4E0] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="block w-full pl-10 pr-10 py-2.5 bg-slate-900 border border-slate-700 rounded text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500/20 disabled:opacity-50 disabled:cursor-not-allowed"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-500"
                 >
                   {showPassword ? (
                     <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -452,9 +452,9 @@ export default function Login() {
 
             {/* Remember Me & Admin Login */}
             <div className="flex items-center justify-between">
-             
-              
-              <Link to="/admin-login" className="text-sm font-medium text-[#0AC4E0]">
+
+
+              <Link to="/admin-login" className="text-sm font-medium text-amber-400 hover:text-amber-300">
                 Admin login →
               </Link>
             </div>
@@ -463,12 +463,12 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 bg-[#0AC4E0] text-white font-medium rounded focus:outline-none focus:ring-2 focus:ring-[#0AC4E0] focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-2.5 px-4 bg-amber-500 text-slate-950 font-bold uppercase tracking-wide rounded-md hover:bg-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-500/40 focus:ring-offset-2 focus:ring-offset-slate-900 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <span className="flex items-center justify-center">
                   <svg
-                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-slate-950"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -514,10 +514,10 @@ export default function Login() {
           <div className="mt-6">
             <div className="relative">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-200"></div>
+                <div className="w-full border-t border-slate-800"></div>
               </div>
               <div className="relative flex justify-center text-xs">
-                <span className="px-2 bg-white text-gray-400">
+                <span className="px-2 bg-slate-900 text-slate-500">
                   Secure Access
                 </span>
               </div>
@@ -525,9 +525,9 @@ export default function Login() {
           </div>
 
           {/* Footer */}
-          <div className="mt-4 text-center text-xs text-gray-400">
+          <div className="mt-4 text-center text-xs text-slate-500">
             <p>© {new Date().getFullYear()} TransSync. All rights reserved.</p>
-            <p className="mt-1"> <Link to="/contact" className="text-[#0AC4E0]"> Contact</Link> support for assistance</p>
+            <p className="mt-1"> <Link to="/contact" className="text-amber-400 hover:text-amber-300"> Contact</Link> support for assistance</p>
           </div>
         </div>
       </div>

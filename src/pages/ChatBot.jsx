@@ -846,7 +846,7 @@ const ChatBot = () => {
             href="https://wa.me/919835383246?text=Hello! I'd like to inquire about your services."
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-full shadow-2xl flex items-center justify-center hover:shadow-3xl transform hover:scale-110 transition-all duration-300 animate-bounce"
+            className="bg-emerald-600 text-white p-4 rounded-full shadow-xl border-2 border-slate-950 flex items-center justify-center hover:bg-emerald-500 transition-colors duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

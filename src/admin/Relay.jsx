@@ -208,10 +208,10 @@ export default function RelayControlPanel() {
 
   const getStatusColor = (status) => {
     switch (status) {
-      case 'online': return isDarkMode ? 'bg-green-900/30 text-green-400 border-green-700' : 'bg-green-100 text-green-700 border-green-300';
-      case 'offline': return isDarkMode ? 'bg-red-900/30 text-red-400 border-red-700' : 'bg-red-100 text-red-700 border-red-300';
-      case 'testing': return isDarkMode ? 'bg-yellow-900/30 text-yellow-400 border-yellow-700' : 'bg-yellow-100 text-yellow-700 border-yellow-300';
-      default: return isDarkMode ? 'bg-gray-800 text-gray-400 border-gray-700' : 'bg-gray-100 text-gray-700 border-gray-300';
+      case 'online': return isDarkMode ? 'bg-emerald-900/30 text-emerald-300 border-emerald-700' : 'bg-emerald-100 text-emerald-700 border-emerald-300';
+      case 'offline': return isDarkMode ? 'bg-red-900/30 text-red-300 border-red-700' : 'bg-red-100 text-red-700 border-red-300';
+      case 'testing': return isDarkMode ? 'bg-amber-900/30 text-amber-300 border-amber-700' : 'bg-amber-100 text-amber-700 border-amber-300';
+      default: return isDarkMode ? 'bg-slate-800 text-slate-400 border-slate-700' : 'bg-slate-100 text-slate-700 border-slate-300';
     }
   };
 
@@ -228,17 +228,17 @@ export default function RelayControlPanel() {
   });
 
   // Theme classes
-  const bgClass = isDarkMode ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900" : "bg-gray-200";
-  const textClass = isDarkMode ? "text-gray-200" : "text-black-800";
-  const cardBg = isDarkMode ? "bg-gray-800/80 backdrop-blur-lg" : "bg-white/90 backdrop-blur-lg";
-  const cardBorder = isDarkMode ? "border-gray-700/50" : "border-gray-300/50";
-  const cardShadow = isDarkMode ? "shadow-2xl shadow-black/20" : "shadow-2xl shadow-gray-200/50";
-  const modalBg = isDarkMode ? "bg-gray-800/95 backdrop-blur-lg" : "bg-white/95 backdrop-blur-lg";
-  const modalBorder = isDarkMode ? "border-gray-700" : "border-gray-300";
-  const inputBg = isDarkMode ? "bg-gray-700/50 border-gray-600 focus:border-blue-500 focus:ring-blue-500/50" : "bg-white border-gray-300 focus:border-blue-500 focus:ring-blue-500/30";
-  const buttonPrimary = isDarkMode ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800" : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700";
-  const buttonDanger = isDarkMode ? "bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800" : "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700";
-  const buttonSecondary = isDarkMode ? "bg-gray-700 hover:bg-gray-600 border-gray-600" : "bg-gray-200 hover:bg-gray-300 border-gray-300";
+  const bgClass = isDarkMode ? "bg-slate-950" : "bg-slate-100";
+  const textClass = isDarkMode ? "text-slate-200" : "text-slate-900";
+  const cardBg = isDarkMode ? "bg-slate-900" : "bg-white";
+  const cardBorder = isDarkMode ? "border-slate-800" : "border-slate-300";
+  const cardShadow = isDarkMode ? "shadow-lg shadow-black/20" : "shadow-md shadow-slate-300/40";
+  const modalBg = isDarkMode ? "bg-slate-900" : "bg-white";
+  const modalBorder = isDarkMode ? "border-slate-800" : "border-slate-300";
+  const inputBg = isDarkMode ? "bg-slate-900 border-slate-700 focus:border-amber-500 focus:ring-amber-500/20" : "bg-white border-slate-300 focus:border-amber-600 focus:ring-amber-600/20";
+  const buttonPrimary = isDarkMode ? "bg-amber-500 hover:bg-amber-400" : "bg-amber-500 hover:bg-amber-400";
+  const buttonDanger = "bg-red-600 hover:bg-red-500";
+  const buttonSecondary = isDarkMode ? "bg-slate-800 hover:bg-slate-700 border-slate-700" : "bg-slate-200 hover:bg-slate-300 border-slate-300";
 
   return (
     <div className={`min-h-screen p-2 sm:p-4 md:p-6 ${bgClass} ${textClass} transition-colors duration-300`}>
@@ -247,13 +247,13 @@ export default function RelayControlPanel() {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold">Relay Control Panels</h1>
-            <p className="text-sm sm:text-base text-gray-500">Manage and monitor industrial relay control systems</p>
+            <p className="text-sm sm:text-base text-slate-400">Manage and monitor industrial relay control systems</p>
           </div>
           
           <div className="flex items-center space-x-3">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full border ${isDarkMode ? 'bg-gray-800 hover:bg-gray-700 border-gray-700' : 'bg-white hover:bg-gray-100 border-gray-300'}`}
+              className={`p-2 rounded-md border transition-colors ${isDarkMode ? 'bg-slate-800 hover:bg-slate-700 border-slate-700' : 'bg-white hover:bg-slate-100 border-slate-300'}`}
               aria-label="Toggle theme"
             >
               {isDarkMode ? '🌙' : '☀️'}
@@ -277,7 +277,7 @@ export default function RelayControlPanel() {
                 });
                 setShowAddModal(true);
               }}
-              className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-lg ${buttonPrimary} text-white font-medium text-sm sm:text-base flex items-center space-x-2`}
+              className={`px-3 py-2 sm:px-4 sm:py-2.5 rounded-md ${buttonPrimary} text-slate-950 font-bold uppercase tracking-wide text-sm sm:text-base flex items-center space-x-2 transition-colors`}
             >
               <span>+</span>
               <span>Add Panel</span>
@@ -287,30 +287,30 @@ export default function RelayControlPanel() {
 
         {/* Stats Overview */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-6">
-          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-xl`}>
+          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-lg`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs sm:text-sm text-gray-500">Total Panels</p>
+                <p className="text-xs sm:text-sm text-slate-400">Total Panels</p>
                 <p className="text-lg sm:text-2xl font-bold">{panels.length}</p>
               </div>
             </div>
           </div>
           
-          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-xl`}>
+          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-lg`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs sm:text-sm text-gray-500">Online</p>
-                <p className="text-lg sm:text-2xl font-bold text-green-500">
+                <p className="text-xs sm:text-sm text-slate-400">Online</p>
+                <p className="text-lg sm:text-2xl font-bold text-emerald-500">
                   {panels.filter(p => p.status === 'online').length}
                 </p>
               </div>
             </div>
           </div>
           
-          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-xl`}>
+          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-lg`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs sm:text-sm text-gray-500">Offline</p>
+                <p className="text-xs sm:text-sm text-slate-400">Offline</p>
                 <p className="text-lg sm:text-2xl font-bold text-red-500">
                   {panels.filter(p => p.status === 'offline').length}
                 </p>
@@ -318,10 +318,10 @@ export default function RelayControlPanel() {
             </div>
           </div>
           
-          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-xl`}>
+          <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-lg`}>
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-xs sm:text-sm text-gray-500">Last Updated</p>
+                <p className="text-xs sm:text-sm text-slate-400">Last Updated</p>
                 <p className="text-xs sm:text-sm font-medium">
                   {panels.length > 0 ? new Date(Math.max(...panels.map(p => new Date(p.lastSeen)))).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '--:--'}
                 </p>
@@ -331,12 +331,12 @@ export default function RelayControlPanel() {
         </div>
 
         {/* Filters and Search */}
-        <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-xl mb-6`}>
+        <div className={`${cardBg} ${cardBorder} p-3 sm:p-4 rounded-lg mb-6`}>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <div className="flex-1">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <span className="text-gray-500">🔍</span>
+                  <span className="text-slate-400">🔍</span>
                 </div>
                 <input
                   type="text"
@@ -373,9 +373,9 @@ export default function RelayControlPanel() {
         {/* Panels Grid */}
         <div className="mb-6">
           {filteredPanels.length === 0 && panels.length > 0 ? (
-            <div className={`${cardBg} ${cardBorder} p-8 sm:p-12 rounded-xl text-center`}>
+            <div className={`${cardBg} ${cardBorder} p-8 sm:p-12 rounded-lg text-center`}>
               <h3 className="text-lg sm:text-xl font-semibold mb-2">No Matching Panels Found</h3>
-              <p className="text-gray-500 mb-4 sm:mb-6">Try adjusting your search or filter criteria</p>
+              <p className="text-slate-400 mb-4 sm:mb-6">Try adjusting your search or filter criteria</p>
               <button
                 onClick={() => {
                   setSearchTerm('');
@@ -387,12 +387,12 @@ export default function RelayControlPanel() {
               </button>
             </div>
           ) : filteredPanels.length === 0 ? (
-            <div className={`${cardBg} ${cardBorder} p-8 sm:p-12 rounded-xl text-center`}>
+            <div className={`${cardBg} ${cardBorder} p-8 sm:p-12 rounded-lg text-center`}>
               <h3 className="text-lg sm:text-xl font-semibold mb-2">No Control Panels Found</h3>
-              <p className="text-gray-500 mb-4 sm:mb-6">Add your first relay control panel to get started</p>
+              <p className="text-slate-400 mb-4 sm:mb-6">Add your first relay control panel to get started</p>
               <button
                 onClick={() => setShowAddModal(true)}
-                className={`px-4 py-2.5 sm:px-6 sm:py-3 rounded-lg ${buttonPrimary} text-white font-medium flex items-center space-x-2 mx-auto`}
+                className={`px-4 py-2.5 sm:px-6 sm:py-3 rounded-md ${buttonPrimary} text-slate-950 font-bold uppercase tracking-wide flex items-center space-x-2 mx-auto transition-colors`}
               >
                 <span>+</span>
                 <span>Add First Panel</span>
@@ -403,21 +403,21 @@ export default function RelayControlPanel() {
               {filteredPanels.map((panel) => (
                 <div
                   key={panel.id}
-                  className={`${cardBg} ${cardBorder} ${cardShadow} rounded-xl overflow-hidden transition-all duration-300`}
+                  className={`${cardBg} ${cardBorder} ${cardShadow} rounded-lg overflow-hidden transition-all duration-300`}
                 >
                   {/* Panel Header */}
-                  <div className="p-4 sm:p-5 border-b border-gray-700/30">
+                  <div className="p-4 sm:p-5 border-b border-slate-700/30">
                     <div className="flex justify-between items-start mb-3">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center space-x-2 mb-1">
-                          <div className={`p-2 rounded-lg ${isDarkMode ? 'bg-blue-900/30' : 'bg-blue-100'}`}>
-                            <span className="text-blue-500">⚡</span>
+                          <div className={`p-2 rounded-lg ${isDarkMode ? 'bg-amber-500/10' : 'bg-amber-100'}`}>
+                            <span className="text-amber-500">⚡</span>
                           </div>
                           <h3 className="font-bold text-base sm:text-lg truncate" title={panel.name}>
                             {panel.name}
                           </h3>
                         </div>
-                        <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'} truncate`}>
+                        <p className={`text-xs sm:text-sm ${isDarkMode ? 'text-slate-400' : 'text-slate-600'} truncate`}>
                           {panel.description || 'Industrial Relay Control Panel'}
                         </p>
                       </div>
@@ -425,7 +425,7 @@ export default function RelayControlPanel() {
                       <div className="flex space-x-1">
                         <button
                           onClick={() => handleEditPanel(panel)}
-                          className={`p-1.5 sm:p-2 rounded-lg ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                          className={`p-1.5 sm:p-2 rounded-lg ${isDarkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-100'}`}
                           title="Edit"
                         >
                           <span className="text-sm">✏️</span>
@@ -442,11 +442,11 @@ export default function RelayControlPanel() {
                     
                     {/* Status Badge */}
                     <div className="flex items-center space-x-2">
-                      <span className={`inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full text-xs font-medium border ${getStatusColor(panel.status)}`}>
+                      <span className={`inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wide border ${getStatusColor(panel.status)}`}>
                         <span>{panel.status === 'online' ? '🟢' : panel.status === 'offline' ? '🔴' : '🟡'}</span>
                         <span>{panel.status.toUpperCase()}</span>
                       </span>
-                      <span className={`text-xs ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+                      <span className={`text-xs ${isDarkMode ? 'text-slate-400' : 'text-slate-600'}`}>
                         {new Date(panel.lastSeen).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                       </span>
                     </div>
@@ -457,17 +457,17 @@ export default function RelayControlPanel() {
                     <div className="space-y-3 sm:space-y-4">
                       <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         <div>
-                          <p className="text-xs text-gray-500 mb-1">Relay IP</p>
+                          <p className="text-xs text-slate-400 mb-1">Relay IP</p>
                           <p className="font-mono text-sm sm:text-base font-medium">{panel.relayIp}</p>
                         </div>
                         <div>
-                          <p className="text-xs text-gray-500 mb-1">RPi ID</p>
+                          <p className="text-xs text-slate-400 mb-1">RPi ID</p>
                           <p className="font-mono text-sm sm:text-base font-medium">{panel.rpiId}</p>
                         </div>
                       </div>
                       
                       <div>
-                        <p className="text-xs text-gray-500 mb-1">Location</p>
+                        <p className="text-xs text-slate-400 mb-1">Location</p>
                         <p className="font-medium text-sm sm:text-base flex items-center">
                           <span className="mr-2">📍</span>
                           {panel.location}
@@ -476,11 +476,11 @@ export default function RelayControlPanel() {
                       
                       <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         <div>
-                          <p className="text-xs text-gray-500 mb-1">Voltage</p>
+                          <p className="text-xs text-slate-400 mb-1">Voltage</p>
                           <p className="font-medium text-sm sm:text-base">{panel.voltage}</p>
                         </div>
                         <div>
-                          <p className="text-xs text-gray-500 mb-1">Frequency</p>
+                          <p className="text-xs text-slate-400 mb-1">Frequency</p>
                           <p className="font-medium text-sm sm:text-base">{panel.frequency}</p>
                         </div>
                       </div>
@@ -488,12 +488,12 @@ export default function RelayControlPanel() {
                       {/* Tags */}
                       {panel.tags.length > 0 && (
                         <div>
-                          <p className="text-xs text-gray-500 mb-2">Tags</p>
+                          <p className="text-xs text-slate-400 mb-2">Tags</p>
                           <div className="flex flex-wrap gap-1.5 sm:gap-2">
                             {panel.tags.map((tag, idx) => (
                               <span
                                 key={idx}
-                                className={`px-2 py-1 text-xs rounded ${isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'}`}
+                                className={`px-2 py-1 text-xs rounded ${isDarkMode ? 'bg-slate-800 text-slate-300' : 'bg-slate-200 text-slate-700'}`}
                               >
                                 {tag}
                               </span>
@@ -505,12 +505,12 @@ export default function RelayControlPanel() {
                   </div>
                   
                   {/* Action Buttons */}
-                  <div className="p-4 sm:p-5 pt-0 border-t border-gray-700/30">
+                  <div className="p-4 sm:p-5 pt-0 border-t border-slate-700/30">
                     <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
                       <button
                         onClick={() => handleTestConnection(panel)}
                         disabled={panel.status === 'testing'}
-                        className={`py-2.5 px-4 rounded-lg ${panel.status === 'testing' ? 'bg-gray-700 cursor-not-allowed' : 'bg-gray-700 hover:bg-gray-600'} text-white font-medium text-sm flex items-center justify-center space-x-2`}
+                        className={`py-2.5 px-4 rounded-md ${panel.status === 'testing' ? 'bg-slate-800 cursor-not-allowed' : 'bg-slate-800 hover:bg-slate-700'} text-white font-semibold uppercase tracking-wide text-sm flex items-center justify-center space-x-2 transition-colors`}
                       >
                         {panel.status === 'testing' ? (
                           <>
@@ -527,7 +527,7 @@ export default function RelayControlPanel() {
                       
                       <button
                         onClick={() => handleNavigateToPanel(panel)}
-                        className={`py-2.5 px-4 rounded-lg ${buttonPrimary} text-white font-medium text-sm flex items-center justify-center space-x-2`}
+                        className={`py-2.5 px-4 rounded-md ${buttonPrimary} text-slate-950 font-bold uppercase tracking-wide text-sm flex items-center justify-center space-x-2 transition-colors`}
                       >
                         <span>→</span>
                         <span>Control Panel</span>
@@ -543,20 +543,20 @@ export default function RelayControlPanel() {
         {/* Add/Edit Panel Modal */}
         {showAddModal && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 z-50">
-            <div className={`${modalBg} ${modalBorder} rounded-xl sm:rounded-2xl w-full max-w-md shadow-2xl border max-h-[90vh] overflow-y-auto`}>
-              <div className="p-4 sm:p-6 border-b border-gray-700/30">
+            <div className={`${modalBg} ${modalBorder} rounded-lg w-full max-w-md shadow-2xl border max-h-[90vh] overflow-y-auto`}>
+              <div className="p-4 sm:p-6 border-b border-slate-700/30">
                 <div className="flex justify-between items-center">
                   <h2 className="text-lg sm:text-xl font-bold">
                     {editMode ? 'Edit Control Panel' : 'Add New Control Panel'}
                   </h2>
                   <button
                     onClick={() => setShowAddModal(false)}
-                    className={`p-1.5 sm:p-2 rounded-lg ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                    className={`p-1.5 sm:p-2 rounded-lg ${isDarkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-100'}`}
                   >
                     <span>✕</span>
                   </button>
                 </div>
-                <p className="text-xs sm:text-sm text-gray-500 mt-1">Configure your relay control panel settings</p>
+                <p className="text-xs sm:text-sm text-slate-400 mt-1">Configure your relay control panel settings</p>
               </div>
               
               <div className="p-4 sm:p-6">
@@ -694,7 +694,7 @@ export default function RelayControlPanel() {
                         {newPanel.tags.map((tag, idx) => (
                           <span
                             key={idx}
-                            className={`px-2.5 py-1 text-sm rounded-full flex items-center space-x-1 ${isDarkMode ? 'bg-blue-900/30 text-blue-300' : 'bg-blue-100 text-blue-700'}`}
+                            className={`px-2.5 py-1 text-sm rounded-md flex items-center space-x-1 ${isDarkMode ? 'bg-amber-500/10 text-amber-400' : 'bg-amber-100 text-amber-700'}`}
                           >
                             <span>{tag}</span>
                             <button
@@ -712,7 +712,7 @@ export default function RelayControlPanel() {
                 </div>
               </div>
               
-              <div className="p-4 sm:p-6 border-t border-gray-700/30">
+              <div className="p-4 sm:p-6 border-t border-slate-700/30">
                 <div className="flex justify-end space-x-2 sm:space-x-3">
                   <button
                     onClick={() => setShowAddModal(false)}
@@ -722,7 +722,7 @@ export default function RelayControlPanel() {
                   </button>
                   <button
                     onClick={handleAddPanel}
-                    className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg ${buttonPrimary} text-white font-medium`}
+                    className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-md ${buttonPrimary} text-slate-950 font-bold uppercase tracking-wide transition-colors`}
                   >
                     {editMode ? 'Update' : 'Add Panel'}
                   </button>
@@ -735,13 +735,13 @@ export default function RelayControlPanel() {
         {/* Delete Confirmation Modal */}
         {showDeleteModal && (
           <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4 z-50">
-            <div className={`${modalBg} ${modalBorder} rounded-xl sm:rounded-2xl w-full max-w-md shadow-2xl border`}>
+            <div className={`${modalBg} ${modalBorder} rounded-lg w-full max-w-md shadow-2xl border`}>
               <div className="p-4 sm:p-6">
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 rounded-full ${isDarkMode ? 'bg-red-900/30' : 'bg-red-100'} flex items-center justify-center`}>
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 mx-auto mb-3 sm:mb-4 rounded-md ${isDarkMode ? 'bg-red-900/30' : 'bg-red-100'} flex items-center justify-center`}>
                   <span className="text-red-500 text-xl sm:text-2xl">⚠️</span>
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-center mb-2">Delete Panel?</h3>
-                <p className="text-gray-500 text-center mb-4 sm:mb-6 text-sm sm:text-base">
+                <p className="text-slate-400 text-center mb-4 sm:mb-6 text-sm sm:text-base">
                   This action cannot be undone.
                 </p>
                 <div className="flex justify-center space-x-2 sm:space-x-3">
@@ -753,7 +753,7 @@ export default function RelayControlPanel() {
                   </button>
                   <button
                     onClick={handleDeletePanel}
-                    className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg ${buttonDanger} text-white font-medium`}
+                    className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-md ${buttonDanger} text-white font-bold uppercase tracking-wide transition-colors`}
                   >
                     Delete
                   </button>

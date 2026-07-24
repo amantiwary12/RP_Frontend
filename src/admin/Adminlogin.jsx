@@ -105,7 +105,7 @@ export default function AdminLogin() {
         }
 
         // Redirect to admin dashboard
-        navigate("/admin/dashboard");
+        navigate("/admin-relay");
       } else {
         throw new Error("No authentication token received");
       }
@@ -125,60 +125,41 @@ export default function AdminLogin() {
 
   // Theme-based classes
   const bgClass = isDarkMode
-    ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-    : "bg-gradient-to-br from-blue-50 via-white to-gray-100";
+    ? "bg-slate-950"
+    : "bg-slate-100";
   const cardBg = isDarkMode
-    ? "bg-gray-800/80 backdrop-blur-lg"
-    : "bg-white/90 backdrop-blur-lg";
-  const cardBorder = isDarkMode ? "border-gray-700/50" : "border-gray-300/50";
+    ? "bg-slate-900"
+    : "bg-white";
+  const cardBorder = isDarkMode ? "border-slate-800" : "border-slate-300";
   const cardShadow = isDarkMode
-    ? "shadow-2xl shadow-black/30"
-    : "shadow-2xl shadow-blue-200/50";
+    ? "shadow-lg shadow-black/30"
+    : "shadow-md shadow-slate-300/40";
   const inputBg = isDarkMode
-    ? "bg-gray-700/50 border-gray-600/50 focus:border-blue-500 focus:ring-blue-500/50"
-    : "bg-white border-gray-300 focus:border-blue-500 focus:ring-blue-500/30";
-  const textColor = isDarkMode ? "text-gray-200" : "text-gray-800";
-  const labelColor = isDarkMode ? "text-gray-300" : "text-gray-700";
+    ? "bg-slate-900 border-slate-700 focus:border-amber-500 focus:ring-amber-500/20"
+    : "bg-white border-slate-300 focus:border-amber-600 focus:ring-amber-600/20";
+  const textColor = isDarkMode ? "text-slate-200" : "text-slate-900";
+  const labelColor = isDarkMode ? "text-slate-300" : "text-slate-700";
   const placeholderColor = isDarkMode
-    ? "placeholder-gray-500"
-    : "placeholder-gray-400";
+    ? "placeholder-slate-500"
+    : "placeholder-slate-400";
   const buttonBg = isDarkMode
-    ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
-    : "bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700";
-  
+    ? "bg-amber-500 hover:bg-amber-400"
+    : "bg-amber-500 hover:bg-amber-400";
+
   const errorBg = isDarkMode
     ? "bg-red-900/30 border-red-700/50"
     : "bg-red-50 border-red-200";
   const errorText = isDarkMode ? "text-red-300" : "text-red-600";
   const themeToggleBg = isDarkMode
-    ? "bg-gray-700 hover:bg-gray-600 border-gray-600"
-    : "bg-gray-200 hover:bg-gray-300 border-gray-300";
-  const logoText = isDarkMode ? "text-white" : "text-gray-900";
-  const logoSubtext = isDarkMode ? "text-blue-400" : "text-blue-600";
+    ? "bg-slate-800 hover:bg-slate-700 border-slate-700"
+    : "bg-slate-200 hover:bg-slate-300 border-slate-300";
+  const logoText = isDarkMode ? "text-white" : "text-slate-900";
+  const logoSubtext = isDarkMode ? "text-amber-400" : "text-amber-600";
 
   return (
     <div
       className={`min-h-screen flex items-center justify-center p-4 ${bgClass} transition-colors duration-500`}
     >
-      {/* Animated background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        {isDarkMode ? (
-          <>
-            {/* Dark mode gradient orbs */}
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-600/10 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/3 w-60 h-60 bg-blue-500/5 rounded-full blur-3xl"></div>
-          </>
-        ) : (
-          <>
-            {/* Light mode gradient orbs */}
-            <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-200/30 rounded-full blur-3xl"></div>
-            <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-200/30 rounded-full blur-3xl"></div>
-            <div className="absolute top-1/2 left-1/3 w-60 h-60 bg-blue-100/20 rounded-full blur-3xl"></div>
-          </>
-        )}
-      </div>
-
       {/* Theme Toggle */}
       <button
         onClick={toggleTheme}
@@ -187,7 +168,7 @@ export default function AdminLogin() {
       >
         {isDarkMode ? (
           <svg
-            className="w-5 h-5 text-yellow-300"
+            className="w-5 h-5 text-amber-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -201,7 +182,7 @@ export default function AdminLogin() {
           </svg>
         ) : (
           <svg
-            className="w-5 h-5 text-gray-700"
+            className="w-5 h-5 text-slate-700"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -220,13 +201,8 @@ export default function AdminLogin() {
       <div
         className={`relative w-full max-w-md ${shake ? "animate-shake" : ""}`}
       >
-        {/* Card glow effect */}
         <div
-          className={`absolute -inset-1 rounded-2xl blur-xl opacity-30 ${isDarkMode ? "bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500" : "bg-gradient-to-r from-blue-400 via-purple-400 to-blue-400"}`}
-        ></div>
-
-        <div
-          className={`relative rounded-2xl ${cardBg} ${cardBorder} ${cardShadow} border backdrop-blur-lg overflow-hidden transition-all duration-500`}
+          className={`relative rounded-lg ${cardBg} ${cardBorder} ${cardShadow} border overflow-hidden transition-colors duration-300`}
         >
           {/* Header Section */}
           <div className="p-8 pb-6">
@@ -234,10 +210,10 @@ export default function AdminLogin() {
             <div className="flex flex-col items-center mb-8">
               <div className="relative mb-4">
                 <div
-                  className={`w-16 h-16 rounded-2xl ${isDarkMode ? "bg-gradient-to-br from-blue-600 to-purple-600" : "bg-gradient-to-br from-blue-500 to-purple-500"} flex items-center justify-center shadow-lg`}
+                  className="w-16 h-16 rounded-md bg-amber-500 flex items-center justify-center"
                 >
                   <svg
-                    className="w-8 h-8 text-white"
+                    className="w-8 h-8 text-slate-950"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -250,7 +226,7 @@ export default function AdminLogin() {
                     />
                   </svg>
                 </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-gray-800 animate-pulse"></div>
+                <div className={`absolute -top-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 ${isDarkMode ? "border-slate-900" : "border-white"}`}></div>
               </div>
               <h1 className={`text-2xl font-bold ${logoText} mb-2`}>
                 Admin Portal
@@ -295,7 +271,7 @@ export default function AdminLogin() {
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg
-                      className={`w-5 h-5 ${isDarkMode ? "text-gray-500" : "text-gray-400"}`}
+                      className={`w-5 h-5 ${isDarkMode ? "text-slate-500" : "text-slate-400"}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -331,7 +307,7 @@ export default function AdminLogin() {
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <svg
-                      className={`w-5 h-5 ${isDarkMode ? "text-gray-500" : "text-gray-400"}`}
+                      className={`w-5 h-5 ${isDarkMode ? "text-slate-500" : "text-slate-400"}`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -362,8 +338,8 @@ export default function AdminLogin() {
                     <svg
                       className={`w-5 h-5 ${
                         isDarkMode
-                          ? "text-gray-500 hover:text-gray-400"
-                          : "text-gray-400 hover:text-gray-600"
+                          ? "text-slate-500 hover:text-slate-400"
+                          : "text-slate-400 hover:text-slate-600"
                       }`}
                       fill="none"
                       stroke="currentColor"
@@ -402,12 +378,12 @@ export default function AdminLogin() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full py-3 px-4 rounded-lg ${buttonBg} text-white font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:hover:shadow-lg flex items-center justify-center mb-4`}
+                className={`w-full py-3 px-4 rounded-md ${buttonBg} text-slate-950 font-bold uppercase tracking-wide transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center mb-4`}
               >
                 {isLoading ? (
                   <>
                     <svg
-                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-950"
                       fill="none"
                       viewBox="0 0 24 24"
                     >
@@ -455,15 +431,15 @@ export default function AdminLogin() {
 
           {/* Footer */}
           <div
-            className={`px-8 py-4 border-t ${isDarkMode ? "border-gray-700/50" : "border-gray-300/50"} text-center`}
+            className={`px-8 py-4 border-t ${isDarkMode ? "border-slate-800" : "border-slate-300"} text-center`}
           >
             <p
-              className={`text-xs ${isDarkMode ? "text-gray-500" : "text-gray-600"}`}
+              className={`text-xs ${isDarkMode ? "text-slate-500" : "text-slate-600"}`}
             >
               © 2024 Admin Portal. Secure access required.
               <br />
               <span
-                className={`text-xs ${isDarkMode ? "text-gray-600" : "text-gray-500"}`}
+                className={`text-xs ${isDarkMode ? "text-slate-600" : "text-slate-500"}`}
               >
                 Unauthorized access is prohibited.
               </span>

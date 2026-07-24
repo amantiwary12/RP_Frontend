@@ -320,34 +320,28 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-br from-gray-50 via-white to-gray-100 text-gray-600 mt-auto border-t border-[#0AC4E0]/20 relative overflow-hidden">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#0AC4E0]/10 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-[#0A8B9F]/10 rounded-full blur-3xl"></div>
-      </div>
-
+    <footer className="bg-slate-950 text-slate-400 mt-auto border-t-4 border-amber-500 relative overflow-hidden">
       {/* Main footer content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-12">
           {/* Company info & Social Media */}
           <div className="space-y-4 sm:space-y-5">
-            <div className="flex items-center group">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-[#0AC4E0] to-[#0A8B9F] rounded-lg flex items-center justify-center text-white font-bold text-sm sm:text-base mr-2 sm:mr-3 shadow-md group-hover:scale-110 transition-transform duration-300">
+            <div className="flex items-center">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-amber-500 rounded-md flex items-center justify-center text-slate-950 font-black text-sm sm:text-base mr-2 sm:mr-3">
                 TS
               </div>
-              <h3 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] bg-clip-text text-transparent">
-                TransSync
+              <h3 className="text-lg sm:text-xl font-black text-white tracking-tight">
+                TRANSYNC
               </h3>
             </div>
 
-            <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
               Advanced monitoring and control software for BTS-2000.
             </p>
 
             {/* Social Media Links */}
             <div className="pt-2">
-              <h4 className="text-sm font-semibold text-[#0AC4E0] mb-3">
+              <h4 className="text-xs font-bold text-amber-500 uppercase tracking-widest mb-3">
                 Connect With Us
               </h4>
               <div className="flex flex-wrap gap-3">
@@ -355,11 +349,11 @@ const Footer = () => {
                   href="https://in.linkedin.com/company/aartech-solonics-limited"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-200/80 p-2 sm:p-2.5 rounded-lg hover:bg-[#0AC4E0] hover:text-white transition-all duration-300 group border border-gray-300 hover:border-[#0AC4E0]"
+                  className="bg-slate-900 p-2 sm:p-2.5 rounded-md hover:bg-amber-500 transition-colors duration-200 group border border-slate-800 hover:border-amber-500"
                   aria-label="LinkedIn"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-slate-950"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -370,11 +364,11 @@ const Footer = () => {
                   href="https://instagram.com/aartech_solonics_ltd"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-200/80 p-2 sm:p-2.5 rounded-lg hover:bg-[#0AC4E0] hover:text-white transition-all duration-300 group border border-gray-300 hover:border-[#0AC4E0]"
+                  className="bg-slate-900 p-2 sm:p-2.5 rounded-md hover:bg-amber-500 transition-colors duration-200 group border border-slate-800 hover:border-amber-500"
                   aria-label="Instagram"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-slate-950"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -385,11 +379,11 @@ const Footer = () => {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-200/80 p-2 sm:p-2.5 rounded-lg hover:bg-[#0AC4E0] hover:text-white transition-all duration-300 group border border-gray-300 hover:border-[#0AC4E0]"
+                  className="bg-slate-900 p-2 sm:p-2.5 rounded-md hover:bg-amber-500 transition-colors duration-200 group border border-slate-800 hover:border-amber-500"
                   aria-label="Twitter"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-slate-950"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -400,11 +394,11 @@ const Footer = () => {
                   href="https://www.facebook.com/aartechsolonicslimited/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-200/80 p-2 sm:p-2.5 rounded-lg hover:bg-[#0AC4E0] hover:text-white transition-all duration-300 group border border-gray-300 hover:border-[#0AC4E0]"
+                  className="bg-slate-900 p-2 sm:p-2.5 rounded-md hover:bg-amber-500 transition-colors duration-200 group border border-slate-800 hover:border-amber-500"
                   aria-label="Facebook"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-slate-950"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -415,11 +409,11 @@ const Footer = () => {
                   href="https://www.youtube.com/@aartechsolonicslimited"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-gray-200/80 p-2 sm:p-2.5 rounded-lg hover:bg-[#0AC4E0] hover:text-white transition-all duration-300 group border border-gray-300 hover:border-[#0AC4E0]"
+                  className="bg-slate-900 p-2 sm:p-2.5 rounded-md hover:bg-amber-500 transition-colors duration-200 group border border-slate-800 hover:border-amber-500"
                   aria-label="YouTube"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 group-hover:text-white"
+                    className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-slate-950"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -432,14 +426,14 @@ const Footer = () => {
 
           {/* About Links */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-[#0AC4E0] border-b border-[#0AC4E0]/30 pb-2">
+            <h3 className="text-xs sm:text-sm font-bold mb-3 sm:mb-4 text-amber-500 uppercase tracking-widest border-b border-slate-800 pb-2">
               About
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <button
                   onClick={() => handleNavigation("/about")}
-                  className="text-gray-600 hover:text-[#0AC4E0] transition-colors text-xs sm:text-sm block w-full text-left py-1 hover:translate-x-1 transform duration-200"
+                  className="text-slate-400 hover:text-amber-400 transition-colors text-xs sm:text-sm block w-full text-left py-1"
                 >
                   About Us
                 </button>
@@ -449,14 +443,14 @@ const Footer = () => {
 
           {/* Contact Links */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-[#0AC4E0] border-b border-[#0AC4E0]/30 pb-2">
+            <h3 className="text-xs sm:text-sm font-bold mb-3 sm:mb-4 text-amber-500 uppercase tracking-widest border-b border-slate-800 pb-2">
               Contact
             </h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="text-gray-600 hover:text-[#0AC4E0] transition-colors text-xs sm:text-sm block w-full text-left py-1 hover:translate-x-1 transform duration-200"
+                  className="text-slate-400 hover:text-amber-400 transition-colors text-xs sm:text-sm block w-full text-left py-1"
                 >
                   Contact Us
                 </button>
@@ -472,7 +466,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => handleNavigation("/request-demo")}
-                  className="text-gray-600 hover:text-[#0AC4E0] transition-colors text-xs sm:text-sm block w-full text-left py-1 hover:translate-x-1 transform duration-200"
+                  className="text-slate-400 hover:text-amber-400 transition-colors text-xs sm:text-sm block w-full text-left py-1"
                 >
                   Request Demo
                 </button>
@@ -482,18 +476,18 @@ const Footer = () => {
 
           {/* Address & Contact Info */}
           <div>
-            <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-[#0AC4E0] border-b border-[#0AC4E0]/30 pb-2">
+            <h3 className="text-xs sm:text-sm font-bold mb-3 sm:mb-4 text-amber-500 uppercase tracking-widest border-b border-slate-800 pb-2">
               Visit Us
             </h3>
-            <address className="text-gray-600 not-italic text-xs sm:text-sm space-y-3">
+            <address className="text-slate-400 not-italic text-xs sm:text-sm space-y-3">
               <a
                 href="https://maps.app.goo.gl/a35PiMctxiwjySoi7"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start hover:text-[#0AC4E0] transition-colors"
+                className="flex items-start hover:text-amber-400 transition-colors"
               >
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 mt-0.5 text-[#0AC4E0] flex-shrink-0"
+                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 mt-0.5 text-amber-500 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -523,7 +517,7 @@ const Footer = () => {
 
               <p className="flex items-center">
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-[#0AC4E0] flex-shrink-0"
+                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-500 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -538,7 +532,7 @@ const Footer = () => {
 
                 <a
                   href="tel:+919835383246"
-                  className="hover:text-[#0AC4E0] transition-colors"
+                  className="hover:text-amber-400 transition-colors"
                 >
                   Helpline: +91 9835383246
                 </a>
@@ -546,7 +540,7 @@ const Footer = () => {
 
               <p className="flex items-center">
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-[#0AC4E0] flex-shrink-0"
+                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-500 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -560,7 +554,7 @@ const Footer = () => {
                 </svg>
                 <a
                   href="mailto:amantiwary2505@gmail.com"
-                  className="hover:text-[#0AC4E0] transition-colors"
+                  className="hover:text-amber-400 transition-colors"
                 >
                   rjha@aartechsolonics.com
                 </a>
@@ -568,7 +562,7 @@ const Footer = () => {
 
               <p className="flex items-center">
                 <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-[#0AC4E0] flex-shrink-0"
+                  className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-amber-500 flex-shrink-0"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -585,7 +579,7 @@ const Footer = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="hover:text-[#0AC4E0] transition-colors">
+                  <span className="hover:text-amber-400 transition-colors">
                     www.aartechsolonics.com
                   </span>
                 </a>
@@ -595,7 +589,7 @@ const Footer = () => {
             <div className="mt-4 sm:mt-6">
               <button
                 onClick={() => handleNavigation("/contact")}
-                className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] hover:from-[#0A8B9F] hover:to-[#0AC4E0] text-white rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-md text-xs sm:text-sm font-bold uppercase tracking-wide transition-colors duration-200 border border-amber-400/40"
               >
                 Contact Form
               </button>
@@ -604,8 +598,8 @@ const Footer = () => {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[#0AC4E0]/20 mt-8 sm:mt-10 lg:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
-          <p className="text-gray-500 text-xs sm:text-sm order-2 sm:order-1">
+        <div className="border-t border-slate-800 mt-8 sm:mt-10 lg:mt-12 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-0">
+          <p className="text-slate-500 text-xs sm:text-sm order-2 sm:order-1">
             © {currentYear} TransSync. All rights reserved. | Aartech Solonics
             Limited
           </p>

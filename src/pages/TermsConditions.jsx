@@ -8,16 +8,16 @@ const TermsConditions = () => {
   });
 
   const themeClasses = {
-    container: isDarkMode 
-      ? "text-gray-100 bg-gray-900 min-h-screen" 
-      : "text-gray-900 bg-gray-50 min-h-screen",
-    header: isDarkMode ? "bg-gray-800" : "bg-white",
-    title: isDarkMode ? "text-white" : "text-gray-900",
-    subtitle: isDarkMode ? "text-gray-300" : "text-gray-700",
-    section: isDarkMode ? "bg-gray-800/50" : "bg-white",
-    border: isDarkMode ? "border-gray-700" : "border-gray-200",
-    text: isDarkMode ? "text-gray-300" : "text-gray-700",
-    highlight: isDarkMode ? "text-blue-400" : "text-blue-600",
+    container: isDarkMode
+      ? "text-slate-300 bg-slate-950 min-h-screen"
+      : "text-slate-300 bg-slate-950 min-h-screen",
+    header: isDarkMode ? "bg-slate-950" : "bg-slate-950",
+    title: isDarkMode ? "text-white" : "text-white",
+    subtitle: isDarkMode ? "text-slate-300" : "text-slate-300",
+    section: isDarkMode ? "bg-slate-900" : "bg-slate-900",
+    border: isDarkMode ? "border-slate-800" : "border-slate-800",
+    text: isDarkMode ? "text-slate-300" : "text-slate-300",
+    highlight: isDarkMode ? "text-amber-400" : "text-amber-400",
   };
 
   const sections = [
@@ -168,16 +168,16 @@ Phone: +91 755 123 4567
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-3">
-              <div className={`w-10 h-10 flex items-center justify-center rounded-lg ${isDarkMode ? 'bg-blue-900/30' : 'bg-blue-100'}`}>
+              <div className={`w-10 h-10 flex items-center justify-center rounded-md ${isDarkMode ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-amber-500/10 border border-amber-500/30'}`}>
                 <span className={`text-xl font-bold ${themeClasses.highlight}`}>BTS</span>
               </div>
-              <span className="text-xl font-bold">BTS-2000 Industrial System</span>
+              <span className="text-xl font-bold text-white">BTS-2000 Industrial System</span>
             </Link>
             <div className="flex space-x-6">
-              <Link to="/" className={`text-sm font-medium ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+              <Link to="/" className={`text-sm font-medium ${isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-400 hover:text-white'}`}>
                 Home
               </Link>
-              <Link to="/contact" className={`text-sm font-medium ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+              <Link to="/contact" className={`text-sm font-medium ${isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-400 hover:text-white'}`}>
                 Contact
               </Link>
             </div>
@@ -195,13 +195,13 @@ Phone: +91 755 123 4567
           <p className={`text-xl ${themeClasses.subtitle} max-w-4xl mx-auto`}>
             Legal agreement governing your use of BTS-2000 services
           </p>
-          <div className={`h-1 w-24 mx-auto mt-6 ${isDarkMode ? 'bg-blue-600' : 'bg-blue-500'}`}></div>
+          <div className={`h-1 w-24 mx-auto mt-6 ${isDarkMode ? 'bg-amber-500' : 'bg-amber-500'}`}></div>
         </div>
 
         {/* Important Notice */}
-        <div className={`mb-8 p-6 rounded-xl ${isDarkMode ? 'bg-yellow-900/20' : 'bg-yellow-50'} border ${isDarkMode ? 'border-yellow-800/50' : 'border-yellow-200'}`}>
+        <div className={`mb-8 p-6 rounded-lg ${isDarkMode ? 'bg-amber-500/10' : 'bg-amber-500/10'} border ${isDarkMode ? 'border-amber-500/30' : 'border-amber-500/30'}`}>
           <div className="flex items-start">
-            <svg className={`w-6 h-6 mr-4 mt-1 flex-shrink-0 ${isDarkMode ? 'text-yellow-400' : 'text-yellow-600'}`} fill="currentColor" viewBox="0 0 20 20">
+            <svg className={`w-6 h-6 mr-4 mt-1 flex-shrink-0 ${isDarkMode ? 'text-amber-400' : 'text-amber-400'}`} fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
             </svg>
             <div>
@@ -214,14 +214,14 @@ Phone: +91 755 123 4567
         </div>
 
         {/* Quick Navigation */}
-        <div className={`mb-12 p-6 rounded-xl ${themeClasses.section} border ${themeClasses.border}`}>
+        <div className={`mb-12 p-6 rounded-lg ${themeClasses.section} border ${themeClasses.border}`}>
           <h3 className={`text-lg font-bold mb-4 ${themeClasses.title}`}>Table of Contents</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {sections.map((section) => (
-              <a 
+              <a
                 key={section.id}
                 href={`#${section.id}`}
-                className={`text-sm p-3 rounded-lg hover:underline ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+                className={`text-sm p-3 rounded-md hover:underline ${isDarkMode ? 'hover:bg-slate-800' : 'hover:bg-slate-800'} text-slate-300`}
               >
                 {section.title}
               </a>
@@ -232,9 +232,9 @@ Phone: +91 755 123 4567
         {/* Terms Sections */}
         <div className="space-y-12">
           {sections.map((section, index) => (
-            <div key={section.id} id={section.id} className={`p-8 rounded-xl ${themeClasses.section} border ${themeClasses.border}`}>
+            <div key={section.id} id={section.id} className={`p-8 rounded-lg ${themeClasses.section} border ${themeClasses.border}`}>
               <div className="flex items-start mb-6">
-                <div className={`w-12 h-12 flex items-center justify-center rounded-lg mr-4 ${isDarkMode ? 'bg-blue-900/30' : 'bg-blue-100'}`}>
+                <div className={`w-12 h-12 flex items-center justify-center rounded-md mr-4 ${isDarkMode ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-amber-500/10 border border-amber-500/30'}`}>
                   <span className={`font-bold ${themeClasses.highlight}`}>{index + 1}</span>
                 </div>
                 <div>
@@ -251,13 +251,13 @@ Phone: +91 755 123 4567
         </div>
 
         {/* Acceptance Section */}
-        <div className={`mt-12 p-8 rounded-xl ${isDarkMode ? 'bg-gray-800' : 'bg-gray-100'} border ${themeClasses.border}`}>
+        <div className={`mt-12 p-8 rounded-lg ${isDarkMode ? 'bg-slate-900' : 'bg-slate-900'} border ${themeClasses.border}`}>
           <h3 className={`text-xl font-bold mb-4 ${themeClasses.title}`}>Acceptance of Terms</h3>
           <p className={`mb-6 ${themeClasses.text}`}>
             By continuing to use our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions. If you do not agree with any part of these terms, you must discontinue use of our Services immediately.
           </p>
-          
-          <div className={`p-4 rounded-lg ${isDarkMode ? 'bg-gray-700' : 'bg-white'} border ${themeClasses.border}`}>
+
+          <div className={`p-4 rounded-md ${isDarkMode ? 'bg-slate-800' : 'bg-slate-800'} border ${themeClasses.border}`}>
             <div className="flex items-center">
               <svg className={`w-5 h-5 mr-3 ${themeClasses.highlight}`} fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
@@ -271,37 +271,37 @@ Phone: +91 755 123 4567
       </main>
 
       {/* Footer */}
-      <footer className={`py-8 border-t ${themeClasses.border} ${isDarkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
+      <footer className={`py-8 border-t ${themeClasses.border} ${isDarkMode ? 'bg-slate-950' : 'bg-slate-950'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-6 md:mb-0">
               <div className="flex items-center space-x-4">
-                <div className={`p-2 rounded-lg ${isDarkMode ? 'bg-blue-900/20' : 'bg-blue-50'}`}>
+                <div className={`p-2 rounded-md ${isDarkMode ? 'bg-amber-500/10 border border-amber-500/30' : 'bg-amber-500/10 border border-amber-500/30'}`}>
                   <div className="w-8 h-8 flex items-center justify-center">
                     <span className={`text-lg font-bold ${themeClasses.highlight}`}>BTS</span>
                   </div>
                 </div>
                 <div>
-                  <div className="text-lg font-bold">BTS-2000 Industrial System</div>
-                  <div className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                  <div className="text-lg font-bold text-white">BTS-2000 Industrial System</div>
+                  <div className={`text-sm ${isDarkMode ? 'text-slate-400' : 'text-slate-400'}`}>
                     Enterprise Power Management Solutions
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="flex space-x-8">
-              <Link to="/privacypolicy" className={`text-sm font-medium ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+              <Link to="/privacypolicy" className={`text-sm font-medium ${isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-400 hover:text-white'}`}>
                 Privacy Policy
               </Link>
-             
-              <Link to="/contact" className={`text-sm font-medium ${isDarkMode ? 'text-gray-400 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}>
+
+              <Link to="/contact" className={`text-sm font-medium ${isDarkMode ? 'text-slate-400 hover:text-white' : 'text-slate-400 hover:text-white'}`}>
                 Contact Us
               </Link>
             </div>
           </div>
-          
-          <div className={`mt-8 pt-6 border-t ${themeClasses.border} text-center text-sm ${isDarkMode ? 'text-gray-500' : 'text-gray-600'}`}>
+
+          <div className={`mt-8 pt-6 border-t ${themeClasses.border} text-center text-sm ${isDarkMode ? 'text-slate-400' : 'text-slate-400'}`}>
             © {new Date().getFullYear()} Aartech Solonics Ltd. All rights reserved.
           </div>
         </div>

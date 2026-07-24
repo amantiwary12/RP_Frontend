@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export default function TechnicalSpec() {
   const [activeCategory, setActiveCategory] = useState("all");
-  
+
   const specs = [
     {
       title: "Supported Devices",
@@ -66,19 +66,22 @@ export default function TechnicalSpec() {
     { id: "deployment", name: "Deployment" }
   ];
 
-  const filteredSpecs = activeCategory === "all" 
-    ? specs 
+  const filteredSpecs = activeCategory === "all"
+    ? specs
     : specs.filter(spec => spec.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white px-6 lg:px-20 py-16">
+    <div className="min-h-screen bg-slate-950 text-white px-6 lg:px-20 py-16">
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+          <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">
+            Technical Reference
+          </span>
+          <h1 className="text-4xl lg:text-5xl font-bold mt-4 mb-4 text-white">
             Technical Specifications
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-400 max-w-3xl mx-auto">
             Comprehensive technical details of the TransSync monitoring system for the BTS-2000
           </p>
         </div>
@@ -89,9 +92,9 @@ export default function TechnicalSpec() {
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${activeCategory === category.id 
-                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30' 
-                : 'bg-gray-700 text-gray-300 hover:bg-gray-600'}`}
+              className={`px-4 py-2 rounded-md text-sm font-medium uppercase tracking-wide transition-colors duration-200 ${activeCategory === category.id
+                ? 'bg-amber-500 text-slate-950 font-bold'
+                : 'bg-slate-900 text-slate-400 border border-slate-800 hover:border-amber-500/40 hover:text-white'}`}
             >
               {category.name}
             </button>
@@ -103,34 +106,34 @@ export default function TechnicalSpec() {
           {filteredSpecs.map((spec, index) => (
             <div
               key={index}
-              className="group bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10"
+              className="group bg-slate-900 rounded-lg p-6 border border-slate-800 hover:border-amber-500/40 transition-colors duration-300"
             >
               <div className="flex items-start mb-4">
-                <div className="bg-blue-900/30 p-2 rounded-lg mr-4 group-hover:bg-blue-700/30 transition-colors">
-                  <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <div className="bg-amber-500/10 p-2 rounded-md mr-4 border border-amber-500/30">
+                  <svg className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <h2 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                <h2 className="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
                   {spec.title}
                 </h2>
               </div>
-              <p className="text-gray-300 leading-relaxed pl-10">{spec.details}</p>
+              <p className="text-slate-400 leading-relaxed pl-10">{spec.details}</p>
             </div>
           ))}
         </div>
 
         {/* Call to Action */}
-        <div className="mt-20 text-center bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
+        <div className="mt-20 text-center bg-slate-900 rounded-lg p-8 border border-slate-800">
           <h2 className="text-2xl font-bold text-white mb-4">Ready to experience TransSync?</h2>
-          <p className="text-gray-300 max-w-3xl mx-auto mb-6">
+          <p className="text-slate-400 max-w-3xl mx-auto mb-6">
             Contact our team to schedule a demonstration or request detailed technical documentation.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50">
+            <button className="px-6 py-3 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold uppercase tracking-wide rounded-md transition-colors duration-200">
               Request Demo
             </button>
-            <button className="px-6 py-3 bg-transparent border border-gray-600 hover:border-blue-500 text-white font-medium rounded-lg transition-colors">
+            <button className="px-6 py-3 bg-transparent border border-slate-700 hover:border-amber-500 text-white hover:text-amber-400 font-medium rounded-md transition-colors duration-200">
               Download Technical Brochure
             </button>
           </div>
@@ -138,16 +141,14 @@ export default function TechnicalSpec() {
 
         {/* Closing Note */}
         <div className="mt-16 text-center">
-          <div className="inline-block p-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full mb-6">
-            <div className="bg-gray-900 rounded-full p-3">
-              <svg className="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-              </svg>
-            </div>
+          <div className="inline-block p-3 bg-slate-900 rounded-md border border-amber-500/30 mb-6">
+            <svg className="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
           </div>
           <h2 className="text-2xl font-bold text-white mb-4">Engineered for Excellence</h2>
-          <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            TransSync is engineered to deliver high performance, secure operations, and scalable monitoring for the BTS-2000. 
+          <p className="text-slate-400 max-w-3xl mx-auto leading-relaxed">
+            TransSync is engineered to deliver high performance, secure operations, and scalable monitoring for the BTS-2000.
             With its future-ready architecture, it ensures long-term reliability in mission-critical environments.
           </p>
         </div>

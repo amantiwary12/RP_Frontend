@@ -532,7 +532,7 @@ export default function HomePage() {
   return (
     <div>
       <div>
-        <div className="fixed z-50 top-24 right-6 rounded-lg p-2 border shadow-lg hidden md:block ">
+        <div className="fixed z-50 top-24 right-6 rounded-md p-2 bg-slate-900 border border-slate-800 shadow-lg hidden md:block ">
           <img
             src={aartech}
             alt="Aartech Logo"
@@ -540,9 +540,9 @@ export default function HomePage() {
           />
         </div>
       </div>
-      <div className="min-h-screen relative bg-slate-50 text-slate-800">
-        {/* ================= HERO SECTION - Cyan Theme ================= */}
-        <section className="relative overflow-hidden bg-[rgb(4,105,173)] pt-32 pb-40">
+      <div className="min-h-screen relative bg-slate-950 text-slate-100">
+        {/* ================= HERO SECTION ================= */}
+        <section className="relative overflow-hidden bg-slate-950 pt-32 pb-40 border-b border-slate-800">
           {/* Background Image with Overlay */}
           <div className="absolute inset-0">
             <img
@@ -550,31 +550,31 @@ export default function HomePage() {
               alt="Industrial Power Grid Background"
               className="w-full h-full object-cover opacity-20"
             />
-          </div>
-
-          {/* Animated background elements */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-20 left-10 w-96 h-96 bg-[#0AC4E0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#08a8c0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
-            <div className="absolute top-40 right-40 w-72 h-72 bg-[#068ca0] rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-500"></div>
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(rgba(2,6,23,0.85), rgba(2,6,23,0.9))",
+              }}
+            ></div>
           </div>
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div>
-                <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-8 border border-white/20">
-                  <Activity className="w-4 h-4 text-white mr-2 animate-pulse" />
-                  <span className="text-sm text-white/90">
+                <div className="inline-flex items-center bg-slate-900 rounded-md px-4 py-2 mb-8 border border-slate-800">
+                  <Activity className="w-4 h-4 text-amber-500 mr-2" />
+                  <span className="text-xs font-bold text-amber-500 uppercase tracking-widest">
                     Real-time Control & Monitoring Platform
                   </span>
                 </div>
 
                 <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                   Digital Intelligence for
-                  <span className="block text-[#0AC4E0]">BTS2000 Systems</span>
+                  <span className="block text-amber-500">BTS2000 Systems</span>
                 </h1>
 
-                <p className="text-xl text-white/80 mb-8 leading-relaxed">
+                <p className="text-xl text-slate-400 mb-8 leading-relaxed">
                   Enterprise-grade monitoring, predictive analytics, and secure
                   command interface engineered for mission-critical industrial
                   power transfer systems.
@@ -582,51 +582,51 @@ export default function HomePage() {
 
                 <div className="flex flex-wrap gap-4">
                   <Link to="/request-demo">
-                    <button className="group bg-[#0AC4E0] text-white px-8 py-4  rounded-xl font-semibold hover:shadow-sm hover:shadow-black transition-all flex items-center">
+                    <button className="group bg-amber-500 text-slate-950 px-8 py-4 rounded-md font-bold uppercase tracking-wide hover:bg-amber-400 transition-colors duration-200 flex items-center">
                       Schedule Demo
                       <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
                     </button>
                   </Link>
                   <button
                     onClick={handleDownload}
-                    className="bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all flex items-center"
+                    className="bg-transparent border border-slate-700 text-white px-8 py-4 rounded-md font-bold uppercase tracking-wide hover:border-amber-500 hover:text-amber-400 transition-colors duration-200 flex items-center"
                   >
                     <Download className="w-5 h-5 mr-2" />
                     Download Brochure
                   </button>
                 </div>
 
-                {/* Stats with cyan theme */}
-                <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-white/20">
-                  <div className="group hover:scale-105 transition">
-                    <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">
+                {/* Stats */}
+                <div className="grid grid-cols-3 gap-8 mt-12 pt-8 border-t border-slate-800">
+                  <div>
+                    <div className="text-3xl font-bold text-white">
                       95.0%
                     </div>
-                    <div className="text-sm text-white/60">Uptime</div>
+                    <div className="text-sm text-slate-500">Uptime</div>
                   </div>
-                  <div className="group hover:scale-105 transition">
-                    <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">
+                  <div>
+                    <div className="text-3xl font-bold text-white">
                       &lt;200ms
                     </div>
-                    <div className="text-sm text-white/60">Response Time</div>
+                    <div className="text-sm text-slate-500">Response Time</div>
                   </div>
-                  <div className="group hover:scale-105 transition">
-                    <div className="text-3xl font-bold text-white group-hover:text-[#0AC4E0] transition">
+                  <div>
+                    <div className="text-3xl font-bold text-white">
                       24/7
                     </div>
-                    <div className="text-sm text-white/60">Monitoring</div>
+                    <div className="text-sm text-slate-500">Monitoring</div>
                   </div>
                 </div>
               </div>
 
-              {/* Live Dashboard Preview - Cyan Theme */}
+              {/* Live Dashboard Preview */}
               <div className="relative">
-                <div className="bg-slate-800/50 backdrop-blur-xl rounded-2xl border border-white/10 p-6 shadow-2xl">
+                <div className="bg-slate-900 rounded-lg border border-slate-800 p-6">
                   <div className="flex items-center space-x-2 mb-4">
-                    <div className="w-3 h-3 bg-[#0AC4E0] rounded-full animate-pulse"></div>
-                    <div className="w-3 h-3 bg-[#08a8c0] rounded-full animate-pulse delay-150"></div>
-                    <div className="w-3 h-3 bg-[#068ca0] rounded-full animate-pulse delay-300"></div>
-                    <span className="text-sm text-white/60 ml-2">
+                    <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                    <div className="w-3 h-3 bg-slate-600 rounded-full"></div>
+                    <span className="text-sm text-slate-500 ml-2">
                       Live Dashboard
                     </span>
                   </div>
@@ -634,7 +634,7 @@ export default function HomePage() {
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       {/* First Image Card */}
-                      <div className="bg-gradient-to-br from-[#0AC4E0]/20 to-[#08a8c0]/20 rounded-lg border border-white/10 overflow-hidden">
+                      <div className="bg-slate-950 rounded-md border border-slate-800 overflow-hidden">
                         <img
                           src={graph}
                           alt="Graph"
@@ -643,7 +643,7 @@ export default function HomePage() {
                       </div>
 
                       {/* Second Image Card */}
-                      <div className="bg-gradient-to-br from-[#0AC4E0]/20 to-[#08a8c0]/20 rounded-lg border border-white/10 overflow-hidden">
+                      <div className="bg-slate-950 rounded-md border border-slate-800 overflow-hidden">
                         <img
                           src={diagram}
                           alt="Diagram"
@@ -653,16 +653,16 @@ export default function HomePage() {
                     </div>
 
                     <div className="grid grid-cols-3 gap-2">
-                      <div className="h-2 bg-[#0AC4E0] rounded-full"></div>
-                      <div className="h-2 bg-[#08a8c0] rounded-full"></div>
-                      <div className="h-2 bg-[#068ca0] rounded-full"></div>
+                      <div className="h-2 bg-amber-500 rounded-full"></div>
+                      <div className="h-2 bg-amber-500 rounded-full"></div>
+                      <div className="h-2 bg-amber-500 rounded-full"></div>
                     </div>
 
-                    <div className="h-32 bg-gradient-to-r overflow-auto from-[#0AC4E0]/10 via-[#08a8c0]/10 to-[#068ca0]/10 rounded-lg flex items-center justify-center border border-white/10">
+                    <div className="h-32 overflow-auto bg-slate-950 rounded-md flex items-center justify-center border border-slate-800">
                       <img
                         src="https://aartechsolonics.com/assets/bts1-da0a73a3.webp"
                         alt="Waveform Preview"
-                        className="w-full h-full object-cover rounded-lg opacity-50"
+                        className="w-full h-full object-cover rounded-md opacity-50"
                       />
                     </div>
                   </div>
@@ -672,26 +672,20 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= FEATURES GRID - Cyan Theme Cards ================= */}
+        {/* ================= FEATURES GRID ================= */}
         <section
           id="features"
-          className="py-24 px-6 relative overflow-hidden bg-cover bg-gray-100 bg-center"
-          // style={{
-          //   backgroundImage: `
-          //     linear-gradient(rgba(209,213,219,0.50), rgba(209,213,219,0.90)),
-          //     url('https://cdn.pixabay.com/photo/2015/06/26/15/31/industria-822617_960_720.jpg')
-          //   `,
-          // }}
+          className="py-24 px-6 relative overflow-hidden bg-slate-900"
         >
           <div className="max-w-7xl mx-auto margin-auto justify-between">
             <div className="text-center mb-16">
-              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">
                 Features
               </span>
-              <h2 className="text-4xl font-bold mt-2 mb-4 bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
+              <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
                 Enterprise-Grade Monitoring
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              <p className="text-xl text-slate-400 max-w-3xl mx-auto">
                 Comprehensive visibility and control for your critical power
                 infrastructure
               </p>
@@ -702,7 +696,7 @@ export default function HomePage() {
                 icon={<Cpu className="w-6 h-6" />}
                 title="Real-time Telemetry"
                 description="Sub-2000ms data refresh with MQTT support"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://cdn.pixabay.com/photo/2021/09/15/08/15/windmills-6626200_960_720.jpg"
               />
 
@@ -710,7 +704,7 @@ export default function HomePage() {
                 icon={<Cloud className="w-6 h-6" />}
                 title="Cloud Connectivity"
                 description="Secure cloud backup and remote access"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://cdn.pixabay.com/photo/2014/02/10/14/47/cooling-towers-263466_960_720.jpg"
               />
 
@@ -718,33 +712,33 @@ export default function HomePage() {
                 icon={<Database className="w-6 h-6" />}
                 title="Data Historian"
                 description="5-days data retention with compression"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://cdn.pixabay.com/photo/2021/09/15/08/15/windmills-6626200_960_720.jpg"
               />
             </div>
           </div>
         </section>
 
-        {/* ================= TECHNICAL SPECIFICATIONS - Cyan Dark Theme ================= */}
+        {/* ================= TECHNICAL SPECIFICATIONS ================= */}
         <section
           id="technical"
           className="py-24 px-6 text-white relative overflow-hidden bg-cover bg-center"
           style={{
             backgroundImage: `
-      linear-gradient(rgba(47,126,178,0.85), rgba(47,126,178,0.85)),
+      linear-gradient(rgba(2,6,23,0.88), rgba(2,6,23,0.92)),
       url('https://cdn.pixabay.com/photo/2016/11/16/00/06/industry-1827884_1280.jpg')
     `,
           }}
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">
                 Technical
               </span>
               <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
                 System Architecture & Compliance
               </h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              <p className="text-xl text-slate-400 max-w-3xl mx-auto">
                 Built on industry standards with enterprise-grade security and
                 reliability
               </p>
@@ -754,7 +748,7 @@ export default function HomePage() {
               <TechnicalCard
                 icon={<Server className="w-8 h-8" />}
                 title="System Capabilities"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://cdn.pixabay.com/photo/2021/05/03/13/24/sunset-6226244_1280.jpg"
                 items={["Sub-2000ms real-time refresh", "MQTT & RESTful API"]}
               />
@@ -762,7 +756,7 @@ export default function HomePage() {
               <TechnicalCard
                 icon={<Shield className="w-8 h-8" />}
                 title="Compliance Standards"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://cdn.pixabay.com/photo/2022/06/19/07/03/power-plant-7271169_1280.jpg"
                 items={[]}
               />
@@ -770,7 +764,7 @@ export default function HomePage() {
               <TechnicalCard
                 icon={<Globe className="w-8 h-8" />}
                 title="Deployment Options"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://cdn.pixabay.com/photo/2017/11/25/12/46/energy-2976738_960_720.jpg"
                 items={[
                   "Cloud-based",
@@ -782,8 +776,8 @@ export default function HomePage() {
             </div>
             {/* Architecture Diagram
           <div className="mt-16 relative">
-            <img 
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            <img
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
               alt="System Architecture Diagram"
               className="rounded-xl opacity-50 w-full h-64 object-cover"
             />
@@ -796,17 +790,17 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= LIVE MONITORING DASHBOARD - Cyan Theme ================= */}
-        <section className="py-24 px-6 bg-gray-100">
+        {/* ================= LIVE MONITORING DASHBOARD ================= */}
+        <section className="py-24 px-6 bg-slate-950">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">
                 Live View
               </span>
-              <h2 className="text-4xl font-bold mt-2 mb-4 text-slate-800">
+              <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
                 Real-time Monitoring Dashboard
               </h2>
-              <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              <p className="text-xl text-slate-400 max-w-3xl mx-auto">
                 Live telemetry and system status at your fingertips
               </p>
             </div>
@@ -819,81 +813,81 @@ export default function HomePage() {
                     title="Analog"
                     value="110.02 V"
                     change="+0.2%"
-                    color="#0AC4E0"
+                    color="#f59e0b"
                     image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
                   />
                   <MetricCard
                     title="Analog"
                     value="110.0 V"
                     change="-0.1%"
-                    color="#0AC4E0"
+                    color="#f59e0b"
                     image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
                   />
                   <MetricCard
                     title="Frequency"
                     value="50.0 Hz"
                     change="Stable"
-                    color="#0AC4E0"
+                    color="#f59e0b"
                     image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
                   />
                   <MetricCard
                     title="Phase Difference"
                     value="-0.10"
                     change="Optimal"
-                    color="#0AC4E0"
+                    color="#f59e0b"
                     image="https://cdn.pixabay.com/photo/2017/07/03/15/02/architecture-2468004_1280.jpg"
                   />
                 </div>
 
                 {/* Status indicators */}
-                <div className="bg-gray-200 rounded-xl shadow-lg p-6">
-                  <h3 className="font-semibold mb-4 flex items-center">
-                    <Activity className="w-5 h-5 mr-2 text-[#0AC4E0]" />
+                <div className="bg-slate-900 rounded-lg border border-slate-800 p-6">
+                  <h3 className="font-semibold mb-4 flex items-center text-white">
+                    <Activity className="w-5 h-5 mr-2 text-amber-500" />
                     Online Status
                   </h3>
                   <div className="space-y-3">
                     <StatusIndicator
                       label="Breaker Status"
                       status="Closed"
-                      color="#0AC4E0"
+                      color="#10b981"
                     />
                     <StatusIndicator
                       label="Transfer"
                       status="Auto"
-                      color="#0AC4E0"
+                      color="#10b981"
                     />
                     <StatusIndicator
                       label="Sync Check"
                       status="In Sync"
-                      color="#0AC4E0"
+                      color="#10b981"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Right side - Charts */}
-              <div className="bg-gray-200 rounded-xl shadow-lg p-6">
+              <div className="bg-slate-900 rounded-lg border border-slate-800 p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="font-semibold flex items-center">
-                    <LineChart className="w-5 h-5 mr-2 text-[#0AC4E0]" />
+                  <h3 className="font-semibold flex items-center text-white">
+                    <LineChart className="w-5 h-5 mr-2 text-amber-500" />
                     Live Waveform
                   </h3>
-                  <div className="flex space-x-2">
-                    <div className="w-3 h-3 bg-[#0AC4E0] rounded-full animate-pulse"></div>
-                    <span className="text-sm text-slate-600">Live</span>
+                  <div className="flex space-x-2 items-center">
+                    <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                    <span className="text-sm text-slate-400">Live</span>
                   </div>
                 </div>
 
                 {/* Waveform visualization */}
-                <div className="h-48 relative rounded-lg overflow-hidden">
+                <div className="h-48 relative rounded-md overflow-hidden border border-slate-800">
                   <img
                     src="https://cdn.pixabay.com/photo/2015/04/01/15/08/industry-702561_1280.jpg"
                     alt="Waveform Monitor"
                     className="w-full h-full object-cover opacity-30"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-white/90 px-4 py-2 rounded-full shadow-lg border border-[#0AC4E0]">
-                      <span className="text-sm font-medium text-[#0AC4E0]">
+                    <div className="bg-slate-950/90 px-4 py-2 rounded-md border border-amber-500/40">
+                      <span className="text-sm font-medium text-amber-400">
                         Live Data Feed
                       </span>
                     </div>
@@ -905,7 +899,7 @@ export default function HomePage() {
                   >
                     <path
                       d="M0,80 Q20,40 40,80 T80,80 T120,80 T160,80 T200,80"
-                      stroke="#0AC4E0"
+                      stroke="#f59e0b"
                       strokeWidth="3"
                       fill="none"
                     />
@@ -914,21 +908,21 @@ export default function HomePage() {
 
                 {/* Mini metrics */}
                 <div className="grid grid-cols-3 gap-2 mt-4">
-                  <div className="text-center p-2 bg-slate-50 rounded-lg">
+                  <div className="text-center p-2 bg-slate-950 rounded-md border border-slate-800">
                     <div className="text-xs text-slate-500">Peak</div>
-                    <div className="text-sm font-bold text-[#0AC4E0]">
+                    <div className="text-sm font-bold text-amber-400">
                       120.0 V
                     </div>
                   </div>
-                  <div className="text-center p-2 bg-slate-50 rounded-lg">
+                  <div className="text-center p-2 bg-slate-950 rounded-md border border-slate-800">
                     <div className="text-xs text-slate-500">Min</div>
-                    <div className="text-sm font-bold text-[#0AC4E0]">
+                    <div className="text-sm font-bold text-amber-400">
                       90.0 V
                     </div>
                   </div>
-                  <div className="text-center p-2 bg-slate-50 rounded-lg">
+                  <div className="text-center p-2 bg-slate-950 rounded-md border border-slate-800">
                     <div className="text-xs text-slate-500">Avg</div>
-                    <div className="text-sm font-bold text-[#0AC4E0]">
+                    <div className="text-sm font-bold text-amber-400">
                       110.0 V
                     </div>
                   </div>
@@ -938,26 +932,26 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ================= INVESTMENT SECTION - Cyan Theme ================= */}
+        {/* ================= INVESTMENT SECTION ================= */}
         <section
           id="investment"
           className="py-24 px-6 relative overflow-hidden bg-cover bg-center"
           style={{
             backgroundImage: `
-      linear-gradient(rgba(47,126,178,0.85), rgba(47,126,178,0.85)),
+      linear-gradient(rgba(2,6,23,0.88), rgba(2,6,23,0.92)),
       url('https://cdn.pixabay.com/photo/2016/08/17/00/51/wind-1599494_1280.jpg')
     `,
           }}
         >
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <span className="text-[#0AC4E0] font-semibold text-sm uppercase tracking-wider">
+              <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">
                 Investment
               </span>
               <h2 className="text-4xl font-bold mt-2 mb-4 text-white">
                 Growth & Revenue Potential
               </h2>
-              <p className="text-xl text-white max-w-3xl mx-auto">
+              <p className="text-xl text-slate-400 max-w-3xl mx-auto">
                 Scalable software solution with multiple revenue streams and
                 high margins
               </p>
@@ -970,7 +964,7 @@ export default function HomePage() {
                 description="Increasing demand for digital retrofitting across manufacturing and utilities"
                 metric="--"
                 metricLabel="Market Size"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               />
               <InvestmentCard
@@ -979,7 +973,7 @@ export default function HomePage() {
                 description="Single-site, multi-site, and cloud-based deployment with recurring subscriptions"
                 metric="40%"
                 metricLabel="Gross Margin"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               />
               <InvestmentCard
@@ -988,7 +982,7 @@ export default function HomePage() {
                 description="High-margin digital intelligence add-on without major capex for end-users"
                 metric="2-2.5x"
                 metricLabel="ROI Multiple"
-                color="#0AC4E0"
+                color="#f59e0b"
                 image="https://images.unsplash.com/photo-1579532537598-459ecdaf39cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
               />
             </div>
@@ -1020,57 +1014,57 @@ export default function HomePage() {
             </div>
           </div> */}
 
-            {/* Cyan CTA */}
-            <div className="relative overflow-hidden rounded-2xl">
+            {/* CTA */}
+            <div className="relative overflow-hidden rounded-lg border border-slate-800">
               <div className="absolute inset-0">
                 <img
                   src="https://images.unsplash.com/photo-1581091870627-3f5a4c1c8b4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
                   alt="Background"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gray-300"></div>
+                <div className="absolute inset-0 bg-slate-950/85"></div>
               </div>
-              <div className="relative bg-white/10 backdrop-blur-xl p-12 border border-white/20">
+              <div className="relative bg-slate-900/60 p-12 border-t border-slate-800">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                   <div>
-                    <h3 className="text-3xl font-bold text-black mb-4">
+                    <h3 className="text-3xl font-bold text-white mb-4">
                       Ready to transform your power infrastructure?
                     </h3>
-                    <p className="text-black text-lg mb-6">
+                    <p className="text-slate-400 text-lg mb-6">
                       Join industry leaders who have already deployed the
                       BTS2000 Intelligence Platform
                     </p>
                     <Link to="/request-demo">
-                      <button className="group bg-[#0AC4E0] text-black px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:scale-105 transition-all flex items-center">
+                      <button className="group bg-amber-500 text-slate-950 px-8 py-4 rounded-md font-bold uppercase tracking-wide hover:bg-amber-400 transition-colors duration-200 flex items-center">
                         Schedule a Consultation
                         <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition" />
                       </button>
                     </Link>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                    <div className="bg-slate-900 border border-slate-800 rounded-md p-6 text-center">
+                      <div className="text-3xl font-bold text-amber-400 mb-2">
                         5+
                       </div>
-                      <div className="text-sm text-black">Deployments</div>
+                      <div className="text-sm text-slate-400">Deployments</div>
                     </div>
-                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                    <div className="bg-slate-900 border border-slate-800 rounded-md p-6 text-center">
+                      <div className="text-3xl font-bold text-amber-400 mb-2">
                         24/7
                       </div>
-                      <div className="text-sm text-black">Support</div>
+                      <div className="text-sm text-slate-400">Support</div>
                     </div>
-                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                    <div className="bg-slate-900 border border-slate-800 rounded-md p-6 text-center">
+                      <div className="text-3xl font-bold text-amber-400 mb-2">
                         95.0%
                       </div>
-                      <div className="text-sm text-black">Uptime</div>
+                      <div className="text-sm text-slate-400">Uptime</div>
                     </div>
-                    <div className="bg-white backdrop-blur-sm rounded-xl p-6 text-center hover:bg-white/20 transition">
-                      <div className="text-3xl font-bold text-[#0AC4E0] mb-2">
+                    <div className="bg-slate-900 border border-slate-800 rounded-md p-6 text-center">
+                      <div className="text-3xl font-bold text-amber-400 mb-2">
                         2000 ms
                       </div>
-                      <div className="text-sm text-black">Latency</div>
+                      <div className="text-sm text-slate-400">Latency</div>
                     </div>
                   </div>
                 </div>
@@ -1087,50 +1081,41 @@ export default function HomePage() {
 
 function FeatureCard({ icon, title, description, color, image }) {
   return (
-    <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 relative overflow-hidden">
+    <div className="group bg-slate-900 p-6 rounded-lg border border-slate-800 hover:border-amber-500/40 transition-colors duration-200 relative overflow-hidden">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <div
-        className={`absolute inset-0 bg-[${color}] opacity-0 group-hover:opacity-5 transition-opacity`}
-      ></div>
-      <div
-        className={`w-12 h-12 bg-[${color}]/10 rounded-lg flex items-center justify-center text-[${color}] mb-4 group-hover:scale-110 transition relative z-10`}
-      >
+      <div className="w-12 h-12 bg-amber-500/10 rounded-md flex items-center justify-center text-amber-400 mb-4 relative z-10">
         {icon}
       </div>
-      <h3 className="text-lg font-semibold mb-2 group-hover:text-[${color}] transition relative z-10">
+      <h3 className="text-lg font-semibold mb-2 text-white relative z-10">
         {title}
       </h3>
-      <p className="text-slate-600 text-sm relative z-10">{description}</p>
+      <p className="text-slate-400 text-sm relative z-10">{description}</p>
 
-      {/* Colored indicator */}
-      <div
-        className={`absolute bottom-0 left-0 w-full h-1 bg-[${color}] transform scale-x-0 group-hover:scale-x-100 transition-transform`}
-      ></div>
+      {/* Accent indicator */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-amber-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"></div>
     </div>
   );
 }
 
 function TechnicalCard({ icon, title, color, image, items }) {
   return (
-    <div className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10 hover:border-white/20 transition group relative overflow-hidden">
+    <div className="bg-slate-900/60 rounded-lg p-8 border border-slate-800 hover:border-slate-700 transition-colors duration-200 group relative overflow-hidden">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <div
-        className={`w-14 h-14 bg-[${color}] rounded-lg flex items-center justify-center mb-4 text-white group-hover:scale-110 transition shadow-lg relative z-10`}
-      >
+      <div className="w-14 h-14 bg-amber-500 rounded-md flex items-center justify-center mb-4 text-slate-950 relative z-10">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-4 relative z-10">{title}</h3>
+      <h3 className="text-xl font-semibold mb-4 relative z-10 text-white">{title}</h3>
       <ul className="space-y-3 relative z-10">
         {items.map((item, index) => (
           <li
             key={index}
             className="flex items-center space-x-2 text-slate-300"
           >
-            <div className={`w-1.5 h-1.5 rounded-full bg-[${color}]`}></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
             <span>{item}</span>
           </li>
         ))}
@@ -1149,22 +1134,17 @@ function InvestmentCard({
   image,
 }) {
   return (
-    <div className="group bg-white p-8 rounded-xl shadow-lg border border-slate-100 hover:shadow-2xl transition-all hover:-translate-y-2 relative overflow-hidden">
+    <div className="group bg-slate-900 p-8 rounded-lg border border-slate-800 hover:border-amber-500/40 transition-colors duration-200 relative overflow-hidden">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
-      <div
-        className={`absolute top-0 right-0 w-24 h-24 bg-[${color}] opacity-10 rounded-bl-full`}
-      ></div>
-      <div
-        className={`w-14 h-14 bg-[${color}] rounded-xl flex items-center justify-center text-white mb-4 group-hover:scale-110 transition shadow-lg relative z-10`}
-      >
+      <div className="w-14 h-14 bg-amber-500 rounded-md flex items-center justify-center text-slate-950 mb-4 relative z-10">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-2 relative z-10">{title}</h3>
-      <p className="text-slate-600 mb-4 relative z-10">{description}</p>
-      <div className="pt-4 border-t border-slate-100 relative z-10">
-        <div className={`text-2xl font-bold text-[${color}]`}>{metric}</div>
+      <h3 className="text-xl font-semibold mb-2 relative z-10 text-white">{title}</h3>
+      <p className="text-slate-400 mb-4 relative z-10">{description}</p>
+      <div className="pt-4 border-t border-slate-800 relative z-10">
+        <div className="text-2xl font-bold text-amber-400">{metric}</div>
         <div className="text-sm text-slate-500">{metricLabel}</div>
       </div>
     </div>
@@ -1173,22 +1153,20 @@ function InvestmentCard({
 
 function MetricCard({ title, value, change, color, image }) {
   return (
-    <div
-      className={`bg-[${color}]/10 rounded-xl p-4 border border-white/50 backdrop-blur-sm relative overflow-hidden group`}
-    >
+    <div className="bg-slate-900 rounded-lg p-4 border border-slate-800 relative overflow-hidden group">
       <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity">
         <img src={image} alt="" className="w-full h-full object-cover" />
       </div>
       <div className="relative z-10">
-        <div className="text-sm text-slate-600 mb-1">{title}</div>
-        <div className="text-2xl font-bold text-slate-800">{value}</div>
+        <div className="text-sm text-slate-500 mb-1">{title}</div>
+        <div className="text-2xl font-bold text-white">{value}</div>
         <div
           className={`text-xs ${
             change.includes("+")
-              ? "text-emerald-600"
+              ? "text-emerald-500"
               : change.includes("-")
-                ? "text-red-600"
-                : `text-[${color}]`
+                ? "text-red-500"
+                : "text-amber-400"
           }`}
         >
           {change}
@@ -1201,12 +1179,10 @@ function MetricCard({ title, value, change, color, image }) {
 function StatusIndicator({ label, status, color }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-slate-600">{label}</span>
+      <span className="text-slate-400">{label}</span>
       <div className="flex items-center space-x-2">
-        <div
-          className={`w-2 h-2 rounded-full bg-[${color}] animate-pulse`}
-        ></div>
-        <span className={`font-medium text-[${color}]`}>{status}</span>
+        <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+        <span className="font-medium text-emerald-400">{status}</span>
       </div>
     </div>
   );
@@ -1215,17 +1191,15 @@ function StatusIndicator({ label, status, color }) {
 function FooterColumn({ title, color, links }) {
   return (
     <div>
-      <h4 className={`font-semibold mb-4 text-[${color}]`}>{title}</h4>
+      <h4 className="font-bold mb-4 text-amber-500 text-xs uppercase tracking-widest">{title}</h4>
       <ul className="space-y-2 text-slate-400 text-sm">
         {links.map((link, index) => (
           <li key={index}>
             <a
               href="#"
-              className="hover:text-white transition group flex items-center"
+              className="hover:text-amber-400 transition-colors duration-200 group flex items-center"
             >
-              <span
-                className={`w-1 h-1 bg-[${color}] rounded-full mr-2 opacity-0 group-hover:opacity-100 transition`}
-              ></span>
+              <span className="w-1 h-1 bg-amber-500 rounded-full mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200"></span>
               {link}
             </a>
           </li>

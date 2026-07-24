@@ -1349,105 +1349,89 @@ export default function About() {
   const themeColor = "#0AC4E0";
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
+    <div className="min-h-screen bg-slate-950">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#0A8B9F] to-[#0AC4E0]">
-        {/* Animated background elements */}
+      <section className="relative overflow-hidden bg-slate-900 border-b border-slate-800">
+        {/* Background pattern */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, #0AC4E0 1.5px, transparent 1.5px)`,
+              backgroundImage: `radial-gradient(circle at 2px 2px, #f59e0b 1.5px, transparent 1.5px)`,
               backgroundSize: "60px 60px",
             }}></div>
           </div>
-          
-          {/* Floating orbs with theme color */}
-          <div className="absolute top-20 left-10 w-64 md:w-96 h-64 md:h-96 bg-[#0AC4E0]/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-64 md:w-80 h-64 md:h-80 bg-[#0A8B9F]/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-40 right-40 w-48 md:w-64 h-48 md:h-64 bg-[#0AC4E0]/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-32">
           <div className="text-center">
             {/* Title */}
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black text-white mb-4 md:mb-6 leading-tight tracking-tight px-4">
-              About <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AC4E0] via-white to-[#0AC4E0] animate-gradient">TransSync</span>
+              About <span className="text-amber-400">TransSync</span>
             </h1>
-            
+
             {/* Subtitle */}
-            <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed font-light px-4">
+            <p className="text-lg sm:text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-6 md:mb-8 leading-relaxed font-light px-4">
               Advanced monitoring platform for Bus Transfer System 2000 by Aartech Solonics Limited
             </p>
-            
+
             {/* Divider */}
             <div className="flex justify-center mb-8 md:mb-12">
-              <div className="w-20 sm:w-24 md:w-32 h-1 bg-gradient-to-r from-[#0AC4E0] via-white to-[#0AC4E0] rounded-full animate-gradient-x"></div>
+              <div className="w-20 sm:w-24 md:w-32 h-1 bg-amber-500"></div>
             </div>
-            
+
             {/* Stats - Responsive grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-5xl mx-auto px-4">
               {stats.map((stat, index) => (
-                <div 
-                  key={index} 
-                  className="text-center p-3 sm:p-4 md:p-5 bg-white/10 backdrop-blur-lg rounded-xl md:rounded-2xl border border-white/20 shadow-xl hover:bg-white/15 transition-all duration-300 hover:scale-105"
+                <div
+                  key={index}
+                  className="text-center p-3 sm:p-4 md:p-5 bg-slate-950 rounded-md border border-slate-800 hover:border-amber-500/40 transition-colors duration-200"
                 >
-                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-1 bg-gradient-to-b from-white to-[#0AC4E0]/30 bg-clip-text text-transparent">
+                  <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-xs sm:text-sm font-bold text-[#0AC4E0] uppercase tracking-wider">{stat.label}</div>
-                  <div className="text-xs text-white/80 mt-1 font-medium hidden sm:block">{stat.description}</div>
+                  <div className="text-xs sm:text-sm font-bold text-amber-400 uppercase tracking-wider">{stat.label}</div>
+                  <div className="text-xs text-slate-400 mt-1 font-medium hidden sm:block">{stat.description}</div>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Bottom wave effect */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg className="w-full h-auto" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 50L60 55.6C120 61.2 240 72.4 360 72.2C480 72 600 61.2 720 50C840 38.8 960 27.6 1080 22.2C1200 16.8 1320 16.8 1380 16.8L1440 16.8V100H1380C1320 100 1200 100 1080 100C960 100 840 100 720 100C600 100 480 100 360 100C240 100 120 100 60 100H0V50Z" 
-              className="fill-white" fill="white"/>
-          </svg>
         </div>
       </section>
 
       {/* Mission Statement */}
       <section className="py-16 md:py-20 lg:py-28 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl md:rounded-3xl lg:rounded-4xl shadow-2xl border border-gray-100 overflow-hidden hover:shadow-3xl transition-shadow duration-500">
+          <div className="bg-slate-900 rounded-lg border border-slate-800 overflow-hidden">
             <div className="p-6 md:p-8 lg:p-12 xl:p-16">
               <div className="flex flex-col lg:flex-row items-center lg:items-start gap-6 md:gap-8 lg:gap-12">
                 {/* Icon */}
                 <div className="flex-shrink-0">
-                  <div className="relative group">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-2xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <div className="relative bg-gradient-to-br from-[#0AC4E0] to-[#0A8B9F] w-20 h-20 md:w-24 md:h-24 rounded-2xl flex items-center justify-center shadow-2xl transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                      <svg className="w-10 h-10 md:w-12 md:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
+                  <div className="bg-amber-500 w-20 h-20 md:w-24 md:h-24 rounded-md flex items-center justify-center">
+                    <svg className="w-10 h-10 md:w-12 md:h-12 text-slate-950" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                   </div>
                 </div>
-                
+
                 {/* Content */}
                 <div className="flex-1 text-center lg:text-left">
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-gray-900 mb-4 md:mb-6 tracking-tight">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 md:mb-6 tracking-tight">
                     Industrial Monitoring Platform
                   </h2>
                   <div className="space-y-4 md:space-y-5">
-                    <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
-                      TransSync represents a paradigm shift in industrial monitoring. Developed specifically for 
-                      Aartech Solonics' Bus Transfer System 2000, it provides critical operational insights through 
+                    <p className="text-slate-400 text-base md:text-lg lg:text-xl leading-relaxed font-light">
+                      TransSync represents a paradigm shift in industrial monitoring. Developed specifically for
+                      Aartech Solonics' Bus Transfer System 2000, it provides critical operational insights through
                       an intuitive, modern interface.
                     </p>
                     {/* <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
-                      Our platform replaces complex legacy systems with a streamlined solution that ensures 
+                      Our platform replaces complex legacy systems with a streamlined solution that ensures
                       uninterrupted power continuity in mission-critical industrial facilities.
                     </p> */}
                   </div>
-                  
+
                   {/* Decorative line */}
-                  <div className="mt-6 md:mt-8 h-1 w-24 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-full mx-auto lg:mx-0"></div>
+                  <div className="mt-6 md:mt-8 h-1 w-24 bg-amber-500 mx-auto lg:mx-0"></div>
                 </div>
               </div>
             </div>
@@ -1456,42 +1440,38 @@ export default function About() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-20 lg:py-28 bg-gradient-to-b from-white via-[#0AC4E0]/5 to-white">
+      <section className="py-16 md:py-20 lg:py-28 bg-slate-950 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-full text-white text-xs md:text-sm font-bold uppercase tracking-wider mb-4 md:mb-6">
+            <div className="text-amber-500 font-bold text-xs uppercase tracking-widest mb-4 md:mb-6">
               Core Capabilities
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-3 md:mb-4 tracking-tight px-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 md:mb-4 tracking-tight px-4">
               Advanced Features
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light px-4">
+            <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-light px-4">
               Designed for reliability, efficiency, and operational excellence in demanding industrial environments
             </p>
-            <div className="mt-4 w-24 h-1 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-full mx-auto"></div>
+            <div className="mt-4 w-24 h-1 bg-amber-500 mx-auto"></div>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-4">
             {features.map((feature, index) => (
-              <div 
+              <div
                 key={index}
-                className="group bg-white rounded-2xl md:rounded-3xl border border-gray-200 p-6 md:p-8 hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#0AC4E0]/30 relative overflow-hidden"
+                className="group bg-slate-900 rounded-lg border border-slate-800 p-6 md:p-8 hover:border-amber-500/40 transition-colors duration-200"
               >
-                {/* Background gradient effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0AC4E0]/5 to-[#0A8B9F]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
-                {/* Content */}
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 group-hover:text-[#0AC4E0] transition-colors duration-300 relative">
+                <h3 className="text-lg md:text-xl font-bold text-white mb-3 group-hover:text-amber-400 transition-colors duration-200">
                   {feature.title}
                 </h3>
-                <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6 leading-relaxed relative">
+                <p className="text-sm md:text-base text-slate-400 mb-4 md:mb-6 leading-relaxed">
                   {feature.description}
                 </p>
-                
+
                 {/* Stats Badge */}
-                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-gradient-to-r from-[#0AC4E0]/10 to-[#0A8B9F]/10 border border-[#0AC4E0]/20 relative group-hover:from-[#0AC4E0]/20 group-hover:to-[#0A8B9F]/20 transition-all duration-300">
-                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-full mr-2 animate-pulse"></div>
-                  <span className="text-xs md:text-sm font-bold bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] bg-clip-text text-transparent">
+                <div className="inline-flex items-center px-3 md:px-4 py-1.5 md:py-2 rounded-md bg-amber-500/10 border border-amber-500/30">
+                  <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-amber-500 rounded-full mr-2"></div>
+                  <span className="text-xs md:text-sm font-bold text-amber-400">
                     {feature.stats}
                   </span>
                 </div>
@@ -1502,28 +1482,24 @@ export default function About() {
       </section>
 
       {/* Technology Stack */}
-      <section className="py-16 md:py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#0A8B9F] to-[#0AC4E0]">
-        {/* Animated background */}
+      <section className="py-16 md:py-20 lg:py-28 relative overflow-hidden bg-slate-900 border-t border-slate-800">
+        {/* Background pattern */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230AC4E0' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f59e0b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             backgroundSize: "60px 60px",
           }}></div>
-          
-          {/* Floating orbs */}
-          <div className="absolute top-20 left-10 w-64 md:w-96 h-64 md:h-96 bg-[#0AC4E0]/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-64 md:w-80 h-64 md:h-80 bg-[#0A8B9F]/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full text-[#0AC4E0] text-xs md:text-sm font-bold uppercase tracking-wider border border-white/20 mb-4 md:mb-6">
+            <div className="text-amber-500 font-bold text-xs uppercase tracking-widest mb-4 md:mb-6">
               Technology Stack
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 md:mb-4 tracking-tight px-4">
               Built With Excellence
             </h2>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto font-light px-4">
+            <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-light px-4">
               Built with modern technologies for maximum performance and reliability
             </p>
           </div>
@@ -1531,41 +1507,38 @@ export default function About() {
       </section>
 
       {/* Advantages Section */}
-      <section className="py-16 md:py-20 lg:py-28 relative">
+      <section className="py-16 md:py-20 lg:py-28 relative bg-slate-950 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 md:mb-16">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-full text-white text-xs md:text-sm font-bold uppercase tracking-wider mb-4 md:mb-6">
+            <div className="text-amber-500 font-bold text-xs uppercase tracking-widest mb-4 md:mb-6">
               Enterprise Advantages
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-3 md:mb-4 tracking-tight px-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-3 md:mb-4 tracking-tight px-4">
               Why Choose TransSync
             </h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light px-4">
+            <p className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto font-light px-4">
               Why industry leaders choose TransSync for their critical operations
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 px-4">
             {advantages.map((advantage, index) => (
-              <div 
+              <div
                 key={index}
-                className="relative group"
+                className="group"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0AC4E0] to-[#0A8B9F] rounded-3xl blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
-                <div className="relative bg-white rounded-2xl md:rounded-3xl border border-gray-200 p-6 md:p-8 lg:p-10 h-full shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden">
-                  <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-gradient-to-br from-[#0AC4E0]/5 to-[#0A8B9F]/5 rounded-bl-full"></div>
-                  
+                <div className="bg-slate-900 rounded-lg border border-slate-800 p-6 md:p-8 lg:p-10 h-full hover:border-amber-500/40 transition-colors duration-200">
                   <div className="flex flex-col sm:flex-row md:flex-col items-start sm:items-center md:items-start gap-4 mb-4 md:mb-6">
-                    <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-[#0AC4E0] to-[#0A8B9F] rounded-xl md:rounded-2xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-500 flex-shrink-0">
-                      <div className="w-5 h-5 md:w-7 md:h-7 bg-white rounded-lg transform rotate-45 group-hover:rotate-90 transition-transform duration-500"></div>
+                    <div className="w-12 h-12 md:w-14 md:h-14 bg-amber-500 rounded-md flex items-center justify-center flex-shrink-0">
+                      <div className="w-5 h-5 md:w-7 md:h-7 bg-slate-950 rounded-md transform rotate-45"></div>
                     </div>
-                    <h3 className="text-lg md:text-xl font-black text-gray-900 tracking-tight">{advantage.title}</h3>
+                    <h3 className="text-lg md:text-xl font-black text-white tracking-tight">{advantage.title}</h3>
                   </div>
-                  
-                  <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-6 md:mb-8 font-light">
+
+                  <p className="text-sm md:text-base text-slate-400 leading-relaxed mb-6 md:mb-8 font-light">
                     {advantage.description}
                   </p>
-                  
+
                   {/* <div className="mt-auto pt-4 md:pt-6 border-t border-gray-100">
                     <div className="flex items-center text-[#0AC4E0] font-bold group/link">
                       <span className="text-sm md:text-base group-hover/link:translate-x-1 transition-transform duration-300">Learn more</span>
@@ -1582,41 +1555,32 @@ export default function About() {
       </section>
 
       {/* Partnership Section */}
-      <section className="py-16 md:py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-[#0AC4E0]/5 via-white to-[#0A8B9F]/5">
-        {/* Decorative elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-br from-[#0AC4E0]/10 to-[#0A8B9F]/10 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 left-0 w-64 md:w-96 h-64 md:h-96 bg-gradient-to-br from-[#0A8B9F]/10 to-[#0AC4E0]/10 rounded-full blur-3xl"></div>
-        </div>
-        
+      <section className="py-16 md:py-20 lg:py-28 relative overflow-hidden bg-slate-900 border-t border-slate-800">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
             <div className="flex-1 text-center lg:text-left px-4">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-4 md:mb-6 tracking-tight">
-                Powered by <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F]">Aartech Solonics</span>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white mb-4 md:mb-6 tracking-tight">
+                Powered by <span className="text-amber-400">Aartech Solonics</span>
               </h2>
-              <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-6 md:mb-8 font-light">
-                As a subsidiary of Aartech Solonics Limited, TransSync benefits from decades of industrial 
-                automation expertise. Our partnership ensures that every feature is designed with real-world 
+              <p className="text-slate-400 text-lg md:text-xl leading-relaxed mb-6 md:mb-8 font-light">
+                As a subsidiary of Aartech Solonics Limited, TransSync benefits from decades of industrial
+                automation expertise. Our partnership ensures that every feature is designed with real-world
                 operational needs in mind.
               </p>
             </div>
-            
+
             <div className="flex-shrink-0 px-4">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] rounded-2xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-                <div className="relative bg-white p-6 md:p-8 lg:p-10 rounded-2xl shadow-2xl border border-gray-200 transform group-hover:scale-105 transition-transform duration-500">
-                  <div className="text-center">
-                    <div className="text-3xl md:text-4xl lg:text-5xl font-black bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] bg-clip-text text-transparent mb-2 md:mb-3 tracking-tight">
-                      BTS-2000
-                    </div>
-                    <div className="text-xs md:text-sm text-gray-700 uppercase tracking-wider font-bold border-b border-gray-200 pb-2 md:pb-3 mb-2 md:mb-3">
-                      Bus Transfer System
-                    </div>
-                    <div className="w-12 md:w-16 h-1 bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] mx-auto my-3 md:my-4 rounded-full"></div>
-                    <div className="text-base md:text-lg font-bold text-gray-800">
-                      Integrated Monitoring Platform
-                    </div>
+              <div className="bg-slate-950 p-6 md:p-8 lg:p-10 rounded-lg border border-slate-800">
+                <div className="text-center">
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-black text-amber-400 mb-2 md:mb-3 tracking-tight">
+                    BTS-2000
+                  </div>
+                  <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider font-bold border-b border-slate-800 pb-2 md:pb-3 mb-2 md:mb-3">
+                    Bus Transfer System
+                  </div>
+                  <div className="w-12 md:w-16 h-1 bg-amber-500 mx-auto my-3 md:my-4"></div>
+                  <div className="text-base md:text-lg font-bold text-white">
+                    Integrated Monitoring Platform
                   </div>
                 </div>
               </div>
@@ -1626,81 +1590,59 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-20 lg:py-28 relative overflow-hidden bg-gradient-to-br from-gray-900 via-[#0A8B9F] to-[#0AC4E0]">
-        {/* Animated background */}
+      <section className="py-16 md:py-20 lg:py-28 relative overflow-hidden bg-slate-950 border-t border-slate-800">
+        {/* Background pattern */}
         <div className="absolute inset-0">
-          <div className="absolute inset-0 opacity-20" style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #0AC4E0 1px, transparent 1px)`,
+          <div className="absolute inset-0 opacity-10" style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, #f59e0b 1px, transparent 1px)`,
             backgroundSize: "40px 40px",
           }}></div>
-          
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-gradient-to-r from-[#0AC4E0]/20 to-[#0A8B9F]/20 rounded-full blur-3xl animate-pulse"></div>
         </div>
-        
+
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-lg rounded-full text-[#0AC4E0] text-xs md:text-sm font-bold uppercase tracking-wider border border-white/20 mb-6 md:mb-8">
+          <div className="text-amber-500 font-bold text-xs uppercase tracking-widest mb-6 md:mb-8">
             Get Started Today
           </div>
-          
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 md:mb-6 leading-tight tracking-tight px-4">
             Ready to Transform Your Monitoring?
           </h2>
-          
-          <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-4">
+
+          <p className="text-lg md:text-xl lg:text-2xl text-slate-400 mb-8 md:mb-12 max-w-2xl mx-auto font-light leading-relaxed px-4">
             Schedule a personalized demonstration to see TransSync in action with your BTS-2000 system
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center px-4">
-            <button 
+            <button
               onClick={handleRequestDemo}
-              className="group relative overflow-hidden bg-gradient-to-r from-[#0AC4E0] to-[#0A8B9F] hover:from-[#0A8B9F] hover:to-[#0AC4E0] text-white font-bold py-4 md:py-5 px-6 md:px-8 lg:px-10 rounded-xl transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 shadow-2xl hover:shadow-3xl text-sm md:text-base"
+              className="bg-amber-500 text-slate-950 font-bold uppercase tracking-wide py-4 md:py-5 px-6 md:px-8 lg:px-10 rounded-md hover:bg-amber-400 transition-colors duration-200 text-sm md:text-base"
             >
-              <span className="relative z-10 flex items-center justify-center">
+              <span className="flex items-center justify-center">
                 Request a Live Demo
-                <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
               </span>
             </button>
-            
-            <button className="group relative overflow-hidden bg-white/10 backdrop-blur-lg border border-white/30 text-white font-bold py-4 md:py-5 px-6 md:px-8 lg:px-10 rounded-xl hover:bg-white/20 transition-all duration-500 hover:-translate-y-1 hover:scale-105 text-sm md:text-base">
+
+            <button className="bg-transparent border border-slate-700 text-white font-bold uppercase tracking-wide py-4 md:py-5 px-6 md:px-8 lg:px-10 rounded-md hover:border-amber-500 hover:text-amber-400 transition-colors duration-200 text-sm md:text-base">
               <span className="flex items-center justify-center">
                 Download Brochure
-                <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3 group-hover:translate-y-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 md:w-5 md:h-5 ml-2 md:ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </span>
             </button>
           </div>
-          
-          <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/20 px-4">
-            <p className="text-white/80 text-sm md:text-base lg:text-lg font-medium flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+
+          <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-slate-800 px-4">
+            <p className="text-slate-400 text-sm md:text-base lg:text-lg font-medium flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
               <span>Contact our industrial solutions team • 24/7 Technical Support</span>
             </p>
           </div>
         </div>
       </section>
-
-   
-
-      {/* Global Styles for custom animations */}
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 3s ease infinite;
-        }
-        
-        .animate-gradient {
-          background-size: 200% 200%;
-          animation: gradient-x 5s ease infinite;
-        }
-      `}</style>
     </div>
   );
 }
